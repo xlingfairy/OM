@@ -10,7 +10,11 @@ namespace OM.Api.Models
     [XmlRoot("Response")]
     public class BaseResponse
     {
-        public bool HasError { get; internal set; }
-        public string ErrorMsg { get; internal set; }
+
+        [XmlIgnore]
+        public bool HasError { get; set; }
+
+        [XmlIgnore]
+        public string ErrorMsg { get; set; }
     }
 }

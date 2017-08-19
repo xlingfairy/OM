@@ -25,6 +25,7 @@ namespace OM.Api
         {
             //禁止生成 BOM 字节序
             Encoding = new UTF8Encoding(false),
+            Indent = true
         };
 
         /// <summary>
@@ -35,10 +36,8 @@ namespace OM.Api
         /// <summary>
         /// 
         /// </summary>
-        public abstract string Attribute { get; }
-
-
-
+        /// <param name="opt"></param>
+        /// <returns></returns>
         internal abstract object GetRequestData(ApiClientOption opt);
 
         #region
@@ -80,11 +79,6 @@ namespace OM.Api
             protected set;
         }
         #endregion
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly XNamespace NS = XNamespace.Get("http://www.opentravel.org/OTA/2003/05");
 
 
         #region
@@ -204,11 +198,10 @@ namespace OM.Api
             this.Timestamp = timestamp;
 
             var xml = this.BuildXmlRequestDataAsString(client.Option);
+            xml = xml.Replace("<Request>", "").Replace("</Request>", "");
 
             var req = new RequestHelper();
-            req.RequestHeader.Add("Accept-Encoding", "gzip, deflate");
-            req.RequestHeader.Add("SOAPAction", "http://ctrip.com/Request");
-            req.RequestHeader.Add("Content-Length", xml.Length.ToString());
+            //req.RequestHeader.Add("Accept-Encoding", "gzip, deflate");
 
             if (client.Option.UseProxy)
                 req.Proxy = new WebProxy(client.Option.ProxyAddress);
@@ -223,9 +216,9 @@ namespace OM.Api
             {
                 result = await req.PostAsync(url, origDatas: bytes, contentType: "text/xml; charset=utf-8");
             }
-            catch
+            catch(Exception e)
             {
-                throw;
+                throw e;
             }
             finally
             {
@@ -285,9 +278,9 @@ namespace OM.Api
 
         private string SIG(ApiClientOption opt, out string nonce, out double timestamp)
         {
-            nonce = Guid.NewGuid().ToString().ToMD5();
-            timestamp = DateTime.Now.ToUnixTimestamp() / 1000;
-            var a = $"{opt.Pwd}{nonce}{timestamp}".ToMD5(true);
+            nonce = Guid.NewGuid().ToString().To16bitMD5();
+            timestamp = (UInt64)DateTime.Now.ToUnixTimestamp() * 1000;
+            var a = $"{opt.Pwd}{nonce}{timestamp}".ToMD5();
             return a;
         }
     }

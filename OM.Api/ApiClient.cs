@@ -58,7 +58,7 @@ namespace OM.Api
         /// <returns></returns>
         public string GetModelUrl<T>(BaseMethod<T> mth) where T : BaseResponse
         {
-            return $"{this.Option.BaseUri}/Hotel/{mth.Attribute}.asmx";
+            return $"{this.Option.BaseUri}";
         }
 
         /// <summary>
