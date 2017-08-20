@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Status>
+  <menu id="1">
+    <voicefile>welcome</voicefile>
+    <repeat>3</repeat>
+    <infolength>5</infolength>
+    <exit>#</exit>
+    <outer id="44" from="200" to="02167103750" trunk="02161208234"/>
+    <visitor id="46" from="13012345678" to="02161204000"/>
+  </menu>
+  <!--解释：
+  来电13012345678和去电02167103750被转接到语音菜单1内，
+  该菜单向它们播放名称为welcome的语音文件。
+  另外，如果通话方的拨号按键长度达到5，或者输入了#号时，
+  则OM会将该按键信息封装在DTMF事件报告中推送给应用服务器。-->
+</Status>

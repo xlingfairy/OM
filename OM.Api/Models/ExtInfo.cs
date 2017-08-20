@@ -119,6 +119,14 @@ namespace OM.Api.Models
         /// 线路状态
         /// </summary>
         [XmlElement("state")]
-        public LineStats State { get; set; }
+        public ExtStats State { get; set; }
+
+
+        /// <summary>
+        /// 通话信息
+        /// </summary>
+        [XmlElement("outer", typeof(OutCallInfo))]
+        [XmlElement("visitor", typeof(VisitorCallInfo))]
+        public CallInfo CallInfo { get; set; }
     }
 }

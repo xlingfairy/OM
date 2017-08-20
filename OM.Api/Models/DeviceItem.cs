@@ -13,13 +13,6 @@ namespace OM.Api.Models
     /// </summary>
     public abstract class DeviceItem
     {
-
-        /// <summary>
-        /// 中继的线路编号/分机的线路编号
-        /// </summary>
-        [XmlAttribute("lineid")]
-        public string LineID { get; set; }
-
         /// <summary>
         /// 中继号/分机号
         /// </summary>
@@ -32,6 +25,11 @@ namespace OM.Api.Models
     /// </summary>
     public class ExtDeviceItem : DeviceItem
     {
+        /// <summary>
+        /// 分机的线路编号
+        /// </summary>
+        [XmlAttribute("lineid")]
+        public string LineID { get; set; }
     }
 
     /// <summary>
@@ -39,5 +37,23 @@ namespace OM.Api.Models
     /// </summary>
     public class LineDeviceItem : DeviceItem
     {
+        /// <summary>
+        /// 中继的线路编号
+        /// </summary>
+        [XmlAttribute("lineid")]
+        public string LineID { get; set; }
+    }
+
+    /// <summary>
+    /// 设备分组
+    /// </summary>
+    public class DeviceGroup : DeviceItem
+    {
+        /// <summary>
+        /// 设备列表
+        /// </summary>
+        [XmlElement("line", Type = typeof(LineDeviceItem))]
+        [XmlElement("ext", Type = typeof(ExtDeviceItem))]
+        public List<DeviceItem> Devices { get; set; }
     }
 }

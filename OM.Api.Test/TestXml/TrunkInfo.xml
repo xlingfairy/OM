@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Status>
+  <trunk id="2174">
+    <lineid>Line 75</lineid>
+    <state>active</state>
+    <visitor id="2" from="202" to="2174" callid="36866">
+      <state>talk</state>
+    </visitor>
+  </trunk>
+</Status>

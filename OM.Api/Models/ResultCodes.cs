@@ -11,37 +11,42 @@ namespace OM.Api.Models
         /// <summary>
         /// 成功
         /// </summary>
-        Success = 0,
+        成功 = 0,
 
         /// <summary>
         /// 
         /// </summary>
-        Fail,
+        失败,
 
         /// <summary>
         /// 
         /// </summary>
-        Error,
+        错误,
 
         /// <summary>
         /// 请求错误
         /// </summary>
-        RequestError,
+        请求错误,
 
         /// <summary>
         /// 数据解析错误
         /// </summary>
-        ParseError,
+        数据解析错误,
 
 
         /// <summary>
         /// 返回的结果中包含对方定义的错误
         /// </summary>
-        ResponseWithError,
+        返回的结果中包含对方定义的错误,
+
+        /// <summary>
+        /// 授权失败
+        /// </summary>
+        授权失败,
 
         /// <summary>
         /// 未知错误
         /// </summary>
-        Unknow
+        未知错误
     }
 }

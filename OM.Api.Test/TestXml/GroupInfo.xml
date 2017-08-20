@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Status>
+  <group id="1">
+    <ext id="200"/>
+    <ext id="208"/>
+    <voicefile>NowMorning</voicefile>
+    <distribution>sequential</distribution>
+    <visitor id="27" from="02167103750" to="02161208234" callid="49162"/>
+    <visitor id="28" from="13012345678" to="02161204000" callid="49164"/>
+  </group>
+
+  <!--解释： 
+  分机组1内有两个分机成员（分机200和分机208），
+  当来电转接到该分机组后，分机组按照distribution（呼叫分配规则）的类型将呼叫分配给分机。
+  当组内分机全忙，来电将会在分机组队列中等待，
+  等待音乐为voicefile指定的语音文件。-->
+
+</Status>

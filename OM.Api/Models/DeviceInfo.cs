@@ -45,6 +45,26 @@ namespace OM.Api.Models
         [XmlArray("devices")]
         [XmlArrayItem("line", Type = typeof(LineDeviceItem))]
         [XmlArrayItem("ext", Type = typeof(ExtDeviceItem))]
+        [XmlArrayItem("group", Type = typeof(DeviceGroup))]
         public List<DeviceItem> Devices { get; set; }
+
+
+        /// <summary>
+        /// 中继（外线）列表
+        /// </summary>
+        [XmlIgnore]
+        public IEnumerable<LineDeviceItem> Lines => this.Devices?.OfType<LineDeviceItem>();
+
+        /// <summary>
+        /// 分机列表
+        /// </summary>
+        [XmlIgnore]
+        public IEnumerable<ExtDeviceItem> Exts => this.Devices?.OfType<ExtDeviceItem>();
+
+        /// <summary>
+        /// 设备分组列表
+        /// </summary>
+        [XmlIgnore]
+        public IEnumerable<DeviceGroup> Gropus => this.Devices?.OfType<DeviceGroup>();
     }
 }

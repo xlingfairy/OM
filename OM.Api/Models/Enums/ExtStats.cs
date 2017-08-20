@@ -9,9 +9,9 @@ namespace OM.Api.Models.Enums
 {
 
     /// <summary>
-    /// 线路状态
+    /// 分机状态
     /// </summary>
-    public enum LineStats
+    public enum ExtStats
     {
         /// <summary>
         /// 空闲可用

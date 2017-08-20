@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Status>
+  <visitor id="1" from="02167103750" to="02161208234" callid="49189">
+    <ext id="200" />
+    <state>progress</state>
+  </visitor>
+  <!--解释： 来电1是由外部电话02167103750通过中继线02161208234呼入到OM设备，并且当前正在和分机200通话中。-->
+</Status>

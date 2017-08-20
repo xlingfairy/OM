@@ -66,7 +66,7 @@ namespace OM.Api
         {
             get
             {
-                return this.ResultCode != ResultCodes.Success;
+                return this.ResultCode != ResultCodes.成功;
             }
         }
 
@@ -144,7 +144,7 @@ namespace OM.Api
         internal async Task<T> Execute(ApiClient client)
         {
             //重置
-            this.ResultCode = ResultCodes.Success;
+            this.ResultCode = ResultCodes.成功;
             this.ErrorMessage = null;
 
             string result = null;
@@ -152,9 +152,14 @@ namespace OM.Api
             {
                 result = await this.GetResult(client);
             }
+            catch (Exception ex) when (ex is WebException wex && ((HttpWebResponse)wex.Response).StatusCode == HttpStatusCode.Unauthorized)
+            {
+                this.ResultCode = ResultCodes.授权失败;
+                this.ErrorMessage = ex.GetBaseException().Message;
+            }
             catch (Exception ex)
             {
-                this.ResultCode = ResultCodes.RequestError;
+                this.ResultCode = ResultCodes.请求错误;
                 this.ErrorMessage = ex.GetBaseException().Message;
             }
 
@@ -167,7 +172,7 @@ namespace OM.Api
                     //API返回的结果包含对方定义的错误
                     if (rst.HasError)
                     {
-                        this.ResultCode = ResultCodes.ResponseWithError;
+                        this.ResultCode = ResultCodes.返回的结果中包含对方定义的错误;
                         this.ErrorMessage = rst.ErrorMsg;
                     }
 
@@ -177,7 +182,7 @@ namespace OM.Api
                 {
                     if (!this.HasError)
                     {
-                        this.ResultCode = ResultCodes.ParseError;
+                        this.ResultCode = ResultCodes.数据解析错误;
                     }
                     this.ErrorMessage = string.Format("{0}; {1}", this.ErrorMessage, ex.GetBaseException().Message);
                 }
@@ -215,10 +220,6 @@ namespace OM.Api
             try
             {
                 result = await req.PostAsync(url, origDatas: bytes, contentType: "text/xml; charset=utf-8");
-            }
-            catch(Exception e)
-            {
-                throw e;
             }
             finally
             {

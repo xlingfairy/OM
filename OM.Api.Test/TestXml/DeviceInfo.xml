@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DeviceInfo>
+  <manufacturer>New Rock Technologies, Inc</manufacturer>
+  <model>Rev 6.0.0 OM20-2S/2</model>
+  <version>Rev 2.1.5.111</version>
+  <mac>00:0E:A9:00:12:BD </mac>
+  <devices>
+    <ext lineid="Phone 1" id="200" />
+    <ext lineid="IPPhone 50" id="208" />
+    <line lineid="Line 2" id="02161208234" />
+    <line lineid="IPLine 21" id="02161204000" />
+    <group id="1">
+      <ext id="200" />
+      <ext id="208" />
+    </group>
+    <group id="2">
+      <line id="02161208234" />
+      <line id="02161204000" />
+    </group>
+  </devices>
+</DeviceInfo>

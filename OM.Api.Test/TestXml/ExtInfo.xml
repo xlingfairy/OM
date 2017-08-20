@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Status>
+  <ext id="208">
+    <lineid>Phone 1</lineid>
+    <group id="1"/>
+    <group id="2"/>
+    <staffid>1304081</staffid>
+    <Call_Pickup>yes</Call_Pickup>
+    <Fwd_Number>18603752801</Fwd_Number>
+    <Call_Restriction>3</Call_Restriction>
+    <Off_Line_Num>200</Off_Line_Num>
+    <mobile>18603752800</mobile>
+    <fork>18603752802</fork>
+    <email>admin@hotmail.com</email>
+    <record>on</record>
+    <api>7</api>
+    <voicefile>welcome</voicefile>
+    <state>active</state>
+    <outer id="8" from="208" to="13012345678" trunk="02161208234" callid="28680">
+      <state>talk</state>
+    </outer>
+  </ext>
+</Status>
