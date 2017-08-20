@@ -6,19 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
-
     /// <summary>
-    /// 查询指定去电的相关信息，如：去电的编号、主叫方、被叫方、通过的中继号码、通话状态以及通话的相对唯一标识符。
+    /// 查询指定来电的相关信息，如：来电的属性参数(编号、原始主叫、原始被叫、通话状态、相对唯一标识符)、来电的通话方、呼叫状态
     /// </summary>
-    public class GetOutCallInfo : BaseMethod<OutCallInfo>
+    public class GetVisitorCallInfo : BaseMethod<VisitorCallInfo>
     {
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
-
         /// <summary>
-        /// 去电的编号,值为空时列举所有去电
+        /// 来电的编号,值为空时列举所有来电
         /// </summary>
         public int? ID { get; set; }
 
@@ -27,17 +25,17 @@ namespace OM.Api.Methods.Controls
             return new
             {
                 attribute = "Query".AsAttribute(),
-                outer = new
+                visitor = new
                 {
                     id = this.ID.AsAttribute()
                 }
             };
         }
 
-        protected override Task<OutCallInfo> ParseResult(string result)
+
+        protected override string Fix(string result)
         {
-            result = result.Replace("<Status>", "").Replace("</Status>", "");
-            return base.ParseResult(result);
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }

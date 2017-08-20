@@ -10,7 +10,7 @@ namespace OM.Api.Models
 {
 
     [XmlRoot("ext")]
-    public class ExtInfo : BaseResponse
+    public class ExtInfo
     {
 
         /// <summary>

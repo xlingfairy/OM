@@ -12,7 +12,7 @@ namespace OM.Api.Models
     /// 分机组的相关信息，如：配置参数（分机成员、呼叫排队时播放的背景音乐、呼叫分配规则）、正在该分机组队列中等待的来电。
     /// </summary>
     [XmlRoot("group")]
-    public class GroupInfo : BaseResponse
+    public class GroupInfo
     {
 
         /// <summary>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OM.Api.Models;
 using AsNum.FluentXml;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
 
     /// <summary>

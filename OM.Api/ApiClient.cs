@@ -56,7 +56,7 @@ namespace OM.Api
         /// <typeparam name="T"></typeparam>
         /// <param name="mth"></param>
         /// <returns></returns>
-        public string GetModelUrl<T>(BaseMethod<T> mth) where T : BaseResponse
+        public string GetModelUrl<T>(BaseMethod<T> mth)
         {
             return $"{this.Option.BaseUri}";
         }
@@ -67,12 +67,12 @@ namespace OM.Api
         /// <typeparam name="T"></typeparam>
         /// <param name="mth"></param>
         /// <returns></returns>
-        public static async Task<T> ExecuteAsync<T>(BaseMethod<T> mth) where T : BaseResponse
+        public static async Task<T> ExecuteAsync<T>(BaseMethod<T> mth)
         {
             return await mth.Execute(Instance.Value);
         }
 
-        public static T Execute<T>(BaseMethod<T> mth) where T: BaseResponse
+        public static T Execute<T>(BaseMethod<T> mth)
         {
             return mth.Execute(Instance.Value).Result;
         }

@@ -137,7 +137,7 @@ namespace OM.Api
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseMethod<T> : BaseMethod where T : BaseResponse
+    public abstract class BaseMethod<T> : BaseMethod
     {
 
 
@@ -165,26 +165,34 @@ namespace OM.Api
 
             if (!string.IsNullOrWhiteSpace(result))
             {
+                result = this.Fix(result);
+                var msg = this.GetErrorMsg(result);
+
                 try
                 {
                     var rst = await this.ParseResult(result);
-
-                    //API返回的结果包含对方定义的错误
-                    if (rst.HasError)
-                    {
-                        this.ResultCode = ResultCodes.返回的结果中包含对方定义的错误;
-                        this.ErrorMessage = rst.ErrorMsg;
-                    }
-
                     return rst;
                 }
                 catch (Exception ex)
                 {
-                    if (!this.HasError)
+                    /*
+                     * 这种不规范的xml,不应算作失败
+                     * <?xml version="1.0" encoding="utf-8" ?>
+                     * <!-- Error, can't find extension:6604000 -->
+                     */
+                    if (!string.IsNullOrEmpty(msg))
                     {
-                        this.ResultCode = ResultCodes.数据解析错误;
+                        this.ErrorMessage = msg;
+                        this.ResultCode = ResultCodes.预定义的错误;
                     }
-                    this.ErrorMessage = string.Format("{0}; {1}", this.ErrorMessage, ex.GetBaseException().Message);
+                    else
+                    {
+                        if (!this.HasError)
+                        {
+                            this.ResultCode = ResultCodes.数据解析错误;
+                        }
+                        this.ErrorMessage = string.Format("{0}; {1}", this.ErrorMessage, ex.GetBaseException().Message);
+                    }
                 }
             }
 
@@ -245,16 +253,33 @@ namespace OM.Api
         /// <returns></returns>
         public Task<T> TestXml(string xml)
         {
+            xml = this.Fix(xml);
             return this.ParseResult(xml);
         }
 
+        private static readonly Regex ErrorOrEmptyMsgReg = new Regex(@"^<?[\s\S]*?>\s*<!--(?<msg>[\s\S]*?)-->");
+
+        /// <summary>
+        /// 提取返回消息中的错误描述
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        private string GetErrorMsg(string result)
+        {
+            var ma = ErrorOrEmptyMsgReg.Match(result);
+            if (ma.Success)
+            {
+                return ma.Groups["msg"].Value;
+            }
+            return null;
+        }
 
         /// <summary>
         /// 对不规整的数据进行修整，使得反序列化可以顺利进行
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        private string Fix(string result)
+        protected virtual string Fix(string result)
         {
             return result;
         }
@@ -266,8 +291,6 @@ namespace OM.Api
         /// <returns></returns>
         protected virtual Task<T> ParseResult(string result)
         {
-            result = this.Fix(result);
-
             var bytes = Encoding.UTF8.GetBytes(result);
             var ser = new XmlSerializer(typeof(T), "");
             using (var msm = new MemoryStream(bytes))

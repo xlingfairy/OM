@@ -6,36 +6,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
+
     /// <summary>
-    /// 
+    /// 查询指定中继（又称为外线）的相关信息
     /// </summary>
-    public class GetMenuInfo : BaseMethod<MenuInfo>
+    public class GetTrunkInfo : BaseMethod<TrunkInfo>
     {
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
         /// <summary>
-        /// 语音菜单的编号	1~50，值为空表示列举所有语音菜单
+        /// 中继/外线ID
         /// </summary>
-        public int? ID { get; set; }
+        public string ID { get; set; }
+
 
         internal override object GetRequestData(ApiClientOption opt)
         {
             return new
             {
                 attribute = "Query".AsAttribute(),
-                menu = new
+                trunk = new
                 {
                     id = this.ID.AsAttribute()
                 }
             };
         }
 
-        protected override Task<MenuInfo> ParseResult(string result)
+
+        protected override string Fix(string result)
         {
-            result = result.Replace("<Status>", "").Replace("</Status>", "");
-            return base.ParseResult(result);
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }

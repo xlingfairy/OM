@@ -11,7 +11,7 @@ namespace OM.Api.Models
     /// 语音菜单的相关信息，如：配置参数（语音文件、拨号检测长度、按键检查结束符）、转接到该菜单的呼叫信息等。
     /// </summary>
     [XmlRoot("menu")]
-    public class MenuInfo : BaseResponse
+    public class MenuInfo
     {
 
         /// <summary>

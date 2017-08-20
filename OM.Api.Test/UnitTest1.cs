@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OM.Api.Methods.Controls;
+using OM.Api.Methods.Controls.Query;
 using System.IO;
 
 namespace OM.Api.Test
@@ -51,7 +51,7 @@ namespace OM.Api.Test
             var xml = this.GetTestXml("ExtInfo");
             var mth = new GetExtInfo()
             {
-                ID = "6604000"
+                ID = "6604"
             };
 
             var b = mth.TestXml(xml).Result;
@@ -67,7 +67,7 @@ namespace OM.Api.Test
 
             var mth = new GetTrunkInfo()
             {
-                ID = "2000000"
+                ID = "200"
             };
 
             var b = mth.TestXml(xml).Result;

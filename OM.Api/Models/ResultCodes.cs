@@ -37,7 +37,7 @@ namespace OM.Api.Models
         /// <summary>
         /// 返回的结果中包含对方定义的错误
         /// </summary>
-        返回的结果中包含对方定义的错误,
+        预定义的错误,
 
         /// <summary>
         /// 授权失败

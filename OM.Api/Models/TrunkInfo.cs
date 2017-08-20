@@ -13,7 +13,7 @@ namespace OM.Api.Models
     /// 继（又称为外线）的相关信息
     /// </summary>
     [XmlRoot("trunk")]
-    public class TrunkInfo : BaseResponse
+    public class TrunkInfo
     {
 
         /// <summary>

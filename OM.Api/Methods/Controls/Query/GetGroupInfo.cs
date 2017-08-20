@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
+
     /// <summary>
-    /// 查询指定来电的相关信息，如：来电的属性参数(编号、原始主叫、原始被叫、通话状态、相对唯一标识符)、来电的通话方、呼叫状态
+    /// 查询分机组的相关信息，如：配置参数（分机成员、呼叫排队时播放的背景音乐、呼叫分配规则）、正在该分机组队列中等待的来电。
     /// </summary>
-    public class GetVisitorCallInfo : BaseMethod<VisitorCallInfo>
+    public class GetGroupInfo : BaseMethod<GroupInfo>
     {
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
         /// <summary>
-        /// 来电的编号,值为空时列举所有来电
+        /// 分机组的编号	1~50，值为空时列举所有分机组
         /// </summary>
         public int? ID { get; set; }
 
@@ -25,17 +26,16 @@ namespace OM.Api.Methods.Controls
             return new
             {
                 attribute = "Query".AsAttribute(),
-                visitor = new
+                group = new
                 {
                     id = this.ID.AsAttribute()
                 }
             };
         }
 
-        protected override Task<VisitorCallInfo> ParseResult(string result)
+        protected override string Fix(string result)
         {
-            result = result.Replace("<Status>", "").Replace("</Status>", "");
-            return base.ParseResult(result);
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }

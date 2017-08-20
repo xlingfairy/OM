@@ -6,39 +6,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
 
     /// <summary>
-    /// 查询指定中继（又称为外线）的相关信息
+    /// 查询指定去电的相关信息，如：去电的编号、主叫方、被叫方、通过的中继号码、通话状态以及通话的相对唯一标识符。
     /// </summary>
-    public class GetTrunkInfo : BaseMethod<TrunkInfo>
+    public class GetOutCallInfo : BaseMethod<OutCallInfo>
     {
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
-        /// <summary>
-        /// 中继/外线ID
-        /// </summary>
-        public string ID { get; set; }
 
+        /// <summary>
+        /// 去电的编号,值为空时列举所有去电
+        /// </summary>
+        public int? ID { get; set; }
 
         internal override object GetRequestData(ApiClientOption opt)
         {
             return new
             {
                 attribute = "Query".AsAttribute(),
-                trunk = new
+                outer = new
                 {
                     id = this.ID.AsAttribute()
                 }
             };
         }
 
-
-        protected override Task<TrunkInfo> ParseResult(string result)
+        protected override string Fix(string result)
         {
-            result = result.Replace("<Status>", "").Replace("</Status>", "");
-            return base.ParseResult(result);
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }

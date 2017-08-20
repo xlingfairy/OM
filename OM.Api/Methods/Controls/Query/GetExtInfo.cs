@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
 
     /// <summary>
@@ -33,10 +33,9 @@ namespace OM.Api.Methods.Controls
             };
         }
 
-        protected override Task<ExtInfo> ParseResult(string result)
+        protected override string Fix(string result)
         {
-            result = result.Replace("<Status>", "").Replace("</Status>", "");
-            return base.ParseResult(result);
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }

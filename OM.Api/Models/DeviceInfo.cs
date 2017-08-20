@@ -12,7 +12,7 @@ namespace OM.Api.Models
     /// 设备信息
     /// </summary>
     [XmlRoot("DeviceInfo")]
-    public class DeviceInfo : BaseResponse
+    public class DeviceInfo
     {
 
         /// <summary>

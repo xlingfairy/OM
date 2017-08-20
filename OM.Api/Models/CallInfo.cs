@@ -11,7 +11,7 @@ namespace OM.Api.Models
     /// <summary>
     /// 通话信息
     /// </summary>
-    public abstract class CallInfo : BaseResponse
+    public abstract class CallInfo
     {
 
         /// <summary>

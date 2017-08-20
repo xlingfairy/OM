@@ -6,18 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Methods.Controls
+namespace OM.Api.Methods.Controls.Query
 {
-
     /// <summary>
-    /// 查询分机组的相关信息，如：配置参数（分机成员、呼叫排队时播放的背景音乐、呼叫分配规则）、正在该分机组队列中等待的来电。
+    /// 
     /// </summary>
-    public class GetGroupInfo : BaseMethod<GroupInfo>
+    public class GetMenuInfo : BaseMethod<MenuInfo>
     {
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
         /// <summary>
-        /// 分机组的编号	1~50，值为空时列举所有分机组
+        /// 语音菜单的编号	1~50，值为空表示列举所有语音菜单
         /// </summary>
         public int? ID { get; set; }
 
@@ -26,17 +25,16 @@ namespace OM.Api.Methods.Controls
             return new
             {
                 attribute = "Query".AsAttribute(),
-                group = new
+                menu = new
                 {
                     id = this.ID.AsAttribute()
                 }
             };
         }
 
-        protected override Task<GroupInfo> ParseResult(string result)
+        protected override string Fix(string result)
         {
-            result = result.Replace("<Status>", "").Replace("</Status>", "");
-            return base.ParseResult(result);
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }
