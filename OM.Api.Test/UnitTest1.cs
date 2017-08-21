@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OM.Api.Methods.Controls.Query;
 using System.IO;
+using OM.Api.Methods.Controls.Assign;
+using System.Collections.Generic;
 
 namespace OM.Api.Test
 {
@@ -51,7 +53,7 @@ namespace OM.Api.Test
             var xml = this.GetTestXml("ExtInfo");
             var mth = new GetExtInfo()
             {
-                ID = "6604"
+                ID = "6688"
             };
 
             var b = mth.TestXml(xml).Result;
@@ -126,6 +128,26 @@ namespace OM.Api.Test
             Assert.IsFalse(mth.HasError);
 
             var a = ApiClient.Execute(mth);
+        }
+
+
+        [TestMethod]
+        public void EditGroupTest()
+        {
+            var mth = new EditGroup()
+            {
+                ID = 1,
+                VoiceFile = "NewMorning",
+                //Exts = new List<string>() { "6688", "6678" }
+                Exts = new List<string>() { "6666" }
+            };
+            var a = ApiClient.Execute(mth);
+
+            var mth2 = new ClearGroup()
+            {
+                ID = 1
+            };
+            var b = ApiClient.Execute(mth2);
         }
     }
 }

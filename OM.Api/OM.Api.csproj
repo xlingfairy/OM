@@ -40,6 +40,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,10 @@
     <Compile Include="ApiClient.cs" />
     <Compile Include="ApiClientOption.cs" />
     <Compile Include="BaseMethod.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Methods\Controls\Assign\ClearGroup.cs" />
+    <Compile Include="Methods\Controls\Assign\EditExt.cs" />
+    <Compile Include="Methods\Controls\Assign\EditGroup.cs" />
     <Compile Include="Methods\Controls\Query\GetDeviceInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetExtInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetGroupInfo.cs" />
@@ -64,6 +69,7 @@
     <Compile Include="Models\CallInfo.cs" />
     <Compile Include="Models\DeviceInfo.cs" />
     <Compile Include="Models\DeviceItem.cs" />
+    <Compile Include="Models\Enums\APIFunctions.cs" />
     <Compile Include="Models\Enums\CallForwardingTyeps.cs" />
     <Compile Include="Models\Enums\CallingStats.cs" />
     <Compile Include="Models\Enums\CallRestrictions.cs" />
