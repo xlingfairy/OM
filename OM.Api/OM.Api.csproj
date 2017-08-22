@@ -57,6 +57,7 @@
     <Compile Include="Methods\Controls\Assign\ClearGroup.cs" />
     <Compile Include="Methods\Controls\Assign\EditExt.cs" />
     <Compile Include="Methods\Controls\Assign\EditGroup.cs" />
+    <Compile Include="Methods\Controls\Assign\EditMenu.cs" />
     <Compile Include="Methods\Controls\Query\GetDeviceInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetExtInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetGroupInfo.cs" />

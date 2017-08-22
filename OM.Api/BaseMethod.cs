@@ -3,8 +3,11 @@ using CNB.Common;
 using Newtonsoft.Json;
 using OM.Api.Models;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -40,7 +43,19 @@ namespace OM.Api
         /// <returns></returns>
         internal abstract object GetRequestData(ApiClientOption opt);
 
-        #region
+        /// <summary>
+        /// 验证输入
+        /// </summary>
+        protected virtual IEnumerable<ValidationResult> Validate()
+        {
+            var context = new ValidationContext(this);
+            var results = new List<ValidationResult>();
+
+            Validator.TryValidateObject(this, context, results, true);
+            return results;
+        }
+
+        #region 
         /// <summary>
         /// 
         /// </summary>
@@ -78,16 +93,22 @@ namespace OM.Api
             get;
             protected set;
         }
+
+        /// <summary>
+        /// 参数验证结果
+        /// </summary>
+        public IEnumerable<ValidationResult> ValidationErrors { get; protected set; }
+
         #endregion
 
 
-        #region
+        #region SIG
         protected string Nonce { get; set; }
         protected string Signature { get; set; }
         protected double Timestamp { get; set; }
         #endregion
 
-        #region
+        #region Build Xml
         /// <summary>
         /// 
         /// </summary>
@@ -140,8 +161,23 @@ namespace OM.Api
     public abstract class BaseMethod<T> : BaseMethod
     {
 
+        internal Task<T> Execute(ApiClient client)
+        {
+            var rs = this.Validate();
+            if (rs == null || rs.Count() == 0)
+            {
+                return this.InnerExecute(client);
+            }
+            else
+            {
+                this.ResultCode = ResultCodes.参数验证失败;
+                this.ValidationErrors = rs;
+                this.ErrorMessage = string.Join(";", rs.Select(r => $"{string.Join(".", r.MemberNames)}: {r.ErrorMessage}"));
+                return Task.FromResult<T>(default(T));
+            }
+        }
 
-        internal async Task<T> Execute(ApiClient client)
+        private async Task<T> InnerExecute(ApiClient client)
         {
             //重置
             this.ResultCode = ResultCodes.成功;

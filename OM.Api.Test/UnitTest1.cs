@@ -53,7 +53,7 @@ namespace OM.Api.Test
             var xml = this.GetTestXml("ExtInfo");
             var mth = new GetExtInfo()
             {
-                ID = "6688"
+                ID = "6678"
             };
 
             var b = mth.TestXml(xml).Result;
@@ -148,6 +148,29 @@ namespace OM.Api.Test
                 ID = 1
             };
             var b = ApiClient.Execute(mth2);
+        }
+
+
+        [TestMethod]
+        public void EditExtTest()
+        {
+            var mth = new EditExt()
+            {
+                LineID = "IPPhone 200",
+                ID = "6678",
+                AllowPickup = true,
+                APIFunction = Models.Enums.APIFunctions.All,
+                CallRestriction = Models.Enums.CallRestrictions.市话,
+                ForwardingType = Models.Enums.CallForwardingTyeps.遇忙或无应答时转移,
+                Groups = new List<int>() { 1 },
+                IsAutoAnswer = true,
+                IsNoDisturb = true,
+                IsRealtimeRecord = true,
+                Staffid = "0001",
+                VoiceFile = "NewMorning",
+                Mobile = "13799999999"
+            };
+            var a = ApiClient.Execute(mth);
         }
     }
 }

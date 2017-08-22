@@ -128,5 +128,17 @@ namespace OM.Api.Models
         [XmlElement("outer", typeof(OutCallInfo))]
         [XmlElement("visitor", typeof(VisitorCallInfo))]
         public CallInfo CallInfo { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlElement("api")]
+        public int? _api { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public APIFunctions APIFunction => Helper.ToApiFunctions(this._api);
     }
 }

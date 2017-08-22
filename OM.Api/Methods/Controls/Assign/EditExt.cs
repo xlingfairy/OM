@@ -27,14 +27,14 @@ namespace OM.Api.Methods.Controls.Assign
         /// <summary>
         /// 分机号码 纯数字非空字符串
         /// </summary>
-        [RegularExpression(@"\d+"), Required]
+        [RegularExpression(@"\d+", ErrorMessage = "分机号码只能是纯数字非空字符串"), Required]
         public string ID { get; set; }
 
         /// <summary>
         /// 工号，分机接通前会向来电方播放该工号
         /// 纯数字字符串，值为空时不生效
         /// </summary>
-        [RegularExpression(@"\d+")]
+        [RegularExpression(@"\d+", ErrorMessage = "工号只能是纯数字字符串")]
         public string Staffid { get; set; }
 
         /// <summary>
@@ -136,6 +136,11 @@ namespace OM.Api.Methods.Controls.Assign
                     api = this.APIFunction.ToInt()
                 }
             };
+        }
+
+        protected override string Fix(string result)
+        {
+            return result.Replace("<Status>", "").Replace("</Status>", "");
         }
     }
 }

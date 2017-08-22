@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace OM.Api.Models.Enums
 {
@@ -17,16 +18,19 @@ namespace OM.Api.Models.Enums
         /// <summary>
         /// 
         /// </summary>
+        [XmlEnum("0")]
         关闭 = 0,
 
         /// <summary>
         /// 
         /// </summary>
+        [XmlEnum("1")]
         全部转移 = 1,
 
         /// <summary>
         /// 
         /// </summary>
+        [XmlEnum("2")]
         遇忙或无应答时转移 = 2
     }
 }

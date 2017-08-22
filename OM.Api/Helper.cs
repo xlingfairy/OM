@@ -62,7 +62,7 @@ namespace OM.Api
         /// 
         /// </summary>
         /// <param name="api"></param>
-        public static APIFunctions? ToApiFunctions(int api)
+        public static APIFunctions ToApiFunctions(int? api)
         {
             if (api == 0)
                 return APIFunctions.关闭;
@@ -79,7 +79,7 @@ namespace OM.Api
             else if (api == 37)
                 return APIFunctions.状态监控 | APIFunctions.来电应答前控制 | APIFunctions.来电应答后控制;
             else
-                return null;
+                return APIFunctions.关闭;
         }
     }
 }

@@ -3,6 +3,7 @@ using OM.Api.Models;
 using OM.Api.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace OM.Api.Methods.Controls.Assign
         /// <summary>
         /// 分机组的编号	1~50
         /// </summary>
+        [Range(1, 50)]
         public int ID { get; set; }
 
         /// <summary>

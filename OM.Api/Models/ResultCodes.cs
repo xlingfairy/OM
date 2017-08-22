@@ -16,6 +16,11 @@ namespace OM.Api.Models
         /// <summary>
         /// 
         /// </summary>
+        参数验证失败,
+
+        /// <summary>
+        /// 
+        /// </summary>
         失败,
 
         /// <summary>
