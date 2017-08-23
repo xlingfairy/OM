@@ -58,6 +58,7 @@
     <Compile Include="Methods\Controls\Assign\EditExt.cs" />
     <Compile Include="Methods\Controls\Assign\EditGroup.cs" />
     <Compile Include="Methods\Controls\Assign\EditMenu.cs" />
+    <Compile Include="Methods\Controls\Hold.cs" />
     <Compile Include="Methods\Controls\Query\GetDeviceInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetExtInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetGroupInfo.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Methods\Controls\Query\GetOutCallInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetTrunkInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetVisitorCallInfo.cs" />
+    <Compile Include="Methods\Transfer\CallExt.cs" />
     <Compile Include="Models\ActionCategories.cs" />
     <Compile Include="Models\ActionTypes.cs" />
     <Compile Include="Models\CallInfo.cs" />

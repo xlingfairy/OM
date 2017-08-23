@@ -4,6 +4,8 @@ using OM.Api.Methods.Controls.Query;
 using System.IO;
 using OM.Api.Methods.Controls.Assign;
 using System.Collections.Generic;
+using OM.Api.Methods.Controls;
+using OM.Api.Methods.Transfer;
 
 namespace OM.Api.Test
 {
@@ -169,6 +171,34 @@ namespace OM.Api.Test
                 Staffid = "0001",
                 VoiceFile = "NewMorning",
                 Mobile = "13799999999"
+            };
+            var a = ApiClient.Execute(mth);
+        }
+
+
+
+
+        [TestMethod]
+        public void HoldTest()
+        {
+            //TODO 未完成
+            var mth = new Hold()
+            {
+                ID = "6678"
+            };
+            ApiClient.Execute(mth);
+        }
+
+
+
+        [TestMethod]
+        public void CallExtTest()
+        {
+            //TODO 未测试通过
+            var mth = new CallExt()
+            {
+                FromID = "6600",
+                ToID = "6601"
             };
             var a = ApiClient.Execute(mth);
         }
