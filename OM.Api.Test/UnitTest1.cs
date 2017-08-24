@@ -21,6 +21,7 @@ namespace OM.Api.Test
                 BaseUri = "http://xxx",
                 Pwd = "xxx"
             };
+
             ApiClient.Init(opt);
         }
 
@@ -55,7 +56,7 @@ namespace OM.Api.Test
             var xml = this.GetTestXml("ExtInfo");
             var mth = new GetExtInfo()
             {
-                ID = "6678"
+                ID = "6600"
             };
 
             var b = mth.TestXml(xml).Result;
@@ -200,6 +201,24 @@ namespace OM.Api.Test
                 FromID = "6600",
                 ToID = "6601"
             };
+            var a = ApiClient.Execute(mth);
+        }
+
+
+        [TestMethod]
+        public void CallOuterTest()
+        {
+            var xml = this.GetTestXml("CallOuter");
+
+            var mth = new CallOuter()
+            {
+                ExtID = "6601",
+                Prefix = "9",
+                OuterNumber = "15986627851"
+            };
+
+            var b = mth.TestXml(xml).Result;
+
             var a = ApiClient.Execute(mth);
         }
     }

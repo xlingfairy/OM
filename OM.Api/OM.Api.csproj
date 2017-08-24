@@ -67,6 +67,7 @@
     <Compile Include="Methods\Controls\Query\GetTrunkInfo.cs" />
     <Compile Include="Methods\Controls\Query\GetVisitorCallInfo.cs" />
     <Compile Include="Methods\Transfer\CallExt.cs" />
+    <Compile Include="Methods\Transfer\CallOuter.cs" />
     <Compile Include="Models\ActionCategories.cs" />
     <Compile Include="Models\ActionTypes.cs" />
     <Compile Include="Models\CallInfo.cs" />
@@ -76,9 +77,12 @@
     <Compile Include="Models\Enums\CallForwardingTyeps.cs" />
     <Compile Include="Models\Enums\CallingStats.cs" />
     <Compile Include="Models\Enums\CallRestrictions.cs" />
+    <Compile Include="Models\Enums\EventTypes.cs" />
     <Compile Include="Models\Enums\ExtStats.cs" />
     <Compile Include="Models\Enums\GroupDistributionTypes.cs" />
     <Compile Include="Models\Enums\TrunkStats.cs" />
+    <Compile Include="Models\Events\BaseEvent.cs" />
+    <Compile Include="Models\Events\TransientEvent.cs" />
     <Compile Include="Models\ExtInfo.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupInfo.cs" />
