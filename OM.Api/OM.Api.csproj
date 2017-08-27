@@ -73,12 +73,15 @@
     <Compile Include="Models\ActionCategories.cs" />
     <Compile Include="Models\ActionTypes.cs" />
     <Compile Include="Models\CallInfo.cs" />
+    <Compile Include="Models\CDR.cs" />
     <Compile Include="Models\DeviceInfo.cs" />
     <Compile Include="Models\DeviceItem.cs" />
     <Compile Include="Models\Enums\APIFunctions.cs" />
     <Compile Include="Models\Enums\CallForwardingTyeps.cs" />
     <Compile Include="Models\Enums\CallingStats.cs" />
     <Compile Include="Models\Enums\CallRestrictions.cs" />
+    <Compile Include="Models\Enums\CDRRouteTypes.cs" />
+    <Compile Include="Models\Enums\CDRTypes.cs" />
     <Compile Include="Models\Enums\ErrorCodes.cs" />
     <Compile Include="Models\Enums\EventTypes.cs" />
     <Compile Include="Models\Enums\ExtStats.cs" />
