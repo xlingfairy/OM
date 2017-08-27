@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\OM.Api.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ApiClient.cs" />
     <Compile Include="ApiClientOption.cs" />
+    <Compile Include="Attributes\ForEventAttribute.cs" />
     <Compile Include="BaseMethod.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Methods\Controls\Assign\ClearGroup.cs" />
@@ -77,18 +79,40 @@
     <Compile Include="Models\Enums\CallForwardingTyeps.cs" />
     <Compile Include="Models\Enums\CallingStats.cs" />
     <Compile Include="Models\Enums\CallRestrictions.cs" />
+    <Compile Include="Models\Enums\ErrorCodes.cs" />
     <Compile Include="Models\Enums\EventTypes.cs" />
     <Compile Include="Models\Enums\ExtStats.cs" />
     <Compile Include="Models\Enums\GroupDistributionTypes.cs" />
     <Compile Include="Models\Enums\TrunkStats.cs" />
+    <Compile Include="Models\Error.cs" />
+    <Compile Include="Models\Events\Alert.cs" />
+    <Compile Include="Models\Events\Answer.cs" />
+    <Compile Include="Models\Events\Answered.cs" />
     <Compile Include="Models\Events\BaseEvent.cs" />
-    <Compile Include="Models\Events\TransientEvent.cs" />
+    <Compile Include="Models\Events\BootUp.cs" />
+    <Compile Include="Models\Events\Busy.cs" />
+    <Compile Include="Models\Events\Bye.cs" />
+    <Compile Include="Models\Events\ConfigChange.cs" />
+    <Compile Include="Models\Events\Divert.cs" />
+    <Compile Include="Models\Events\DTMF.cs" />
+    <Compile Include="Models\Events\EndOfAnn.cs" />
+    <Compile Include="Models\Events\Failed.cs" />
+    <Compile Include="Models\Events\Idle.cs" />
+    <Compile Include="Models\Events\Incomming.cs" />
+    <Compile Include="Models\Events\Invite.cs" />
+    <Compile Include="Models\Events\Offline.cs" />
+    <Compile Include="Models\Events\Online.cs" />
+    <Compile Include="Models\Events\Queue.cs" />
+    <Compile Include="Models\Events\Ring.cs" />
+    <Compile Include="Models\Events\Transient.cs" />
     <Compile Include="Models\ExtInfo.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupInfo.cs" />
+    <Compile Include="Models\ID.cs" />
     <Compile Include="Models\MenuInfo.cs" />
     <Compile Include="Models\ResultCodes.cs" />
     <Compile Include="Models\TrunkInfo.cs" />
+    <Compile Include="Models\Waiting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

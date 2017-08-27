@@ -14,7 +14,7 @@ namespace OM.Api.Methods.Transfer
     /// <summary>
     /// 分机呼外部电话
     /// </summary>
-    public class CallOuter : BaseMethod<TransientEvent>
+    public class CallOuter : BaseMethod<Transient>
     {
         public override ActionCategories ActionCategory => ActionCategories.Transfer;
 

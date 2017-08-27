@@ -6,6 +6,10 @@ using OM.Api.Methods.Controls.Assign;
 using System.Collections.Generic;
 using OM.Api.Methods.Controls;
 using OM.Api.Methods.Transfer;
+using System.Text;
+using System.Xml.Serialization;
+using OM.Api.Models.Events;
+using System.Xml.Linq;
 
 namespace OM.Api.Test
 {
@@ -219,7 +223,18 @@ namespace OM.Api.Test
 
             var b = mth.TestXml(xml).Result;
 
+            var f = new Models.Events.Failed();
+
             var a = ApiClient.Execute(mth);
+        }
+
+
+        [TestMethod]
+        public void AA()
+        {
+            var xml = this.GetTestXml("RingExt2Ext");
+
+            var obj = BaseEvent.Parse(xml);
         }
     }
 }

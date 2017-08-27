@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Event attribute="RING">
+  <!-- 没有这一段，导致无法用基类反序列化
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Ring"
+  -->
+  <ext id="200" />
+  <ext id="208" />
+</Event>

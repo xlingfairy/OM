@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace OM.Api
@@ -80,6 +81,21 @@ namespace OM.Api
                 return APIFunctions.状态监控 | APIFunctions.来电应答前控制 | APIFunctions.来电应答后控制;
             else
                 return APIFunctions.关闭;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ToPascalCase(this string str)
+        {
+            var regex = new Regex(@"_?(?<a>\w)(?<b>[^_]+)");
+            return regex.Replace(str, ma =>
+            {
+                return $"{ma.Groups["a"].Value.ToUpper()}{ma.Groups["b"].Value.ToLower()}";
+            });
         }
     }
 }
