@@ -9,8 +9,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OM.Api.Methods.Transfer
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CallExt : BaseMethod<bool>
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public override ActionCategories ActionCategory => ActionCategories.Transfer;
 
         /// <summary>

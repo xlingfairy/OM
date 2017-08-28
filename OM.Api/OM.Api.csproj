@@ -55,7 +55,10 @@
     <Compile Include="ApiClientOption.cs" />
     <Compile Include="Attributes\ForEventAttribute.cs" />
     <Compile Include="BaseMethod.cs" />
+    <Compile Include="Parser\EventParser.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Parser\IInput.cs" />
+    <Compile Include="Parser\IInputParser.cs" />
     <Compile Include="Methods\Controls\Assign\ClearGroup.cs" />
     <Compile Include="Methods\Controls\Assign\EditExt.cs" />
     <Compile Include="Methods\Controls\Assign\EditGroup.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Models\ActionTypes.cs" />
     <Compile Include="Models\CallInfo.cs" />
     <Compile Include="Models\CDR.cs" />
+    <Compile Include="Parser\CDRParser.cs" />
     <Compile Include="Models\DeviceInfo.cs" />
     <Compile Include="Models\DeviceItem.cs" />
     <Compile Include="Models\Enums\APIFunctions.cs" />
@@ -116,6 +120,7 @@
     <Compile Include="Models\ResultCodes.cs" />
     <Compile Include="Models\TrunkInfo.cs" />
     <Compile Include="Models\Waiting.cs" />
+    <Compile Include="Parser\InputParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

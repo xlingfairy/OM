@@ -16,6 +16,10 @@ namespace OM.Api.Methods.Controls
     /// </summary>
     public class Hold : BaseMethod<bool>
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
 

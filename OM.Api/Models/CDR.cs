@@ -1,5 +1,6 @@
 ﻿using CNB.Common;
 using OM.Api.Models.Enums;
+using OM.Api.Parser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace OM.Api.Models
     /// 通话记录报告简称话单，是指OM对一路通话从开始到结束的记录和统计的报告。当一路通话释放后，OM向应用服务器实时推送该报告。
     /// </summary>
     [XmlRoot("Cdr")]
-    public class CDR
+    public class CDR : IInput
     {
 
         /// <summary>

@@ -8,6 +8,9 @@ using System.Xml.Serialization;
 
 namespace OM.Api.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Error
     {
 

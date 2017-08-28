@@ -9,6 +9,9 @@ using System.Xml.Serialization;
 namespace OM.Api.Models
 {
 
+    /// <summary>
+    /// 
+    /// </summary>
     [XmlRoot("ext")]
     public class ExtInfo
     {

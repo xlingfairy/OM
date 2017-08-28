@@ -72,6 +72,12 @@ namespace OM.Api
             return await mth.Execute(Instance.Value);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="mth"></param>
+        /// <returns></returns>
         public static T Execute<T>(BaseMethod<T> mth)
         {
             return mth.Execute(Instance.Value).Result;

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Cdr id="520170826232149-0">
+  <callid>24595</callid>
+  <TimeStart>20170826232124</TimeStart>
+  <Type>IN</Type>
+  <Route>IP</Route>
+  <CPN>13437701333</CPN>
+  <CDPN>8008</CDPN>
+  <TimeEnd>20170826232149</TimeEnd>
+  <Duration>0</Duration>
+  <TrunkNumber>6940</TrunkNumber>
+</Cdr>

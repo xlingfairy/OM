@@ -12,15 +12,27 @@ namespace OM.Api.Models.Enums
     /// </summary>
     public enum TrunkStats
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("ready")]
         可用,
+
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("active")]
         摘机振铃或通话中,
 
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("unwired")]
         未接线,
 
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("offline")]
         离线
 

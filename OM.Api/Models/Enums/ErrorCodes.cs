@@ -14,6 +14,9 @@ namespace OM.Api.Models.Enums
     public enum ErrorCodes
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         Unknow = 0,
 
         /// <summary>

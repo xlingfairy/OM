@@ -16,6 +16,9 @@ namespace OM.Api.Methods.Transfer
     /// </summary>
     public class CallOuter : BaseMethod<Transient>
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public override ActionCategories ActionCategory => ActionCategories.Transfer;
 
         /// <summary>

@@ -10,6 +10,7 @@ using System.Text;
 using System.Xml.Serialization;
 using OM.Api.Models.Events;
 using System.Xml.Linq;
+using OM.Api.Parser;
 
 namespace OM.Api.Test
 {
@@ -232,9 +233,11 @@ namespace OM.Api.Test
         [TestMethod]
         public void AA()
         {
-            var xml = this.GetTestXml("RingExt2Ext");
+            var ring = this.GetTestXml("RingExt2Ext");
+            var cdr = this.GetTestXml("CDR");
 
-            var obj = BaseEvent.Parse(xml);
+            var obj = InputParser.Parse(ring);
+            var obj2 = InputParser.Parse(cdr);
         }
     }
 }

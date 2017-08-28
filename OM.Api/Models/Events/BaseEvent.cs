@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using System.IO;
 using CNB.Common;
 using OM.Api.Attributes;
+using OM.Api.Parser;
 
 namespace OM.Api.Models.Events
 {
@@ -38,7 +39,7 @@ namespace OM.Api.Models.Events
     [XmlInclude(typeof(EndOfAnn))]
     [XmlInclude(typeof(Queue))]
     [XmlRoot("Event")]
-    public abstract class BaseEvent
+    public abstract class BaseEvent : IInput
     {
 
         /// <summary>
@@ -47,49 +48,5 @@ namespace OM.Api.Models.Events
         [XmlAttribute("attribute")]
         public abstract EventTypes Attribute { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="xml"></param>
-        public static void Fix(string xml)
-        {
-            var x = XElement.Parse(xml);
-            var attr = x.Attribute("attribute").Value;
-            x.Add(XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance"));
-        }
-
-        /// <summary>
-        /// 事件报告的 XML 缺少反序列化需要的 xsi:type="xxx", 导致不能通过基类进行反序列化。
-        /// 这里将 type 加上，使反序列能正常进行
-        /// </summary>
-        /// <param name="xml"></param>
-        /// <returns></returns>
-        public static BaseEvent Parse(string xml)
-        {
-            if (string.IsNullOrWhiteSpace(xml))
-                throw new ArgumentNullException("xml");
-
-            var ele = XElement.Parse(xml);
-
-            var name = ele.Name;
-            var attr = ele.Attribute("attribute")?.Value;
-
-            var t = attr.ToEnum<EventTypes>();
-            var forType = EnumHelper.GetAttribute<EventTypes, ForEventAttribute>(t);
-
-            var ns = XNamespace.Get("http://www.w3.org/2001/XMLSchema-instance");
-            //DTMF 事件用命名法转换，不合适
-            //ele.Add(new XAttribute(ns + "type", attr.ToPascalCase()));
-            ele.Add(new XAttribute(ns + "type", forType.EventType.Name));
-
-            xml = ele.ToString();
-
-            var bytes = Encoding.UTF8.GetBytes(xml);
-            var ser = new XmlSerializer(typeof(BaseEvent));
-            using (var msm = new MemoryStream(bytes))
-            {
-                return (BaseEvent)ser.Deserialize(msm);
-            }
-        }
     }
 }

@@ -14,6 +14,10 @@ namespace OM.Api.Methods.Controls.Query
     /// </summary>
     public class GetTrunkInfo : BaseMethod<TrunkInfo>
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
         /// <summary>
@@ -34,7 +38,11 @@ namespace OM.Api.Methods.Controls.Query
             };
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
         protected override string Fix(string result)
         {
             return result.Replace("<Status>", "").Replace("</Status>", "");

@@ -14,12 +14,21 @@ namespace OM.Api.Models.Enums
     public enum GroupDistributionTypes
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("circular")]
         轮选 = 0,
 
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("sequential")]
         顺选,
 
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlEnum("group")]
         群振
 

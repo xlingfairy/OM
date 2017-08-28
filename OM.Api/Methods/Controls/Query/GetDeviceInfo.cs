@@ -14,6 +14,9 @@ namespace OM.Api.Methods.Controls.Query
     /// </summary>
     public class GetDeviceInfo : BaseMethod<DeviceInfo>
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public override ActionCategories ActionCategory => ActionCategories.Control;
 
         internal override object GetRequestData(ApiClientOption opt)

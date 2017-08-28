@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace OM.Api.Models
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ResultCodes
     {
         /// <summary>

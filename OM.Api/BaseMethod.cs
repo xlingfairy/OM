@@ -103,8 +103,19 @@ namespace OM.Api
 
 
         #region SIG
+        /// <summary>
+        /// 
+        /// </summary>
         protected string Nonce { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
         protected string Signature { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected double Timestamp { get; set; }
         #endregion
 

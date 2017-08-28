@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace OM.Api
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Helper
     {
 
