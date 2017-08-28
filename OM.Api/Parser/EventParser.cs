@@ -17,7 +17,7 @@ namespace OM.Api.Parser
     /// <summary>
     /// 
     /// </summary>
-    public class EventParser : IInputParser
+    internal class EventParser : IInputParser
     {
 
         /// <summary>

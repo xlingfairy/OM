@@ -5,20 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Api.Parser
+namespace OM.Api
 {
     /// <summary>
     /// 
     /// </summary>
-    internal interface IInputParser
+    public class OMCDREventArgs : EventArgs
     {
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        IInput Parse(string input);
+        public CDR Data { get; set; }
 
     }
 }

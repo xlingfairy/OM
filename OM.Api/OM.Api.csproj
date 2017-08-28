@@ -55,6 +55,8 @@
     <Compile Include="ApiClientOption.cs" />
     <Compile Include="Attributes\ForEventAttribute.cs" />
     <Compile Include="BaseMethod.cs" />
+    <Compile Include="OMCDREventArgs.cs" />
+    <Compile Include="OMEventEventArgs.cs" />
     <Compile Include="Parser\EventParser.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Parser\IInput.cs" />

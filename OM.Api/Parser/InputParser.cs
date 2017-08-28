@@ -11,7 +11,7 @@ namespace OM.Api.Parser
     /// <summary>
     /// 
     /// </summary>
-    public static class InputParser
+    internal static class InputParser
     {
 
         /// <summary>

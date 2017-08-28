@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 using OM.Api.Models.Events;
 using System.Xml.Linq;
 using OM.Api.Parser;
+using System.Diagnostics;
 
 namespace OM.Api.Test
 {
@@ -28,7 +29,10 @@ namespace OM.Api.Test
             };
 
             ApiClient.Init(opt);
+            ApiClient.OnReceiveEvent += ApiClient_OnReceiveEvent;
         }
+
+
 
         private string GetTestXml(string file)
         {
@@ -236,8 +240,13 @@ namespace OM.Api.Test
             var ring = this.GetTestXml("RingExt2Ext");
             var cdr = this.GetTestXml("CDR");
 
-            var obj = InputParser.Parse(ring);
-            var obj2 = InputParser.Parse(cdr);
+            ApiClient.Execute(ring);
+            ApiClient.Execute(cdr);
+        }
+
+        private void ApiClient_OnReceiveEvent(object sender, OMEventEventArgs e)
+        {
+            Debug.WriteLine("aaaaa");
         }
     }
 }

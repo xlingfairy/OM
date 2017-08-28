@@ -14,7 +14,7 @@ namespace OM.Api.Parser
     /// <summary>
     /// 
     /// </summary>
-    public class CDRParser : IInputParser
+    internal class CDRParser : IInputParser
     {
 
         /// <summary>
