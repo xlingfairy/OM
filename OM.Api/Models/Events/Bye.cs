@@ -13,7 +13,7 @@ namespace OM.Api.Models.Events
     /// 通话结束事件
     /// </summary>
     [XmlRoot("Event")]
-    public class Bye : BaseEvent
+    public class Bye : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -39,6 +39,9 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("outer")]
         public OutCallInfo Outer { get; set; }
+
+
+        string IExtNotify.ExtID => this.Ext.ID;
 
         //TODO 来电转去电的通话结束，来电挂断：
         //TODO 双向外呼的通话结束，两个去电分别各有一个BYE事件：

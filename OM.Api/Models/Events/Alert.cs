@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 当被叫对主叫（分机/来电）的呼叫回铃时，OM向应用服务器推送该事件报告。
     /// </summary>
     [XmlRoot("Event")]
-    public class Alert : BaseEvent
+    public class Alert : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -51,6 +51,9 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("outer")]
         public OutCallInfo Outer { get; set; }
+
+
+        string IExtNotify.ExtID => this.Ext.ID;
 
         //TODO Menu外呼，外部电话回铃：
     }

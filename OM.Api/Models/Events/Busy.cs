@@ -15,7 +15,7 @@ namespace OM.Api.Models.Events
     /// IP分机由空闲状态下摘机不会立即汇报BUSY事件，而是要等拨完号发起呼叫时才会汇报。
     /// </summary>
     [XmlRoot("Event")]
-    public class Busy : BaseEvent
+    public class Busy : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -29,5 +29,6 @@ namespace OM.Api.Models.Events
         [XmlElement("ext")]
         public IDAttribute Ext { get; set; }
 
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

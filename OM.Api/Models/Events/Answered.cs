@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 当主叫检查到被叫应答时，OM向应用服务器推送该事件报告
     /// </summary>
     [XmlRoot("Event")]
-    public class Answered : BaseEvent
+    public class Answered : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -45,5 +45,6 @@ namespace OM.Api.Models.Events
         [XmlElement("outer")]
         public OutCallInfo Outer { get; set; }
 
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

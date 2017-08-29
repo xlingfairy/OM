@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
+using OM.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,30 @@ namespace OM.AppClient.SignalR
     public class OMHubProxy : IDisposable
     {
 
+        private static Lazy<OMHubProxy> Instance = new Lazy<OMHubProxy>(() => new OMHubProxy("http://localhost:52537/signalr"));
+
         private IHubProxy Proxy { get; }
 
         private HubConnection Connection { get; }
 
-        public OMHubProxy(string hubUrl)
+        private OMHubProxy(string hubUrl)
         {
             this.Connection = new HubConnection(hubUrl);
-            this.Proxy = this.Connection.CreateHubProxy("OM");
+            this.Proxy = this.Connection.CreateHubProxy("OMHub");
+
+            this.Proxy.On<IExtNotify>("OnReceiveInput", d =>
+            {
+
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static async Task Start()
+        {
+            await OMHubProxy.Instance.Value.Connection.Start();
         }
 
         public void Send()
@@ -52,6 +69,7 @@ namespace OM.AppClient.SignalR
                 {
                     if (this.Connection != null)
                     {
+                        this.Connection.Stop();
                         this.Connection.Dispose();
                     }
                 }

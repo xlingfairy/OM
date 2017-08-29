@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 当分机由忙碌变成空闲时，OM设备会向应用服务器推送该报告
     /// </summary>
     [XmlRoot("Event")]
-    public class Idle : BaseEvent
+    public class Idle : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -28,5 +28,6 @@ namespace OM.Api.Models.Events
         [XmlElement("ext")]
         public IDAttribute Ext { get; set; }
 
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

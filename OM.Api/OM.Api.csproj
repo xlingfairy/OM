@@ -55,6 +55,7 @@
     <Compile Include="ApiClientOption.cs" />
     <Compile Include="Attributes\ForEventAttribute.cs" />
     <Compile Include="BaseMethod.cs" />
+    <Compile Include="IExtNotify.cs" />
     <Compile Include="OMCDREventArgs.cs" />
     <Compile Include="OMEventEventArgs.cs" />
     <Compile Include="Parser\EventParser.cs" />
@@ -117,7 +118,7 @@
     <Compile Include="Models\ExtInfo.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupInfo.cs" />
-    <Compile Include="Models\ID.cs" />
+    <Compile Include="Models\IDAttribute.cs" />
     <Compile Include="Models\MenuInfo.cs" />
     <Compile Include="Models\ResultCodes.cs" />
     <Compile Include="Models\TrunkInfo.cs" />

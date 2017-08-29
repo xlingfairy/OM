@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 当IP分机由离线变为上线，或IP分机的地址发生变更时，OM设备向应用服务器推送该事件报告。
     /// </summary>
     [XmlRoot("Event")]
-    public class Online : BaseEvent
+    public class Online : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -33,5 +33,7 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("ext")]
         public IDAttribute Ext { get; set; }
+
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

@@ -15,7 +15,7 @@ namespace OM.Api.Models.Events
     /// 只有IP分机会有该事件，模拟分机没有。
     /// </summary>
     [XmlRoot("Event")]
-    public class Offline : BaseEvent
+    public class Offline : BaseEvent, IExtNotify
     {
 
 
@@ -32,6 +32,6 @@ namespace OM.Api.Models.Events
         [XmlElement("ext")]
         public IDAttribute Ext { get; set; }
 
-
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

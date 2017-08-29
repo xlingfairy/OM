@@ -13,7 +13,7 @@ namespace OM.Api.Models.Events
     /// 呼叫转移事件
     /// </summary>
     [XmlRoot("Event")]
-    public class Divert : BaseEvent
+    public class Divert : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -32,5 +32,7 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("ext")]
         public IDAttribute Ext { get; set; }
+
+        string IExtNotify.ExtID => this.Ext?.ID;
     }
 }

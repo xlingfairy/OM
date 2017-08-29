@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 该事件通常作为转接（Transfer）请求的响应消息，特殊情况下，OM也会推送该事件消息。
     /// </summary>
     [XmlRoot("Event")]
-    public class Transient : BaseEvent
+    public class Transient : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -34,5 +34,7 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("ext")]
         public IDAttribute Ext { get; set; }
+
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

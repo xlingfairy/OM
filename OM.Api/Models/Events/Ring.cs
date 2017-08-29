@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 当分机振铃时，OM向应用服务器推送该事件报告。
     /// </summary>
     [XmlRoot("Event"), Serializable]
-    public class Ring : BaseEvent
+    public class Ring : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -56,5 +56,7 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("menu")]
         public IDAttribute Menu { get; set; }
+
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

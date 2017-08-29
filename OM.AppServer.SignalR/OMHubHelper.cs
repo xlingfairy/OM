@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
+using OM.Api;
+using OM.Api.Parser;
 using Owin;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,9 @@ namespace OM.AppServer.SignalR
     public static class OMHubHelper
     {
 
-        public static void Configuration(this IAppBuilder app)
+        public static void ConfigurationOMHub(this IAppBuilder app)
         {
-            //GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new UCUserIDProvider());
+            GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new OMIDProvider());
             //app.UseCors(CorsOptions.AllowAll);
             var cfg = new HubConfiguration()
             {
@@ -24,5 +26,13 @@ namespace OM.AppServer.SignalR
             app.MapSignalR(cfg);
         }
 
+        public static void Send(string extID, IExtNotify input)
+        {
+            GlobalHost.ConnectionManager
+                .GetHubContext<OMHub>()
+                .Clients
+                .User(extID)
+                .OnReceiveInput(input);
+        }
     }
 }

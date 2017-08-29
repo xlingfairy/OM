@@ -14,7 +14,7 @@ namespace OM.Api.Models.Events
     /// 当分机对呼叫应答时，OM向应用服务器推送该事件报告。
     /// </summary>
     [XmlRoot("Event")]
-    public class Answer : BaseEvent
+    public class Answer : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -45,5 +45,8 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("visitor")]
         public VisitorCallInfo Visitor { get; set; }
+
+
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }

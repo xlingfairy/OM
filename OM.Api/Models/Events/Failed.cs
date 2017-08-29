@@ -16,7 +16,7 @@ namespace OM.Api.Models.Events
     /// 如果是手动拨号，只在极个别情况下会触发该事件。
     /// </summary>
     [XmlRoot("event")]
-    public class Failed : BaseEvent
+    public class Failed : BaseEvent, IExtNotify
     {
 
         /// <summary>
@@ -35,5 +35,7 @@ namespace OM.Api.Models.Events
         /// </summary>
         [XmlElement("err")]
         public Error Error { get; set; }
+
+        string IExtNotify.ExtID => this.Ext.ID;
     }
 }
