@@ -100,5 +100,22 @@ namespace OM.Api
                 return $"{ma.Groups["a"].Value.ToUpper()}{ma.Groups["b"].Value.ToLower()}";
             });
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="datas"></param>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        public static T ElementAtOrDefault<T>(this IEnumerable<T> datas, int pos)
+        {
+            if (datas != null && datas.Count() > pos)
+            {
+                //return datas.Skip(pos).Take(1).FirstOrDefault();
+                return datas.ElementAt(pos);
+            }
+            return default(T);
+        }
     }
 }

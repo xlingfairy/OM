@@ -3,6 +3,7 @@ using OM.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,11 +25,14 @@ namespace OM.AppClient.SignalR
         private OMHubProxy(string hubUrl)
         {
             this.Connection = new HubConnection(hubUrl);
+            //this.Connection.ConnectionId = "200";
+            //this.Connection.Credentials = new NetworkCredential("200", "");
+            this.Connection.Headers.Add("ExtID", "200");
             this.Proxy = this.Connection.CreateHubProxy("OMHub");
 
-            this.Proxy.On<IExtNotify>("OnReceiveInput", d =>
+            this.Proxy.On<string>("OnReceiveInput", d =>
             {
-
+                Console.WriteLine(d);
             });
         }
 

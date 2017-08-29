@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HubExceptionModule.cs" />
     <Compile Include="OMHub.cs" />
     <Compile Include="OMHubHelper.cs" />
     <Compile Include="OMIDProvider.cs" />

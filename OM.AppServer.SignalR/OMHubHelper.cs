@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using OM.Api;
 using OM.Api.Parser;
 using Owin;
@@ -13,8 +15,16 @@ namespace OM.AppServer.SignalR
     public static class OMHubHelper
     {
 
+        private static readonly JsonSerializerSettings JSONSetting = new JsonSerializerSettings()
+        {
+            NullValueHandling = NullValueHandling.Ignore,
+            TypeNameHandling = TypeNameHandling.All,
+            TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple
+        };
+
         public static void ConfigurationOMHub(this IAppBuilder app)
         {
+            //GlobalHost.HubPipeline.AddModule(new HubExceptionModule());
             GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new OMIDProvider());
             //app.UseCors(CorsOptions.AllowAll);
             var cfg = new HubConfiguration()
@@ -28,11 +38,14 @@ namespace OM.AppServer.SignalR
 
         public static void Send(string extID, IExtNotify input)
         {
-            GlobalHost.ConnectionManager
+            var str = JsonConvert.SerializeObject(input, JSONSetting);
+
+            var a = GlobalHost.ConnectionManager
                 .GetHubContext<OMHub>()
                 .Clients
+                //.All
                 .User(extID)
-                .OnReceiveInput(input);
+                .OnReceiveInput(str);
         }
     }
 }

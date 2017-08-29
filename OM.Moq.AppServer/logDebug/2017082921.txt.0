@@ -1,0 +1,5 @@
+﻿2017-08-29 21:32:24,893 DEBUG OM.AppServer.SignalR.OMHub - Client connected: a4460c9c-b4cd-4c3e-89b7-a6a09f65f811
+2017-08-29 21:56:20,679 DEBUG OM.AppServer.SignalR.OMHub - Client connected: 9492e34d-dd78-4746-bf9e-6401cee9be2f
+2017-08-29 21:56:35,995 DEBUG OM.AppServer.SignalR.OMHub - Client connected: 36254201-16aa-49c3-aaa6-2539b0c5484f
+2017-08-29 21:57:00,594 DEBUG OM.AppServer.SignalR.OMHub - Client connected: 9492e34d-dd78-4746-bf9e-6401cee9be2f
+2017-08-29 21:57:15,591 DEBUG OM.AppServer.SignalR.OMHub - Client connected: 36254201-16aa-49c3-aaa6-2539b0c5484f

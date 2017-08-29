@@ -25,7 +25,7 @@ namespace OM.AppServer.SignalR
 
         public override Task OnConnected()
         {
-            this.Log.Debug("Client connected: " + Context.ConnectionId);
+            this.Log.Debug("Client connected: " + Context.User.Identity.Name);
             return base.OnConnected();
         }
 

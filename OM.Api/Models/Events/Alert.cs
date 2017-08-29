@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using OM.Api.Models.Enums;
+using Newtonsoft.Json;
 
 namespace OM.Api.Models.Events
 {
@@ -32,12 +33,14 @@ namespace OM.Api.Models.Events
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public IDAttribute Ext => this._Exts?.First();
 
         /// <summary>
         /// 分机呼叫分机，被叫分机回铃
         /// </summary>
-        public IDAttribute ToExt => this._Exts?.ElementAt(1);
+        [JsonIgnore]
+        public IDAttribute ToExt => this._Exts?.ElementAtOrDefault(1);
 
 
         /// <summary>
