@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\InputController.cs" />
     <Compile Include="OMHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +127,10 @@
     <ProjectReference Include="..\OM.AppServer.SignalR\OM.AppServer.SignalR.csproj">
       <Project>{92488a0e-5fa4-49d8-ae05-9b6957b89bd3}</Project>
       <Name>OM.AppServer.SignalR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OM.Moq.AppServer.Auth\OM.Moq.AppServer.Auth.csproj">
+      <Project>{b6cef94b-f2f0-4ead-b5d4-bd76412bd610}</Project>
+      <Name>OM.Moq.AppServer.Auth</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

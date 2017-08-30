@@ -15,6 +15,7 @@ namespace OM.AppServer.SignalR
     /// <summary>
     /// 
     /// </summary>
+    [Authorize]
     public class OMHub : Hub
     {
 

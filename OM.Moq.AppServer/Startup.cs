@@ -2,6 +2,7 @@
 using Microsoft.Owin;
 using OM.AppServer.SignalR;
 using OM.Moq.AppServer;
+using OM.Moq.AppServer.Auth;
 using Owin;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,7 @@ namespace OM.Moq.AppServer
 
             OMHandler.Init();
 
-            //app.UseCors(CorsOptions.AllowAll);
-            //app.MapSignalR();
+            app.UseMoqAuth();
             app.ConfigurationOMHub();
         }
 

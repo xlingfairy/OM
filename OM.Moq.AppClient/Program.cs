@@ -1,4 +1,7 @@
-﻿using OM.AppClient.SignalR;
+﻿using CNB.Common;
+using Newtonsoft.Json;
+using OM.AppClient.SignalR;
+using OM.Moq.Entity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,13 +15,51 @@ namespace OM.Moq.AppClient
     {
         static void Main(string[] args)
         {
-            Begin();
+            while (true)
+            {
+                Console.WriteLine("请输入分机号：");
+                var extID = Console.ReadLine().Trim();
+                var token = Login(extID);
+                if (token != null)
+                {
+                    Begin(token.AccessToken);
+                    break;
+                }
+            }
+            Console.WriteLine("连接成功");
             Console.Read();
         }
 
-        public static async void Begin()
+        public static async void Begin(string token)
         {
-            await OMHubProxy.Start(ConfigurationManager.AppSettings.Get("HubUrl"));
+            await OMHubProxy.Start(
+                "/signalr".FixUrl(ConfigurationManager.AppSettings.Get("AppServerUrl")),
+                token
+                );
+        }
+
+        private static Token Login(string extID)
+        {
+            var url = "/api/Token".FixUrl(ConfigurationManager.AppSettings.Get("AppServerUrl"));
+            var rh = new RequestHelper();
+            try
+            {
+                var ctx = rh.Post(
+                    url,
+                    new Dictionary<string, string>()
+                        {
+                            {"userName", extID },
+                            { "password", extID},
+                            {"grant_type","password" }
+                        }
+                );
+                var token = JsonConvert.DeserializeObject<Token>(ctx);
+                return token;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace OM.AppServer.SignalR
         public static void ConfigurationOMHub(this IAppBuilder app)
         {
             //GlobalHost.HubPipeline.AddModule(new HubExceptionModule());
-            GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new OMIDProvider());
+            //GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new OMIDProvider());
             //app.UseCors(CorsOptions.AllowAll);
             var cfg = new HubConfiguration()
             {
