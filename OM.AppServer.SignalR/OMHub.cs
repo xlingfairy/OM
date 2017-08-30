@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Newtonsoft.Json;
 using OM.Api;
 using OM.Api.Methods.Controls.Query;
 using OM.Api.Models;
@@ -21,6 +22,26 @@ namespace OM.AppServer.SignalR
     {
 
         private log4net.ILog Log = log4net.LogManager.GetLogger(typeof(OMHub));
+
+        private static readonly JsonSerializerSettings JSONSetting = new JsonSerializerSettings()
+        {
+            NullValueHandling = NullValueHandling.Ignore,
+            TypeNameHandling = TypeNameHandling.All,
+            TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mth"></param>
+        /// <returns></returns>
+        public async Task<string> GetDeviceInfo()
+        {
+            var mth = new GetDeviceInfo();
+            var info = await ApiClient.ExecuteAsync(mth);
+            // info 含有抽象类，没有找到解决方法
+            return JsonConvert.SerializeObject(info, JSONSetting);
+        }
 
 
         public async Task<ExtInfo> GetExtInfo()

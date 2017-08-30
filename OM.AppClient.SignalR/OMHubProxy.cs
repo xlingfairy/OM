@@ -111,6 +111,12 @@ namespace OM.AppClient.SignalR
             return await Instance.Value.Proxy.Invoke<ExtInfo>("GetExtInfo");
         }
 
+        public static async Task<DeviceInfo> GetDeviceInfo()
+        {
+            var json = await Instance.Value.Proxy.Invoke<string>("GetDeviceInfo");
+            return JsonConvert.DeserializeObject<DeviceInfo>(json, JSONSetting);
+        }
+
 
         #region dispose
         public void Dispose()
