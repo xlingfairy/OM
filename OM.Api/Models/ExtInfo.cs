@@ -38,7 +38,7 @@ namespace OM.Api.Models
         /// 分机组，这里为该分机所属的分机组
         /// </summary>
         [XmlElement("group")]
-        public List<Group> Groups { get; set; }
+        public List<IDAttribute> Groups { get; set; }
 
         /// <summary>
         /// 语音文件，这里为分机队列中排队等待时播放的语音文件

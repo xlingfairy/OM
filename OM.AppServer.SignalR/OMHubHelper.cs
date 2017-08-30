@@ -15,6 +15,8 @@ namespace OM.AppServer.SignalR
     public static class OMHubHelper
     {
 
+        private static Lazy<IHubContext> HubContext = new Lazy<IHubContext>(() => GlobalHost.ConnectionManager.GetHubContext<OMHub>());
+
         private static readonly JsonSerializerSettings JSONSetting = new JsonSerializerSettings()
         {
             NullValueHandling = NullValueHandling.Ignore,
@@ -40,9 +42,7 @@ namespace OM.AppServer.SignalR
         {
             var str = JsonConvert.SerializeObject(input, JSONSetting);
 
-            var a = GlobalHost.ConnectionManager
-                .GetHubContext<OMHub>()
-                .Clients
+            var a = HubContext.Value.Clients
                 //.All
                 .User(extID)
                 .OnReceiveInput(str);

@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/OM.Moq.AppServer/logWARN
+/OM.Moq.AppServer/logInfo
+/OM.Moq.AppServer/logFatal
+/OM.Moq.AppServer/logES
+/OM.Moq.AppServer/logError
+/OM.Moq.AppServer/logDebug

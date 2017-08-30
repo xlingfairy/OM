@@ -116,7 +116,6 @@
     <Compile Include="Models\Events\Ring.cs" />
     <Compile Include="Models\Events\Transient.cs" />
     <Compile Include="Models\ExtInfo.cs" />
-    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupInfo.cs" />
     <Compile Include="Models\IDAttribute.cs" />
     <Compile Include="Models\MenuInfo.cs" />

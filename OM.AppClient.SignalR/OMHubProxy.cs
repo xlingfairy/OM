@@ -16,7 +16,9 @@ namespace OM.AppClient.SignalR
     public class OMHubProxy : IDisposable
     {
 
-        private static Lazy<OMHubProxy> Instance = new Lazy<OMHubProxy>(() => new OMHubProxy("http://localhost:52537/signalr"));
+        private static string HubUrl { get; set; }
+
+        private static Lazy<OMHubProxy> Instance = new Lazy<OMHubProxy>(() => new OMHubProxy(HubUrl));
 
         private IHubProxy Proxy { get; }
 
@@ -25,10 +27,14 @@ namespace OM.AppClient.SignalR
         private OMHubProxy(string hubUrl)
         {
             this.Connection = new HubConnection(hubUrl);
+            //无法指定 ConnectionId
             //this.Connection.ConnectionId = "200";
             //this.Connection.Credentials = new NetworkCredential("200", "");
-            this.Connection.Headers.Add("ExtID", "200");
+            this.Connection.Headers.Add("ExtID", "8073");
             this.Proxy = this.Connection.CreateHubProxy("OMHub");
+
+            //对应为 Clients.Caller.ExtID dynamic
+            this.Proxy["ExtID"] = "200";
 
             this.Proxy.On<string>("OnReceiveInput", d =>
             {
@@ -40,8 +46,9 @@ namespace OM.AppClient.SignalR
         /// 
         /// </summary>
         /// <returns></returns>
-        public static async Task Start()
+        public static async Task Start(string hubUrl)
         {
+            HubUrl = hubUrl;
             await OMHubProxy.Instance.Value.Connection.Start();
         }
 

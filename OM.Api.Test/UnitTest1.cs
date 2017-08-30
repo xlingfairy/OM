@@ -65,7 +65,7 @@ namespace OM.Api.Test
             var xml = this.GetTestXml("ExtInfo");
             var mth = new GetExtInfo()
             {
-                ID = "6600"
+                ID = "8073"
             };
 
             var b = mth.TestXml(xml).Result;
@@ -151,7 +151,7 @@ namespace OM.Api.Test
                 ID = 1,
                 VoiceFile = "NewMorning",
                 //Exts = new List<string>() { "6688", "6678" }
-                Exts = new List<string>() { "6666" }
+                Exts = new List<string>() { "8073" }
             };
             var a = ApiClient.Execute(mth);
 

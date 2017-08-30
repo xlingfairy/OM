@@ -23,7 +23,8 @@ namespace OM.Moq.AppServer
             var c = XmlConfigurator.Configure(new FileInfo(path));
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            OMHandler.Regist();
+
+            OMHandler.Init();
 
             //app.UseCors(CorsOptions.AllowAll);
             //app.MapSignalR();

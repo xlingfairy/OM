@@ -15,5 +15,9 @@ namespace OM.AppServer.SignalR
             base.OnIncomingError(exceptionContext, invokerContext);
         }
 
+        protected override bool OnBeforeIncoming(IHubIncomingInvokerContext context)
+        {
+            return base.OnBeforeIncoming(context);
+        }
     }
 }
