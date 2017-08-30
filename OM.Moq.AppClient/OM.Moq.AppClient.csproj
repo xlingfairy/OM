@@ -57,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OM.Api\OM.Api.csproj">
+      <Project>{D9C7B28D-4731-4F0C-BC31-62BEFC164681}</Project>
+      <Name>OM.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OM.AppClient.SignalR\OM.AppClient.SignalR.csproj">
       <Project>{01b2ef25-170d-4232-888a-488d354c88e6}</Project>
       <Name>OM.AppClient.SignalR</Name>

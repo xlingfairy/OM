@@ -1,0 +1,291 @@
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.TransportHeartBeat Information: 0 : Dispose(). Closing all connections
+SignalR.Transports.WebSocketTransport Information: 0 : End(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(2de3306c-a1bc-4d86-9ed7-b24a4fef120a, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is New.
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(2de3306c-a1bc-4d86-9ed7-b24a4fef120a, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection be58a8c5-3a34-4c3e-b093-b4dae6de8767 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: be58a8c5-3a34-4c3e-b093-b4dae6de8767, transport: WebSocketTransport, message: {"C":"d-F51421AD-B,0|F,0|D,0|G,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: be58a8c5-3a34-4c3e-b093-b4dae6de8767, transport: WebSocketTransport, message: {"R":{"ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be58a8c5-3a34-4c3e-b093-b4dae6de8767)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be58a8c5-3a34-4c3e-b093-b4dae6de8767)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 2de3306c-a1bc-4d86-9ed7-b24a4fef120a is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 2de3306c-a1bc-4d86-9ed7-b24a4fef120a
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Information: 0 : End(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be58a8c5-3a34-4c3e-b093-b4dae6de8767)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (2de3306c-a1bc-4d86-9ed7-b24a4fef120a)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be58a8c5-3a34-4c3e-b093-b4dae6de8767)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be58a8c5-3a34-4c3e-b093-b4dae6de8767)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection fd89d673-d40a-449b-b105-218eec38854d is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: fd89d673-d40a-449b-b105-218eec38854d, transport: WebSocketTransport, message: {"C":"d-C6C7034-B,0|C,0|D,0|E,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: fd89d673-d40a-449b-b105-218eec38854d, transport: WebSocketTransport, message: {"R":{"ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: fd89d673-d40a-449b-b105-218eec38854d, transport: WebSocketTransport, message: {"C":"d-C6C7034-B,0|C,0|D,1|E,1","M":[{"H":"OMHub","M":"OnReceiveInput","A":[{"Attribute":13,"Ext":{"ID":"6678"},"Error":{"Code":0,"Reason":null}}]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: fd89d673-d40a-449b-b105-218eec38854d, transport: WebSocketTransport, message: {"C":"d-C6C7034-B,0|C,0|D,2|E,1","M":[{"H":"OMHub","M":"OnReceiveInput","A":[{"Attribute":6,"_Ext":[{"ID":"6678"}],"Outer":null,"Visitor":{"Device":null,"ID":22,"From":"13012345678","To":"02161208234","CallID":16408,"State":0},"Menu":null}]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(fd89d673-d40a-449b-b105-218eec38854d)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection bd9d72ae-2039-45ef-ba18-2f5b7d9bc979 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: bd9d72ae-2039-45ef-ba18-2f5b7d9bc979, transport: WebSocketTransport, message: {"C":"d-1586EC91-B,0|C,0|D,0|E,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: bd9d72ae-2039-45ef-ba18-2f5b7d9bc979, transport: WebSocketTransport, message: {"$type":"Microsoft.AspNet.SignalR.Hubs.HubResponse, Microsoft.AspNet.SignalR.Core","R":{"$type":"OM.Api.Models.ExtInfo, OM.Api","ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: bd9d72ae-2039-45ef-ba18-2f5b7d9bc979, transport: WebSocketTransport, message: {"C":"d-1586EC91-B,0|C,0|D,1|E,1","M":[{"$type":"Microsoft.AspNet.SignalR.Hubs.ClientHubInvocation, Microsoft.AspNet.SignalR.Core","H":"OMHub","M":"OnReceiveInput","A":[{"$type":"OM.Api.Models.Events.Ring, OM.Api","Attribute":6,"_Ext":[{"$type":"OM.Api.Models.IDAttribute, OM.Api","ID":"6678"}],"Outer":null,"Visitor":{"$type":"OM.Api.Models.VisitorCallInfo, OM.Api","Device":null,"ID":22,"From":"13012345678","To":"02161208234","CallID":16408,"State":0},"Menu":null}]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bd9d72ae-2039-45ef-ba18-2f5b7d9bc979)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bd9d72ae-2039-45ef-ba18-2f5b7d9bc979)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bd9d72ae-2039-45ef-ba18-2f5b7d9bc979)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bd9d72ae-2039-45ef-ba18-2f5b7d9bc979)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bd9d72ae-2039-45ef-ba18-2f5b7d9bc979)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 58293359-de4e-48e7-a137-4b9b2ceb5034 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 58293359-de4e-48e7-a137-4b9b2ceb5034, transport: WebSocketTransport, message: {"C":"d-2FA00A7C-B,0|C,0|D,0|E,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 58293359-de4e-48e7-a137-4b9b2ceb5034, transport: WebSocketTransport, message: {"$type":"Microsoft.AspNet.SignalR.Hubs.HubResponse, Microsoft.AspNet.SignalR.Core","R":{"$type":"OM.Api.Models.ExtInfo, OM.Api","ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 58293359-de4e-48e7-a137-4b9b2ceb5034, transport: WebSocketTransport, message: {"C":"d-2FA00A7C-B,0|C,0|D,1|E,1","M":[{"$type":"Microsoft.AspNet.SignalR.Hubs.ClientHubInvocation, Microsoft.AspNet.SignalR.Core","H":"OMHub","M":"OnReceiveInput","A":[{"$type":"OM.Api.Models.Events.Ring, OM.Api","Attribute":6,"_Ext":[{"$type":"OM.Api.Models.IDAttribute, OM.Api","ID":"6678"}],"Outer":null,"Visitor":{"$type":"OM.Api.Models.VisitorCallInfo, OM.Api","Device":null,"ID":22,"From":"13012345678","To":"02161208234","CallID":16408,"State":0},"Menu":null}]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(58293359-de4e-48e7-a137-4b9b2ceb5034, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 58293359-de4e-48e7-a137-4b9b2ceb5034 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 58293359-de4e-48e7-a137-4b9b2ceb5034
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.WebSocketTransport Information: 0 : End(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (58293359-de4e-48e7-a137-4b9b2ceb5034)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 6bd684fd-29d9-4c58-864f-36f81c4cb235 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 6bd684fd-29d9-4c58-864f-36f81c4cb235, transport: WebSocketTransport, message: {"C":"d-2FA00A7C-B,0|F,0|D,1|G,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 6bd684fd-29d9-4c58-864f-36f81c4cb235, transport: WebSocketTransport, message: {"$type":"Microsoft.AspNet.SignalR.Hubs.HubResponse, Microsoft.AspNet.SignalR.Core","R":{"$type":"OM.Api.Models.ExtInfo, OM.Api","ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 6bd684fd-29d9-4c58-864f-36f81c4cb235, transport: WebSocketTransport, message: {"C":"d-2FA00A7C-B,0|F,0|D,2|G,1","M":[{"$type":"Microsoft.AspNet.SignalR.Hubs.ClientHubInvocation, Microsoft.AspNet.SignalR.Core","H":"OMHub","M":"OnReceiveInput","A":[{"$type":"OM.Api.Models.Events.Ring, OM.Api","Attribute":6,"_Ext":[{"$type":"OM.Api.Models.IDAttribute, OM.Api","ID":"6678"}],"Outer":null,"Visitor":{"$type":"OM.Api.Models.VisitorCallInfo, OM.Api","Device":null,"ID":22,"From":"13012345678","To":"02161208234","CallID":16408,"State":0},"Menu":null}]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : Connection 6bd684fd-29d9-4c58-864f-36f81c4cb235 exists. Closing previous connection.
+SignalR.Transports.WebSocketTransport Information: 0 : End(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(6bd684fd-29d9-4c58-864f-36f81c4cb235, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 6bd684fd-29d9-4c58-864f-36f81c4cb235 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 6bd684fd-29d9-4c58-864f-36f81c4cb235 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 6bd684fd-29d9-4c58-864f-36f81c4cb235 is dead
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Information: 0 : Dispose(). Closing all connections
+SignalR.Transports.WebSocketTransport Information: 0 : End(6bd684fd-29d9-4c58-864f-36f81c4cb235)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection bce4051b-bcc3-47cb-820f-7b596399b410 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: bce4051b-bcc3-47cb-820f-7b596399b410, transport: WebSocketTransport, message: {"C":"d-C2EAD32E-B,0|C,0|D,0|E,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: bce4051b-bcc3-47cb-820f-7b596399b410, transport: WebSocketTransport, message: {"$type":"Microsoft.AspNet.SignalR.Hubs.HubResponse, Microsoft.AspNet.SignalR.Core","R":{"$type":"OM.Api.Models.ExtInfo, OM.Api","ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":{"$type":"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib","$values":[]},"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: bce4051b-bcc3-47cb-820f-7b596399b410, transport: WebSocketTransport, message: {"C":"d-C2EAD32E-B,0|C,0|D,1|E,1","M":[{"$type":"Microsoft.AspNet.SignalR.Hubs.ClientHubInvocation, Microsoft.AspNet.SignalR.Core","H":"OMHub","M":"OnReceiveInput","A":{"$type":"System.Object[], mscorlib","$values":[{"$type":"OM.Api.Models.Events.Ring, OM.Api","Attribute":6,"_Ext":{"$type":"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib","$values":[{"$type":"OM.Api.Models.IDAttribute, OM.Api","ID":"6678"}]},"Outer":null,"Visitor":{"$type":"OM.Api.Models.VisitorCallInfo, OM.Api","Device":null,"ID":22,"From":"13012345678","To":"02161208234","CallID":16408,"State":0},"Menu":null}]}}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(bce4051b-bcc3-47cb-820f-7b596399b410, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : bce4051b-bcc3-47cb-820f-7b596399b410 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection bce4051b-bcc3-47cb-820f-7b596399b410
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.WebSocketTransport Information: 0 : End(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (bce4051b-bcc3-47cb-820f-7b596399b410)
+SignalR.Transports.TransportHeartBeat Information: 0 : Dispose(). Closing all connections
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection add82da1-5fad-4914-85d8-b9e7660d43b0 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: add82da1-5fad-4914-85d8-b9e7660d43b0, transport: WebSocketTransport, message: {"C":"d-1FA5CDE7-B,0|C,0|D,0|E,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: add82da1-5fad-4914-85d8-b9e7660d43b0, transport: WebSocketTransport, message: {"R":{"ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: add82da1-5fad-4914-85d8-b9e7660d43b0, transport: WebSocketTransport, message: {"C":"d-1FA5CDE7-B,0|C,0|D,1|E,1","M":[{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0}}"]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(add82da1-5fad-4914-85d8-b9e7660d43b0, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 62f1039c-8b2c-4462-b029-d4003cad90a9 is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 62f1039c-8b2c-4462-b029-d4003cad90a9, transport: WebSocketTransport, message: {"C":"d-1FA5CDE7-B,0|F,0|D,1|G,1","S":1,"M":[]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 62f1039c-8b2c-4462-b029-d4003cad90a9, transport: WebSocketTransport, message: {"R":{"ID":"6678","LineID":"IPPhone 200","StaffID":null,"Groups":[],"VoiceFile":null,"Email":null,"CallRestriction":1,"_Call_Pickup":"yes","AllowCallPickup":true,"_No_Disturb":null,"IsNoDisturb":false,"ForwardingType":2,"ForwardingNumber":null,"ForkNumber":null,"Mobile":"13799999999","_record":"on","IsRealtimeRecord":true,"State":0,"CallInfo":null,"_api":37,"APIFunction":7},"I":"0"}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 62f1039c-8b2c-4462-b029-d4003cad90a9, transport: WebSocketTransport, message: {"C":"d-1FA5CDE7-B,0|F,0|D,2|G,1","M":[{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0}}"]}]}
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(62f1039c-8b2c-4462-b029-d4003cad90a9)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : add82da1-5fad-4914-85d8-b9e7660d43b0 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection add82da1-5fad-4914-85d8-b9e7660d43b0
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.WebSocketTransport Information: 0 : End(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (add82da1-5fad-4914-85d8-b9e7660d43b0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(62f1039c-8b2c-4462-b029-d4003cad90a9)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(62f1039c-8b2c-4462-b029-d4003cad90a9, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(62f1039c-8b2c-4462-b029-d4003cad90a9)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 62f1039c-8b2c-4462-b029-d4003cad90a9 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 62f1039c-8b2c-4462-b029-d4003cad90a9 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 62f1039c-8b2c-4462-b029-d4003cad90a9 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 62f1039c-8b2c-4462-b029-d4003cad90a9 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 62f1039c-8b2c-4462-b029-d4003cad90a9 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Dispose(). Closing all connections
+SignalR.Transports.WebSocketTransport Information: 0 : End(62f1039c-8b2c-4462-b029-d4003cad90a9)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(62f1039c-8b2c-4462-b029-d4003cad90a9)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(62f1039c-8b2c-4462-b029-d4003cad90a9)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (62f1039c-8b2c-4462-b029-d4003cad90a9)

@@ -2,6 +2,7 @@
 using Microsoft.AspNet.SignalR.Hubs;
 using OM.Api;
 using OM.Api.Methods.Controls.Query;
+using OM.Api.Models;
 using OM.Api.Parser;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,24 @@ namespace OM.AppServer.SignalR
 
         private log4net.ILog Log = log4net.LogManager.GetLogger(typeof(OMHub));
 
-        //public void NotifyInput(string extID, IInput input)
-        //{
-        //    Clients.User(extID)
-        //        .notify(input);
-        //}
+
+        public async Task<ExtInfo> GetExtInfo()
+        {
+            var extID = this.GetExtID();
+            var mth = new GetExtInfo()
+            {
+                ID = extID
+            };
+            var info = await ApiClient.ExecuteAsync(mth);
+            if (!mth.HasError)
+            {
+                return info;
+            }
+            else
+            {
+                throw new HubException(mth.ErrorMessage);
+            }
+        }
 
 
         /// <summary>

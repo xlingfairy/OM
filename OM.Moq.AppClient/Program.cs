@@ -36,6 +36,16 @@ namespace OM.Moq.AppClient
                 "/signalr".FixUrl(ConfigurationManager.AppSettings.Get("AppServerUrl")),
                 token
                 );
+
+            try
+            {
+                var info = await OMHubProxy.GetExtInfo();
+                Console.WriteLine($"ID:{info.ID} StaffID:{info.StaffID} State:{info.State}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static Token Login(string extID)

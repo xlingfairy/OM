@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using OM.Api;
+using OM.Api.Models.Events;
 using OM.Api.Parser;
 using Owin;
 using System;
@@ -29,6 +30,10 @@ namespace OM.AppServer.SignalR
             //GlobalHost.HubPipeline.AddModule(new HubExceptionModule());
             //GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new OMIDProvider());
             //app.UseCors(CorsOptions.AllowAll);
+
+            //var ser = GlobalHost.DependencyResolver.Resolve<JsonSerializer>();
+            //ser.TypeNameHandling = TypeNameHandling.All;
+
             var cfg = new HubConfiguration()
             {
                 EnableJSONP = true,
@@ -42,9 +47,12 @@ namespace OM.AppServer.SignalR
         {
             var str = JsonConvert.SerializeObject(input, JSONSetting);
 
-            var a = HubContext.Value.Clients
+            HubContext.Value.Clients
                 //.All
                 .User(extID)
+                //暂时没有找到序列化抽象类/接口，而又不引起报错的办法
+                //.OnReceiveInput(input);
+                //只能发送 json 字符串，然后在客户端解开
                 .OnReceiveInput(str);
         }
     }
