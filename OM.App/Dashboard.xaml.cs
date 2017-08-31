@@ -29,7 +29,7 @@ namespace OM.App
 
         private async void LoadData()
         {
-            var devices = await OMHubProxy.GetDeviceInfo();
+            //var devices = await OMHubProxy.GetDeviceInfo();
         }
     }
 }

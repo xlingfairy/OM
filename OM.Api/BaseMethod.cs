@@ -77,6 +77,7 @@ namespace OM.Api
         /// <summary>
         /// 
         /// </summary>
+        [JsonIgnore]
         public bool HasError
         {
             get
@@ -107,7 +108,7 @@ namespace OM.Api
         /// 
         /// </summary>
         protected string Nonce { get; set; }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -163,6 +164,12 @@ namespace OM.Api
 
         #endregion
 
+        /// <summary>
+        /// SignalR 对泛型的支持还不了解如何处理，这个方法就是一个变通
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        internal abstract Task<object> Execute2(ApiClient client);
     }
 
     /// <summary>
@@ -171,6 +178,16 @@ namespace OM.Api
     /// <typeparam name="T"></typeparam>
     public abstract class BaseMethod<T> : BaseMethod
     {
+
+        /// <summary>
+        /// SignalR 对泛型的支持还不了解如何处理，这个方法就是一个变通
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        internal override async Task<object> Execute2(ApiClient client)
+        {
+            return await this.Execute(client);
+        }
 
         internal Task<T> Execute(ApiClient client)
         {

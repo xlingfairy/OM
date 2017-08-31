@@ -30,39 +30,67 @@ namespace OM.AppServer.SignalR
             TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple
         };
 
+
         /// <summary>
-        /// 
+        /// SignalR 对泛型，基类/接口的处理还没有弄明白，
+        /// 这样处理只是代替方案
         /// </summary>
-        /// <param name="mth"></param>
-        /// <returns></returns>
-        public async Task<string> GetDeviceInfo()
+        /// <param name="mthJson">Method 的 json 序列化字符串</param>
+        /// <returns>Method 执行结果的 json 序列化字符串</returns>
+        public async Task<string> Execute(string mthJson)
         {
-            var mth = new GetDeviceInfo();
-            var info = await ApiClient.ExecuteAsync(mth);
-            // info 含有抽象类，没有找到解决方法
-            return JsonConvert.SerializeObject(info, JSONSetting);
-        }
-
-
-        public async Task<ExtInfo> GetExtInfo()
-        {
-            var extID = this.GetExtID();
-            var mth = new GetExtInfo()
+            try
             {
-                ID = extID
-            };
-            var info = await ApiClient.ExecuteAsync(mth);
-            if (!mth.HasError)
-            {
-                return info;
+                var mth = JsonConvert.DeserializeObject<BaseMethod>(mthJson, JSONSetting);
+                if (mth != null)
+                {
+                    var rst = await ApiClient.ExecuteAsync(mth);
+                    return JsonConvert.SerializeObject(rst, JSONSetting);
+                }
+                return null;
             }
-            else
+            catch (Exception e)
             {
-                throw new HubException(mth.ErrorMessage);
+                throw new HubException(e.Message);
             }
         }
 
 
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="mth"></param>
+        ///// <returns></returns>
+        //public async Task<string> GetDeviceInfo()
+        //{
+        //    var mth = new GetDeviceInfo();
+        //    var info = await ApiClient.ExecuteAsync(mth);
+        //    // info 含有抽象类，没有找到解决方法
+        //    return JsonConvert.SerializeObject(info, JSONSetting);
+        //}
+
+
+        //public async Task<ExtInfo> GetExtInfo()
+        //{
+        //    var extID = this.GetExtID();
+        //    var mth = new GetExtInfo()
+        //    {
+        //        ID = extID
+        //    };
+        //    var info = await ApiClient.ExecuteAsync(mth);
+        //    if (!mth.HasError)
+        //    {
+        //        return info;
+        //    }
+        //    else
+        //    {
+        //        throw new HubException(mth.ErrorMessage);
+        //    }
+        //}
+
+
+
+        #region 
         /// <summary>
         /// 获取分机号
         /// </summary>
@@ -93,8 +121,10 @@ namespace OM.AppServer.SignalR
                 }
             }
         }
+        #endregion
 
 
+        #region 事件
         public async override Task OnConnected()
         {
             //对应为 HubProxy["ExtID"]
@@ -120,5 +150,6 @@ namespace OM.AppServer.SignalR
             this.Log.Debug($"Client {Context.ConnectionId} 分机：{extID} 重连");
             return base.OnReconnected();
         }
+        #endregion
     }
 }

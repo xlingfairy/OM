@@ -99,7 +99,17 @@ namespace OM.Api
 
 
         /// <summary>
-        /// 
+        /// 执行方法， For SignalR
+        /// </summary>
+        /// <param name="mth"></param>
+        /// <returns></returns>
+        public static async Task<object> ExecuteAsync(BaseMethod mth)
+        {
+            return await mth.Execute2(Instance.Value);
+        }
+
+        /// <summary>
+        /// 执行输入
         /// </summary>
         /// <param name="xml"></param>
         /// <returns></returns>

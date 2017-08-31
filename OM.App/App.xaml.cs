@@ -42,7 +42,7 @@ namespace OM.App
             var token = await this.Login("6678");
             if (token != null)
             {
-                await OMHubProxy.Start(
+                await OMExtHubProxy.Instance.Start(
                     "/signalr".FixUrl(ConfigurationManager.AppSettings.Get("AppServerUrl")),
                     token.AccessToken
                     );

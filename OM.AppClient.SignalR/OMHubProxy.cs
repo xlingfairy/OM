@@ -21,19 +21,34 @@ namespace OM.AppClient.SignalR
     public class OMHubProxy : IDisposable
     {
 
+
         private static string HubUrl { get; set; }
 
+        /// <summary>
+        /// 用户登陆的认证信息
+        /// </summary>
         private static string AuthorizationToken { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static Lazy<OMHubProxy> Instance = new Lazy<OMHubProxy>(() => new OMHubProxy(HubUrl));
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         private IHubProxy Proxy { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private HubConnection Connection { get; }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static readonly JsonSerializerSettings JSONSetting = new JsonSerializerSettings()
         {
             NullValueHandling = NullValueHandling.Ignore,
@@ -46,31 +61,10 @@ namespace OM.AppClient.SignalR
         {
             this.Connection = new HubConnection(hubUrl);
             this.Connection.Error += Connection_Error;
-            //不能设置这个，会有一系列报错
-            //this.Connection.JsonSerializer.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Objects;
-
-            //无法指定 ConnectionId
-            //this.Connection.ConnectionId = "200";
-            //this.Connection.Credentials = new NetworkCredential("200", "");
-            //this.Connection.Headers.Add("ExtID", "8073");
-
             this.Connection.Headers.Add("Authorization", AuthorizationToken);
             this.Proxy = this.Connection.CreateHubProxy("OMHub");
 
-            //不能设置这个，会有一系列报错
-            //this.Proxy.JsonSerializer.TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Objects;
-
-            //对应为 Clients.Caller.ExtID dynamic
-            //this.Proxy["ExtID"] = "200";
-
             #region
-            //暂时没有找到序列化抽象类/接口，而又不引起报错的办法
-            //只能在服务端发送 json 字符串，在客户端解开
-            //this.Proxy.On<IExtNotify>("OnReceiveInput", d =>
-            //{
-            //    Console.WriteLine(d);
-            //});
-
             this.Proxy.On<string>("OnReceiveInput", d =>
             {
                 var evt = (BaseEvent)JsonConvert.DeserializeObject<IExtNotify>(d, JSONSetting);
@@ -87,9 +81,12 @@ namespace OM.AppClient.SignalR
 
 
 
+
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="hubUrl">OMHub Url</param>
+        /// <param name="authorizationToken">用户认证信息</param>
         /// <returns></returns>
         public static async Task Start(string hubUrl, string authorizationToken)
         {
@@ -105,16 +102,17 @@ namespace OM.AppClient.SignalR
             }
         }
 
-
-        public static async Task<ExtInfo> GetExtInfo()
+        /// <summary>
+        /// 远程执行方法
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="mth"></param>
+        /// <returns></returns>
+        public static async Task<T> Execute<T>(BaseMethod<T> mth)
         {
-            return await Instance.Value.Proxy.Invoke<ExtInfo>("GetExtInfo");
-        }
-
-        public static async Task<DeviceInfo> GetDeviceInfo()
-        {
-            var json = await Instance.Value.Proxy.Invoke<string>("GetDeviceInfo");
-            return JsonConvert.DeserializeObject<DeviceInfo>(json, JSONSetting);
+            var mthJson = JsonConvert.SerializeObject(mth, JSONSetting);
+            var rst = await Instance.Value.Proxy.Invoke<string>("Execute", mthJson);
+            return JsonConvert.DeserializeObject<T>(rst, JSONSetting);
         }
 
 
