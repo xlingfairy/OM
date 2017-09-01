@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
-using OM.Moq.Entity;
+using OM.AppServer.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 

@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace OM.Moq.AppServer
+namespace OM.AppServer
 {
     public static class OMHandler
     {

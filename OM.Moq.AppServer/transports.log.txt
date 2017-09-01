@@ -1170,3 +1170,37 @@ SignalR.Transports.WebSocketTransport Information: 0 : End(5bf71ff6-ac24-4830-9c
 SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(5bf71ff6-ac24-4830-9c4c-7254991ea74a)
 SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(5bf71ff6-ac24-4830-9c4c-7254991ea74a)
 SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (5bf71ff6-ac24-4830-9c4c-7254991ea74a)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is New.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c, transport: WebSocketTransport, message: {"C":"d-FD888676-B,0|C,0|D,0|E,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c, System.Net.WebSockets.WebSocketException (0x800703E3): 由于线程退出或应用程序请求，已中止 I/O 操作。
+   在 System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__3.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__25.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
+SignalR.Transports.WebSocketTransport Information: 0 : End(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)

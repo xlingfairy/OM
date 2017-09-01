@@ -1,5 +1,6 @@
 ﻿using log4net.Config;
 using Microsoft.Owin;
+using OM.AppServer;
 using OM.AppServer.SignalR;
 using OM.Moq.AppServer;
 using OM.Moq.AppServer.Auth;
@@ -13,7 +14,7 @@ using System.Web.Http;
 
 [assembly: OwinStartup(typeof(Startup))]
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
-namespace OM.Moq.AppServer
+namespace OM.AppServer
 {
     public class Startup
     {

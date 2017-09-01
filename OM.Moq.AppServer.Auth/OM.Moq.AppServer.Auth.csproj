@@ -77,9 +77,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OM.Moq.Entity\OM.Moq.Entity.csproj">
+    <ProjectReference Include="..\OM.Moq.Entity\OM.AppServer.Entity.csproj">
       <Project>{529bc1df-765c-4024-8861-0450873f12ee}</Project>
-      <Name>OM.Moq.Entity</Name>
+      <Name>OM.AppServer.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

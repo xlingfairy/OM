@@ -104,6 +104,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Auth.cs" />
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -151,9 +152,9 @@
       <Project>{01b2ef25-170d-4232-888a-488d354c88e6}</Project>
       <Name>OM.AppClient.SignalR</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OM.Moq.Entity\OM.Moq.Entity.csproj">
+    <ProjectReference Include="..\OM.Moq.Entity\OM.AppServer.Entity.csproj">
       <Project>{529BC1DF-765C-4024-8861-0450873F12EE}</Project>
-      <Name>OM.Moq.Entity</Name>
+      <Name>OM.AppServer.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

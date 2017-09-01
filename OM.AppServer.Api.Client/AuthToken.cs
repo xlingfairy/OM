@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.AppServer.Entity
+namespace OM.AppServer.Api.Client
 {
-    public class Token
+    public class AuthToken : BaseResponse
     {
 
         /// <summary>
@@ -37,5 +37,16 @@ namespace OM.AppServer.Entity
         [JsonProperty(".expires")]
         public string ExpiresAt { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("error")]
+        public override string ErrorCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("error_description")]
+        public override string ErrorMsg { get; set; }
     }
 }

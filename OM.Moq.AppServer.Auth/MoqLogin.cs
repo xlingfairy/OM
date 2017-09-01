@@ -1,4 +1,4 @@
-﻿using OM.Moq.Entity;
+﻿using OM.AppServer.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;

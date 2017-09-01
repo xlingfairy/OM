@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace OM.Moq.AppServer.Controllers
+namespace OM.AppServer.Controllers
 {
     public class InputController : ApiController
     {

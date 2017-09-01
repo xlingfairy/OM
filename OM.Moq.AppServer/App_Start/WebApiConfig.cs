@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace OM.Moq.AppServer
+namespace OM.AppServer
 {
     public static class WebApiConfig
     {

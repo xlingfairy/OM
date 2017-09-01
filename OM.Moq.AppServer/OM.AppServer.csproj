@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\InputController.cs" />
     <Compile Include="OMHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
