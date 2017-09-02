@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OM.App.ViewModels
 {
-    public class ShellViewModel : Screen
+    public class ShellViewModel : PropertyChangedBase, IShell
     {
     }
 }
