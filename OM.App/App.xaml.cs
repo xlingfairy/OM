@@ -11,6 +11,8 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using AppServerApiClient = OM.AppServer.Api.Client.ApiClient;
+using ApppServerApiClientOption = OM.AppServer.Api.Client.ApiClientOption;
 
 namespace OM.App
 {
@@ -22,56 +24,18 @@ namespace OM.App
 
         private NotifyIcon Icon = null;
 
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
+        //    base.OnStartup(e);
 
-            this.SetTray();
+        //    this.SetTray();
 
-            var task = Task.Run(async () =>
-            {
-                await this.Begin();
-            });
+        //    AppServerApiClient.Init(new ApppServerApiClientOption()
+        //    {
+        //        BaseUri = "http://localhost:52537/api/"
+        //    });
+        //}
 
-            Task.WaitAll(task);
-        }
-
-
-        private async Task Begin()
-        {
-            var token = await this.Login("6678");
-            if (token != null)
-            {
-                await OMExtHubProxy.Instance.Start(
-                    "/signalr".FixUrl(ConfigurationManager.AppSettings.Get("AppServerUrl")),
-                    token.AccessToken
-                    );
-            }
-        }
-
-        private async Task<Token> Login(string extID)
-        {
-            var url = "/api/Token".FixUrl(ConfigurationManager.AppSettings.Get("AppServerUrl"));
-            var rh = new RequestHelper();
-            try
-            {
-                var ctx = await rh.PostAsync(
-                    url,
-                    new Dictionary<string, string>()
-                        {
-                            {"userName", extID },
-                            { "password", extID},
-                            {"grant_type","password" }
-                        }
-                );
-                var token = JsonConvert.DeserializeObject<Token>(ctx);
-                return token;
-            }
-            catch
-            {
-                return null;
-            }
-        }
 
         private void SetTray()
         {

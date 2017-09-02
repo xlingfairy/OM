@@ -27,13 +27,6 @@ namespace OM.App
         public MainWindow()
         {
             InitializeComponent();
-            this.LoadData();
-        }
-
-        private async void LoadData()
-        {
-            var mth = new GetDeviceInfo();
-            var devices = await OMExtHubProxy.Instance.Execute(mth);
         }
     }
 }

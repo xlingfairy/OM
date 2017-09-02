@@ -10,6 +10,8 @@ namespace OM.AppServer.Api.Client
     public class AuthToken : BaseResponse
     {
 
+        public string User { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,13 +31,13 @@ namespace OM.AppServer.Api.Client
         /// 
         /// </summary>
         [JsonProperty(".issued")]
-        public string LoginedOn { get; set; }
+        public DateTime LoginedOn { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty(".expires")]
-        public string ExpiresAt { get; set; }
+        public DateTime ExpiresAt { get; set; }
 
         /// <summary>
         /// 
@@ -48,5 +50,11 @@ namespace OM.AppServer.Api.Client
         /// </summary>
         [JsonProperty("error_description")]
         public override string ErrorMsg { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsValid => !string.IsNullOrWhiteSpace(this.AccessToken)
+                                && this.ExpiresAt > DateTime.Now;
     }
 }

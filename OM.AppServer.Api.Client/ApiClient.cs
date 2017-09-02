@@ -1,4 +1,5 @@
 ﻿using CNB.Common;
+using OM.AppServer.Api.Client.Methods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,9 +90,21 @@ namespace OM.AppServer.Api.Client
         }
 
 
-        public static bool Login(string user, string pwd)
+        public static async Task<bool> Login(string user, string pwd)
         {
-            throw new NotImplementedException();
+            var mth = new Login()
+            {
+                User = user,
+                Pwd = pwd
+            };
+            var token = await mth.Execute(Instance.Value);
+            if (!mth.HasError)
+            {
+                token.User = user;
+                Instance.Value.AuthToken = token;
+                return true;
+            }
+            return false;
         }
     }
 

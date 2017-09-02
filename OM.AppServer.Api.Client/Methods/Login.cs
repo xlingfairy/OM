@@ -15,10 +15,10 @@ namespace OM.AppServer.Api.Client.Methods
 
         public override string Model => "Token";
 
-        [Param, Required]
+        [Param("userName"), Required]
         public string User { get; set; }
 
-        [Param, Required]
+        [Param("password"), Required]
         public string Pwd { get; set; }
 
         [Param("grant_type")]
