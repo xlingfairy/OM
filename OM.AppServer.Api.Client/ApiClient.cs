@@ -3,6 +3,7 @@ using OM.AppServer.Api.Client.Methods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,11 @@ namespace OM.AppServer.Api.Client
     /// </summary>
     public class ApiClient
     {
+
+        /// <summary>
+        /// 当登陆成功时
+        /// </summary>
+        public static event EventHandler<LoginedEventArgs> OnLogined = null;
 
         private static Lazy<ApiClient> Instance = new Lazy<ApiClient>(() => new ApiClient());
 
@@ -35,6 +41,8 @@ namespace OM.AppServer.Api.Client
         /// 是否登陆
         /// </summary>
         public static bool IsLogined => Instance.Value.AuthToken?.IsValid ?? false;
+
+
 
         /// <summary>
         /// 初始化
@@ -107,9 +115,28 @@ namespace OM.AppServer.Api.Client
             {
                 token.User = user;
                 Instance.Value.AuthToken = token;
+
+                if (OnLogined != null)
+                {
+                    OnLogined.BeginInvoke(null, new LoginedEventArgs()
+                    {
+                        Token = token
+                    },
+                    LoginedCallback,
+                    null
+                    );
+                }
+
                 return (true, null);
             }
             return (false, mth.ErrorMessage);
+        }
+
+        private static void LoginedCallback(IAsyncResult result)
+        {
+            var ar = (AsyncResult)result;
+            var mth = (EventHandler<LoginedEventArgs>)ar.AsyncDelegate;
+            mth.EndInvoke(result);
         }
     }
 

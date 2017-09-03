@@ -19,30 +19,32 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="5,5,5,2" Style="{StaticResource MaterialDesignHeadlineTextBlock}">用户登陆</TextBlock>
-                    <Separator Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignDarkSeparator}"/>
+                    <TextBlock Grid.Row="0" Margin="5,5,5,2" Style="{StaticResource MaterialDesignHeadlineTextBlock}">用户登陆</TextBlock>
+                    <Separator Grid.Row="1"  Style="{StaticResource MaterialDesignDarkSeparator}"/>
 
-                    <md:PackIcon Grid.Row="2" Grid.Column="0" 
-                         Kind="Account" Foreground="{Binding ElementName=User, Path=BorderBrush}" 
-                         HorizontalAlignment="Right" />
-                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="User" 
-                     md:HintAssist.Hint="用户名" 
-                     md:HintAssist.IsFloating="True" />
+                    <TextBox Grid.Row="2" x:Name="User" 
+                     md:HintAssist.IsFloating="True">
+                        <md:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                <md:PackIcon Kind="AccountBox" />
+                                <TextBlock>用户名</TextBlock>
+                            </StackPanel>
+                        </md:HintAssist.Hint>
+                    </TextBox>
 
-                    <md:PackIcon Grid.Row="3" Grid.Column="0" 
-                         Kind="Key" Foreground="{Binding ElementName=Pwd, Path=BorderBrush}" 
-                         HorizontalAlignment="Right" />
-                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="Pwd" 
-                         md:HintAssist.Hint="密码" 
-                         md:HintAssist.IsFloating="True" />
+                    <TextBox Grid.Row="3" x:Name="Pwd" 
+                         md:HintAssist.IsFloating="True">
+                        <md:HintAssist.Hint>
+                            <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                                <md:PackIcon Kind="Security" />
+                                <TextBlock>密码</TextBlock>
+                            </StackPanel>
+                        </md:HintAssist.Hint>
+                    </TextBox>
+
 
                     <Button Grid.Row="4" 
-                    Grid.ColumnSpan="2"
                     Command="{x:Static md:DialogHost.CloseDialogCommand}"
                     Style="{StaticResource MaterialDesignFlatButton}" 
                     Content="登陆" FontSize="15" />

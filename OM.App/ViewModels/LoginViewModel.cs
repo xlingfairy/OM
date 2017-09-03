@@ -25,7 +25,7 @@ namespace OM.App.ViewModels
 
         public string Pwd { get; set; }
 
-        public string Msg { get; set; }
+        public string Msg { get; set; } = "";
 
         public bool HasError { get; set; }
 
@@ -39,7 +39,7 @@ namespace OM.App.ViewModels
             }
             else
             {
-                this.Msg = null;
+                this.Msg = "";
                 this.HasError = false;
             }
 
@@ -57,7 +57,7 @@ namespace OM.App.ViewModels
             //this.NotifyOfPropertyChange(() => this.HasError);
             //this.NotifyOfPropertyChange(() => this.Msg);
 
-            this.NotifyOfPropertyChange(() => this.Msg, ()=>this.HasError);
+            this.NotifyOfPropertyChange(() => this.Msg, () => this.HasError);
         }
     }
 

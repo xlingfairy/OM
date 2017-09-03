@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:OM.App"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        xmlns:cm="http://www.caliburnproject.org"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -19,6 +21,29 @@
         <md:DialogHost.DialogContent>
             <ContentControl />
         </md:DialogHost.DialogContent>
-        <Button x:Name="Login" Content="Login" />
+        <dragablz:TabablzControl ItemsSource="{Binding Tabs}"
+                                 HeaderMemberPath="Title"
+                                 ShowDefaultCloseButton="True"
+                                 SelectedIndex="0"
+                                 >
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController />
+            </dragablz:TabablzControl.InterTabController>
+
+            <dragablz:TabablzControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl cm:View.Model="{Binding}" Margin="10" />
+                </DataTemplate>
+            </dragablz:TabablzControl.ContentTemplate>
+
+
+
+            <!--<TabItem Header="Tab No. 1" IsSelected="True">
+                <TextBlock>Hello World</TextBlock>
+            </TabItem>
+            <TabItem Header="Tab No. 2">
+                <TextBlock>We Have Tearable Tabs!</TextBlock>
+            </TabItem>-->
+        </dragablz:TabablzControl>
     </md:DialogHost>
 </metro:MetroWindow>

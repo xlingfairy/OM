@@ -1,8 +1,11 @@
 ﻿using Caliburn.Micro;
+using CNB.Common;
 using MaterialDesignThemes.Wpf;
 using OM.App.Attributes;
+using OM.AppClient.SignalR;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -21,6 +24,14 @@ namespace OM.App.ViewModels
     {
         public override string Title => "OM Client";
 
+        public IObservableCollection<BaseVM> Tabs { get; }
+
+
+        public ShellViewModel()
+        {
+            this.Tabs = new BindableCollection<BaseVM>();
+        }
+
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
@@ -32,9 +43,19 @@ namespace OM.App.ViewModels
         {
             if (!SClient.IsLogined)
             {
-                IoC.Get<LoginViewModel>().ShowAsDialog(vm => vm.Login());
+                this.ShowLogin();
                 ((Views.ShellView)sender).Activated -= V_Activated;
             }
+        }
+
+        private async void ShowLogin()
+        {
+            var o = await IoC.Get<LoginViewModel>().ShowAsDialog(vm => vm.Login());
+
+            OMExtHubProxy.Instance.Connected = (sender, args) =>
+            {
+                this.Tabs.Add(IoC.Get<DashboardViewModel>());
+            };
         }
     }
 }

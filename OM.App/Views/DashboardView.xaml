@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="OM.App.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OM.App.Views"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mdc="http://metro.mahapps.com/winfx/xaml/controls"                          
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <md:Card Padding="5" Grid.Row="0">
+                <TextBlock>
+            <Run>生产商:</Run>
+            <Run Text="{Binding Data.Manufacturer}" />
+            <Run>  </Run>
+            <Run>硬件版本:</Run>
+            <Run Text="{Binding Data.Model}" />
+            <Run>  </Run>
+            <Run>软件版本:</Run>
+            <Run Text="{Binding Data.Version}" />
+            <Run>  </Run>
+            <Run>MAC:</Run>
+            <Run Text="{Binding Data.MAC}" />
+            <Run>  </Run>
+                </TextBlock>
+            </md:Card>
+
+
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Data.Exts}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <md:Flipper Margin="4 4 0 0" 
+                                Width="150"
+                                Style="{StaticResource MaterialDesignCardFlipper}"
+                                >
+                            <md:Flipper.FrontContent>
+                                <StackPanel Margin="10">
+                                    <TextBlock Text="{Binding ID}" Style="{StaticResource MaterialDesignTitleTextBlock}" />
+                                    <Separator Grid.Row="1"  Style="{StaticResource MaterialDesignDarkSeparator}"/>
+                                    <TextBlock Text="{Binding LineID}" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+
+                                    <Button HorizontalAlignment="Right" 
+                                            Width="30" 
+                                            Padding="2 0 0 0"
+                                            Style="{StaticResource MaterialDesignFlatButton}"
+                                            Command="{x:Static md:Flipper.FlipCommand}"                                            
+                                            md:RippleAssist.IsCentered="True">
+                                        <md:PackIcon Kind="Menu" />
+                                    </Button>
+                                </StackPanel>
+                            </md:Flipper.FrontContent>
+                            <md:Flipper.BackContent>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <md:ColorZone Mode="Accent" Padding="6">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Command="{x:Static md:Flipper.FlipCommand}"
+                                        HorizontalAlignment="Left">
+                                                <md:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                                            </Button>
+                                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="3 0 0 0" VerticalAlignment="Center">编辑分机</TextBlock>
+                                        </StackPanel>
+                                    </md:ColorZone>
+
+                                    <StackPanel Grid.Row="1">
+                                        
+                                    </StackPanel>
+
+                                    <Button Grid.Row="2" HorizontalAlignment="Right" 
+                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                        Width="30" Padding="2 0 0 0"
+                                        md:RippleAssist.IsCentered="True">
+                                        <md:PackIcon Kind="CheckAll" />
+                                    </Button>
+                                </Grid>
+                            </md:Flipper.BackContent>
+                        </md:Flipper>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -88,7 +88,7 @@ namespace OM.App
         /// <typeparam name="T"></typeparam>
         /// <param name="vm"></param>
         /// <param name="canClose"></param>
-        public async static void ShowAsDialog<T>(this T vm, Func<T, Task<bool>> canClose = null) where T : BaseVM
+        public async static Task<object> ShowAsDialog<T>(this T vm, Func<T, Task<bool>> canClose = null) where T : BaseVM
         {
             var view = ViewLocator.LocateForModel(vm, null, null);
             ViewModelBinder.Bind(vm, view, null);
@@ -120,7 +120,7 @@ namespace OM.App
                 }
             };
 
-            await DialogHost.Show(view, close);
+            return await DialogHost.Show(view, close);
         }
 
 

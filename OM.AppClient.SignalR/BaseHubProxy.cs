@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,9 @@ namespace OM.AppClient.SignalR
     /// </summary>
     public abstract class BaseHubProxy
     {
+
+        public EventHandler Connected = null;
+
         /// <summary>
         /// 
         /// </summary>
@@ -38,6 +42,7 @@ namespace OM.AppClient.SignalR
         {
             this.Connection = new HubConnection(signalRUrl);
             this.Connection.Error += Connection_Error;
+            this.Connection.StateChanged += Connection_StateChanged;
 
             this.Connection.Headers.Add("Authorization", $"Bearer {authorizationToken}");
             this.Proxy = this.Connection.CreateHubProxy(this.HubName);
@@ -45,6 +50,20 @@ namespace OM.AppClient.SignalR
             this.BeforeStart();
 
             await this.Connection.Start();
+        }
+
+        private void Connection_StateChanged(StateChange obj)
+        {
+            if (obj.NewState == ConnectionState.Connected)
+                this.Connected?.BeginInvoke(null, new EventArgs(), ConnectedCallback, null);
+        }
+
+
+        private void ConnectedCallback(IAsyncResult result)
+        {
+            var ar = (AsyncResult)result;
+            var mth = (EventHandler)ar.AsyncDelegate;
+            mth.EndInvoke(result);
         }
 
         /// <summary>
