@@ -15,33 +15,10 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <md:DialogHost IsOpen="True">
+    <md:DialogHost>
         <md:DialogHost.DialogContent>
-            <md:Card Padding="5" Margin="0">
-                <Grid Width="300">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="16 16 16 4" Style="{StaticResource MaterialDesignHeadlineTextBlock}">用户登陆</TextBlock>
-                    <Separator Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignLightSeparator}"/>
-
-                    <md:PackIcon Grid.Row="2" Grid.Column="0" Kind="Account" Foreground="{Binding ElementName=UserName, Path=BorderBrush}" HorizontalAlignment="Right" />
-                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="UserName" md:HintAssist.Hint="用户名" md:HintAssist.IsFloating="True" />
-
-                    <md:PackIcon Grid.Row="3" Grid.Column="0" Kind="Key" Foreground="{Binding ElementName=Password, Path=BorderBrush}" HorizontalAlignment="Right" />
-                    <PasswordBox Grid.Row="3" Grid.Column="1" x:Name="Password" md:HintAssist.Hint="密码" md:HintAssist.IsFloating="True" />
-                    <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignFlatButton}" Content="登陆" FontSize="15" />
-                </Grid>
-            </md:Card>
+            <ContentControl />
         </md:DialogHost.DialogContent>
+        <Button x:Name="Login" Content="Login" />
     </md:DialogHost>
 </metro:MetroWindow>

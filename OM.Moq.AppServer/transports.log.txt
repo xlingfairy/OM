@@ -1204,3 +1204,4 @@ SignalR.Transports.WebSocketTransport Information: 0 : End(18cf0424-48e4-4fd3-a3
 SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
 SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
 SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (18cf0424-48e4-4fd3-a30a-cd3f5ee3f38c)
+SignalR.Transports.TransportHeartBeat Information: 0 : Dispose(). Closing all connections

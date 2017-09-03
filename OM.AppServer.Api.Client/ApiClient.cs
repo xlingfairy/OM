@@ -32,6 +32,11 @@ namespace OM.AppServer.Api.Client
         internal AuthToken AuthToken { get; private set; }
 
         /// <summary>
+        /// 是否登陆
+        /// </summary>
+        public static bool IsLogined => Instance.Value.AuthToken?.IsValid ?? false;
+
+        /// <summary>
         /// 初始化
         /// </summary>
         /// <param name="opt"></param>
@@ -90,7 +95,7 @@ namespace OM.AppServer.Api.Client
         }
 
 
-        public static async Task<bool> Login(string user, string pwd)
+        public static async Task<(bool, string)> Login(string user, string pwd)
         {
             var mth = new Login()
             {
@@ -102,9 +107,9 @@ namespace OM.AppServer.Api.Client
             {
                 token.User = user;
                 Instance.Value.AuthToken = token;
-                return true;
+                return (true, null);
             }
-            return false;
+            return (false, mth.ErrorMessage);
         }
     }
 

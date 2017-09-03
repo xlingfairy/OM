@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="OM.App.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OM.App.Views"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <md:Card Padding="5" Margin="0">
+            <StackPanel>
+                <Grid Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="5,5,5,2" Style="{StaticResource MaterialDesignHeadlineTextBlock}">用户登陆</TextBlock>
+                    <Separator Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignDarkSeparator}"/>
+
+                    <md:PackIcon Grid.Row="2" Grid.Column="0" 
+                         Kind="Account" Foreground="{Binding ElementName=User, Path=BorderBrush}" 
+                         HorizontalAlignment="Right" />
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="User" 
+                     md:HintAssist.Hint="用户名" 
+                     md:HintAssist.IsFloating="True" />
+
+                    <md:PackIcon Grid.Row="3" Grid.Column="0" 
+                         Kind="Key" Foreground="{Binding ElementName=Pwd, Path=BorderBrush}" 
+                         HorizontalAlignment="Right" />
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="Pwd" 
+                         md:HintAssist.Hint="密码" 
+                         md:HintAssist.IsFloating="True" />
+
+                    <Button Grid.Row="4" 
+                    Grid.ColumnSpan="2"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                    Style="{StaticResource MaterialDesignFlatButton}" 
+                    Content="登陆" FontSize="15" />
+
+
+                </Grid>
+            </StackPanel>
+        </md:Card>
+        <md:Snackbar Grid.ColumnSpan="2" IsActive="{Binding HasError}" Message="{Binding Msg}" />
+    </StackPanel>
+</UserControl>
