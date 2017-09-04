@@ -17,18 +17,17 @@
 
             <md:Card Padding="5" Grid.Row="0">
                 <TextBlock>
-            <Run>生产商:</Run>
-            <Run Text="{Binding Data.Manufacturer}" />
-            <Run>  </Run>
-            <Run>硬件版本:</Run>
-            <Run Text="{Binding Data.Model}" />
-            <Run>  </Run>
-            <Run>软件版本:</Run>
-            <Run Text="{Binding Data.Version}" />
-            <Run>  </Run>
-            <Run>MAC:</Run>
-            <Run Text="{Binding Data.MAC}" />
-            <Run>  </Run>
+                    <Run>生产商:</Run>
+                    <Run Text="{Binding Data.Manufacturer}" />
+                    <Run>    </Run>
+                    <Run>硬件版本:</Run>
+                    <Run Text="{Binding Data.Model}" />
+                    <Run>    </Run>
+                    <Run>软件版本:</Run>
+                    <Run Text="{Binding Data.Version}" />
+                    <Run>    </Run>
+                    <Run>MAC:</Run>
+                    <Run Text="{Binding Data.MAC}" />
                 </TextBlock>
             </md:Card>
 
@@ -42,9 +41,14 @@
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <md:Flipper Margin="4 4 0 0" 
-                                Width="150"
+                        <md:Chip Margin="5" Content="{Binding ID}">
+                            <md:Chip.Icon>
+                                <md:PackIcon Kind="Phone" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </md:Chip.Icon>
+                        </md:Chip>
+                        <!--<md:Flipper Margin="4 4 0 0" 
                                 Style="{StaticResource MaterialDesignCardFlipper}"
+                                Width="150"
                                 >
                             <md:Flipper.FrontContent>
                                 <StackPanel Margin="10">
@@ -70,14 +74,16 @@
                                         <RowDefinition Height="auto" />
                                     </Grid.RowDefinitions>
 
-                                    <md:ColorZone Mode="Accent" Padding="6">
+                                    <md:ColorZone Mode="Accent">
                                         <StackPanel Orientation="Horizontal">
                                             <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                        Command="{x:Static md:Flipper.FlipCommand}"
-                                        HorizontalAlignment="Left">
+                                                    Command="{x:Static md:Flipper.FlipCommand}"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    >
                                                 <md:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
                                             </Button>
-                                            <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="3 0 0 0" VerticalAlignment="Center">编辑分机</TextBlock>
+                                            <TextBlock Margin="3 0 0 0" VerticalAlignment="Center">编辑分机</TextBlock>
                                         </StackPanel>
                                     </md:ColorZone>
 
@@ -93,7 +99,7 @@
                                     </Button>
                                 </Grid>
                             </md:Flipper.BackContent>
-                        </md:Flipper>
+                        </md:Flipper>-->
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
