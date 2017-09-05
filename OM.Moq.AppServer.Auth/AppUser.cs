@@ -37,6 +37,8 @@ namespace OM.Moq.AppServer.Auth
 
             //服务器端用到的
             userIdentity.AddClaim(new Claim("User", JsonConvert.SerializeObject(this.UserInfo)));
+            //
+            userIdentity.AddClaim(new Claim(ClaimTypes.Role, this.UserInfo.IsAdmin ? "admin" : "ext"));
             return userIdentity;
         }
     }

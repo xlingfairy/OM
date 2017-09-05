@@ -104,6 +104,7 @@
     <Compile Include="Attributes\RegistAttribute.cs" />
     <Compile Include="BaseVM.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="Models\DeviceState.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

@@ -21,7 +21,17 @@ namespace OM.Moq.AppServer.Auth
                 {
                     ExtID = userName,
                     RealName = "",
-                    UserName = userName
+                    UserName = userName,
+                    IsAdmin = false
+                };
+            }
+            else if (userName == "admin" && pwd == "admin123456789")
+            {
+                return new User()
+                {
+                    RealName = "Admin",
+                    UserName = "Admin",
+                    IsAdmin = true
                 };
             }
 

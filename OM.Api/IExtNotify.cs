@@ -8,7 +8,7 @@ namespace OM.Api
 {
 
     /// <summary>
-    /// 事件接收者
+    /// 分机事件通知
     /// </summary>
     public interface IExtNotify
     {

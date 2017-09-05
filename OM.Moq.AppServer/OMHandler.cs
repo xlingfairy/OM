@@ -28,6 +28,11 @@ namespace OM.AppServer
             {
                 OMHubHelper.Send(en.ExtID, en);
             }
+
+            if (e.Data is IAdminNotify an)
+            {
+                OMHubHelper.Send(an);
+            }
         }
 
         private static void ApiClient_OnReceiveCDR(object sender, OMCDREventArgs e)

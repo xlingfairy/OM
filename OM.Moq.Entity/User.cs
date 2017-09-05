@@ -24,5 +24,9 @@ namespace OM.AppServer.Entity
         /// </summary>
         public string ExtID { get; set; }
 
+        /// <summary>
+        /// 是否是管理员
+        /// </summary>
+        public bool IsAdmin { get; set; }
     }
 }

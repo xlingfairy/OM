@@ -15,24 +15,60 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <md:Card Padding="5" Grid.Row="0">
-                <TextBlock>
-                    <Run>生产商:</Run>
-                    <Run Text="{Binding Data.Manufacturer}" />
-                    <Run>    </Run>
-                    <Run>硬件版本:</Run>
-                    <Run Text="{Binding Data.Model}" />
-                    <Run>    </Run>
-                    <Run>软件版本:</Run>
-                    <Run Text="{Binding Data.Version}" />
-                    <Run>    </Run>
-                    <Run>MAC:</Run>
-                    <Run Text="{Binding Data.MAC}" />
-                </TextBlock>
-            </md:Card>
+            <StackPanel Orientation="Horizontal"
+                        md:RippleAssist.IsCentered="True">
+
+                <md:ColorZone Mode="Light" 
+                                CornerRadius="20" Panel.ZIndex="1"
+                                Margin="5 0 0 0"
+                                md:ShadowAssist.ShadowDepth="Depth2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <md:PackIcon Kind="Magnify" />
+                        </Button>
+
+                        <TextBox Grid.Column="1" md:HintAssist.Hint="按分机号过滤" 
+                                md:TextFieldAssist.DecorationVisibility="Hidden" 
+                                BorderThickness="0"
+                                MinWidth="100" VerticalAlignment="Center" 
+                                x:Name="Filter"
+                                 />
 
 
-            <ItemsControl Grid.Row="1" ItemsSource="{Binding Data.Exts}">
+                        <Button Style="{DynamicResource MaterialDesignToolButton}" 
+                                x:Name="LoadExtStats"
+                                Grid.Column="2">
+                            <md:PackIcon Kind="Reload" Margin="8 0 0 0" />
+                        </Button>
+                    </Grid>
+                </md:ColorZone>
+
+                <StackPanel Margin="10,0" VerticalAlignment="Center">
+                    <TextBlock>
+                    <Run FontWeight="DemiBold">硬件版本:</Run>
+                    <Run FontStyle="Oblique" Text="{Binding Data.Model}" />
+                    <Run>        </Run>
+                    <Run FontWeight="DemiBold">软件版本:</Run>
+                    <Run FontStyle="Oblique" Text="{Binding Data.Version}" />
+                    </TextBlock>
+                    <TextBlock>
+                    <Run FontWeight="DemiBold">生产商:</Run>
+                    <Run FontStyle="Oblique" Text="{Binding Data.Manufacturer}" />
+                    <Run>        </Run>
+                    <Run FontWeight="DemiBold">MAC:</Run>
+                    <Run FontStyle="Oblique" Text="{Binding Data.MAC}" />
+                    </TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+
+            <ItemsControl Grid.Row="1" Margin="0,10" ItemsSource="{Binding Exts}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
@@ -41,65 +77,29 @@
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <md:Chip Margin="5" Content="{Binding ID}">
-                            <md:Chip.Icon>
-                                <md:PackIcon Kind="Phone" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                            </md:Chip.Icon>
+                        <md:Chip Margin="10,5" Content="{Binding ID}"
+                                 md:ShadowAssist.ShadowDepth="Depth1">
+                            <md:Chip.Style>
+                                <Style TargetType="{x:Type md:Chip}">
+                                    <Setter Property="Icon" Value="U" />
+                                    <Setter Property="IconBackground" Value="Gray" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Status}" Value="Connected">
+                                            <Setter Property="Icon" Value="C" />
+                                            <Setter Property="IconBackground" Value="Green" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Status}" Value="Busy">
+                                            <Setter Property="Icon" Value="B" />
+                                            <Setter Property="IconBackground" Value="Red" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Status}" Value="Offline">
+                                            <Setter Property="Icon" Value="O" />
+                                            <Setter Property="IconBackground" Value="YellowGreen" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </md:Chip.Style>
                         </md:Chip>
-                        <!--<md:Flipper Margin="4 4 0 0" 
-                                Style="{StaticResource MaterialDesignCardFlipper}"
-                                Width="150"
-                                >
-                            <md:Flipper.FrontContent>
-                                <StackPanel Margin="10">
-                                    <TextBlock Text="{Binding ID}" Style="{StaticResource MaterialDesignTitleTextBlock}" />
-                                    <Separator Grid.Row="1"  Style="{StaticResource MaterialDesignDarkSeparator}"/>
-                                    <TextBlock Text="{Binding LineID}" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
-
-                                    <Button HorizontalAlignment="Right" 
-                                            Width="30" 
-                                            Padding="2 0 0 0"
-                                            Style="{StaticResource MaterialDesignFlatButton}"
-                                            Command="{x:Static md:Flipper.FlipCommand}"                                            
-                                            md:RippleAssist.IsCentered="True">
-                                        <md:PackIcon Kind="Menu" />
-                                    </Button>
-                                </StackPanel>
-                            </md:Flipper.FrontContent>
-                            <md:Flipper.BackContent>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
-
-                                    <md:ColorZone Mode="Accent">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                                    Command="{x:Static md:Flipper.FlipCommand}"
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Center"
-                                                    >
-                                                <md:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
-                                            </Button>
-                                            <TextBlock Margin="3 0 0 0" VerticalAlignment="Center">编辑分机</TextBlock>
-                                        </StackPanel>
-                                    </md:ColorZone>
-
-                                    <StackPanel Grid.Row="1">
-                                        
-                                    </StackPanel>
-
-                                    <Button Grid.Row="2" HorizontalAlignment="Right" 
-                                        Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                        Width="30" Padding="2 0 0 0"
-                                        md:RippleAssist.IsCentered="True">
-                                        <md:PackIcon Kind="CheckAll" />
-                                    </Button>
-                                </Grid>
-                            </md:Flipper.BackContent>
-                        </md:Flipper>-->
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

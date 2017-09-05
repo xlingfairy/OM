@@ -43,6 +43,11 @@ namespace OM.AppServer.SignalR
             app.MapSignalR(cfg);
         }
 
+        /// <summary>
+        /// 发送分机事件
+        /// </summary>
+        /// <param name="extID"></param>
+        /// <param name="input"></param>
         public static void Send(string extID, IExtNotify input)
         {
             var str = JsonConvert.SerializeObject(input, JSONSetting);
@@ -53,6 +58,19 @@ namespace OM.AppServer.SignalR
                 //暂时没有找到序列化抽象类/接口，而又不引起报错的办法
                 //.OnReceiveInput(input);
                 //只能发送 json 字符串，然后在客户端解开
+                .OnReceiveInput(str);
+        }
+
+        /// <summary>
+        /// 发送管理员事件
+        /// </summary>
+        /// <param name="input"></param>
+        public static void Send(IAdminNotify input)
+        {
+            var str = JsonConvert.SerializeObject(input, JSONSetting);
+
+            HubContext.Value.Clients
+                .Group("admin")
                 .OnReceiveInput(str);
         }
     }
