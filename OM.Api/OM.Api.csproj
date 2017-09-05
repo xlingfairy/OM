@@ -57,6 +57,7 @@
     <Compile Include="BaseMethod.cs" />
     <Compile Include="IAdminNotify.cs" />
     <Compile Include="IExtNotify.cs" />
+    <Compile Include="INotify.cs" />
     <Compile Include="OMCDREventArgs.cs" />
     <Compile Include="OMEventEventArgs.cs" />
     <Compile Include="Parser\EventParser.cs" />

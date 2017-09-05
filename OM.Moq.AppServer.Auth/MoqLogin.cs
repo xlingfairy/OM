@@ -14,12 +14,13 @@ namespace OM.Moq.AppServer.Auth
         public static User Login(string userName, string pwd)
         {
             if (!string.IsNullOrWhiteSpace(userName)
-                && Regex.IsMatch(userName, @"\d+")
+                && Regex.IsMatch(userName, @"E\d+")
                 && userName == pwd)
             {
                 return new User()
                 {
-                    ExtID = userName,
+                    //模拟用户名和分机号不是同一个字符串的功能
+                    ExtID = userName.TrimStart('E'),
                     RealName = "",
                     UserName = userName,
                     IsAdmin = false

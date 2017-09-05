@@ -106,18 +106,27 @@ namespace OM.AppServer.SignalR
         /// <returns></returns>
         private async Task JoinGroup()
         {
-            var extID = this.GetExtID();
-            var mth = new GetExtInfo()
+            // AppUser.cs GenerateUserIdentityAsync 自定义 Role admin
+            if (Context.User.IsInRole("admin"))
             {
-                ID = extID
-            };
-            var rst = await ApiClient.ExecuteAsync(mth);
-            if (!mth.HasError)
+                await Groups.Add(Context.ConnectionId, "admin");
+            }
+            else
             {
-                foreach (var g in rst.Groups)
+                var name = this.Context.User.Identity.Name;
+                var extID = this.GetExtID();
+                var mth = new GetExtInfo()
                 {
-                    await Groups.Add(Context.ConnectionId, g.ID.ToString());
-                    this.Log.Debug($"分机 {extID} 加入Hub分组: {g.ID}");
+                    ID = extID
+                };
+                var rst = await ApiClient.ExecuteAsync(mth);
+                if (!mth.HasError)
+                {
+                    foreach (var g in rst.Groups)
+                    {
+                        await Groups.Add(Context.ConnectionId, g.ID.ToString());
+                        this.Log.Debug($"分机 {extID} 加入Hub分组: {g.ID}");
+                    }
                 }
             }
         }

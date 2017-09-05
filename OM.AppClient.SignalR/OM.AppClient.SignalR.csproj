@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseHubProxy.cs" />
+    <Compile Include="NotifyArgs.cs" />
     <Compile Include="OMExtHubProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

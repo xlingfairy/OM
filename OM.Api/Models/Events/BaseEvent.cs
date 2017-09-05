@@ -39,7 +39,7 @@ namespace OM.Api.Models.Events
     [XmlInclude(typeof(EndOfAnn))]
     [XmlInclude(typeof(Queue))]
     [XmlRoot("Event")]
-    public abstract class BaseEvent : IInput
+    public abstract class BaseEvent : IInput, IAdminNotify
     {
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace OM.Api
     /// <summary>
     /// 分机事件通知
     /// </summary>
-    public interface IExtNotify
+    public interface IExtNotify : INotify
     {
         /// <summary>
         /// 

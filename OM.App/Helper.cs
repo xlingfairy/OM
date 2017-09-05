@@ -1,6 +1,9 @@
 ﻿using Caliburn.Micro;
 using MaterialDesignThemes.Wpf;
+using OM.Api.Models;
+using OM.Api.Models.Enums;
 using OM.App.Attributes;
+using OM.App.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -136,6 +139,25 @@ namespace OM.App
             {
                 obj.NotifyOfPropertyChange(p);
             }
+        }
+
+
+        public static DeviceStatus ToStatus(this ExtInfo data)
+        {
+            if (data != null)
+                switch (data.State)
+                {
+                    case ExtStats.IP分机离线:
+                        return DeviceStatus.Offline;
+                    case ExtStats.Offhook:
+                    case ExtStats.Progress:
+                    case ExtStats.振铃_回铃或通话中:
+                        return DeviceStatus.Busy;
+                    default:
+                        return DeviceStatus.Connected;
+                }
+            else
+                return DeviceStatus.Unknow;
         }
     }
 }

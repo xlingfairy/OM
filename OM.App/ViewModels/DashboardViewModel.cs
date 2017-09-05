@@ -33,7 +33,30 @@ namespace OM.App.ViewModels
 
         public DashboardViewModel()
         {
+            OMExtHubProxy.Instance.OnOffline += Instance_OnOffline;
+            OMExtHubProxy.Instance.OnOnline += Instance_OnOnline;
             this.LoadDeviceInfo();
+        }
+
+        private void Instance_OnOnline(object sender, NotifyArgs<Api.Models.Events.Online> e)
+        {
+            this.SetExtStatus(e.Event.Ext.ID, DeviceStatus.Connected);
+        }
+
+        private void Instance_OnOffline(object sender, NotifyArgs<Api.Models.Events.Offline> e)
+        {
+            this.SetExtStatus(e.Event.Ext.ID, DeviceStatus.Offline);
+        }
+
+
+        private void SetExtStatus(string extID, DeviceStatus status)
+        {
+            var ext = this.Exts.First(i => i.ID == extID);
+            if (ext != null)
+            {
+                ext.Status = status;
+                ext.NotifyOfPropertyChange("Status");
+            }
         }
 
         private async void LoadDeviceInfo()
@@ -67,6 +90,7 @@ namespace OM.App.ViewModels
                     {
                         var ext = this.Exts.First(i => i.ID == e.ID);
                         ext.Data = info;
+                        ext.Status = info.ToStatus();
                         ext.NotifyOfPropertyChange("Status");
                     }
                 });

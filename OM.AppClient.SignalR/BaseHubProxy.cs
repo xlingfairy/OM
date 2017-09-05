@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
 using Newtonsoft.Json;
+using OM.Api.Models.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace OM.AppClient.SignalR
     {
 
         public EventHandler Connected = null;
+
 
         /// <summary>
         /// 

@@ -64,6 +64,7 @@
     <Compile Include="HubExceptionModule.cs" />
     <Compile Include="OMHub.cs" />
     <Compile Include="OMHubHelper.cs" />
+    <Compile Include="OMUserIDProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,26 +14,7 @@ namespace OM.App.Models
 
         public string ID { get; set; }
 
-        public DeviceStatus Status
-        {
-            get
-            {
-                if (this.Data != null)
-                    switch (this.Data?.State)
-                    {
-                        case ExtStats.IP分机离线:
-                            return DeviceStatus.Offline;
-                        case ExtStats.Offhook:
-                        case ExtStats.Progress:
-                        case ExtStats.振铃_回铃或通话中:
-                            return DeviceStatus.Busy;
-                        default:
-                            return DeviceStatus.Connected;
-                    }
-                else
-                    return DeviceStatus.Unknow;
-            }
-        }
+        public DeviceStatus Status { get; set; }
 
         public ExtInfo Data { get; set; }
 

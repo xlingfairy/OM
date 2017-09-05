@@ -9,7 +9,7 @@ namespace OM.Api
     /// <summary>
     /// 管理员事件通知
     /// </summary>
-    public interface IAdminNotify
+    public interface IAdminNotify : INotify
     {
     }
 }

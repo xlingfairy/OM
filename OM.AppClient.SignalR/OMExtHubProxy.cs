@@ -13,6 +13,18 @@ namespace OM.AppClient.SignalR
     public class OMExtHubProxy : BaseHubProxy
     {
 
+
+        #region
+        public event EventHandler<NotifyArgs<Alert>> OnAlert = null;
+        public event EventHandler<NotifyArgs<Answer>> OnAnswer = null;
+        public event EventHandler<NotifyArgs<Answered>> OnAnswered = null;
+        public event EventHandler<NotifyArgs<BootUp>> OnBootup = null;
+
+        public event EventHandler<NotifyArgs<Online>> OnOnline = null;
+        public event EventHandler<NotifyArgs<Offline>> OnOffline = null;
+        #endregion
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -50,16 +62,21 @@ namespace OM.AppClient.SignalR
         {
             base.BeforeStart();
 
+            //OMHubHelper.Send 方法里定义
             this.Proxy.On<string>("OnReceiveInput", d =>
             {
-                var evt = (BaseEvent)JsonConvert.DeserializeObject<IExtNotify>(d, JSONSetting);
-                Console.WriteLine(evt.Attribute);
+                var notify = JsonConvert.DeserializeObject<INotify>(d, JSONSetting);
+                if (this.OnOnline != null && notify is Online online)
+                    this.OnOnline?.BeginInvoke(null, new NotifyArgs<Online>() { Event = online }, null, null);
+                if (this.OnOffline != null && notify is Offline offline)
+                    this.OnOffline?.BeginInvoke(null, new NotifyArgs<Offline>() { Event = offline }, null, null);
             });
         }
 
 
         /// <summary>
         /// 远程执行方法
+        /// OMHub.Execute 方法
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="mth"></param>
