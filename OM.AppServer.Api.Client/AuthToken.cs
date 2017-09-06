@@ -51,6 +51,9 @@ namespace OM.AppServer.Api.Client
         [JsonProperty("error_description")]
         public override string ErrorMsg { get; set; }
 
+
+        public bool IsAdmin { get; set; }
+
         /// <summary>
         /// 
         /// </summary>

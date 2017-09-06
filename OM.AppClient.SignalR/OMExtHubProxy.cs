@@ -70,6 +70,8 @@ namespace OM.AppClient.SignalR
                     this.OnOnline?.BeginInvoke(null, new NotifyArgs<Online>() { Event = online }, null, null);
                 if (this.OnOffline != null && notify is Offline offline)
                     this.OnOffline?.BeginInvoke(null, new NotifyArgs<Offline>() { Event = offline }, null, null);
+                if (this.OnAlert != null && notify is Alert alert)
+                    this.OnAlert?.BeginInvoke(null, new NotifyArgs<Alert>() { Event = alert }, null, null);
             });
         }
 

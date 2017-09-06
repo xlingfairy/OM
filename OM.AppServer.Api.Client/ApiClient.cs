@@ -38,6 +38,11 @@ namespace OM.AppServer.Api.Client
         internal AuthToken AuthToken { get; private set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public static bool IsAdmin => Instance.Value.AuthToken?.IsAdmin ?? false;
+
+        /// <summary>
         /// 是否登陆
         /// </summary>
         public static bool IsLogined => Instance.Value.AuthToken?.IsValid ?? false;

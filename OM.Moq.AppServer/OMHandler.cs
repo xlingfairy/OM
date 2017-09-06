@@ -24,7 +24,8 @@ namespace OM.AppServer
 
         private static void ApiClient_OnReceiveEvent(object sender, OMEventEventArgs e)
         {
-            if (e.Data is IExtNotify en)
+            // Menu外呼，外部电话回铃 没有分机号
+            if (e.Data is IExtNotify en && en.ExtID != null)
             {
                 OMHubHelper.Send(en.ExtID, en);
             }

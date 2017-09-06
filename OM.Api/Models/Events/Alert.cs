@@ -34,7 +34,7 @@ namespace OM.Api.Models.Events
         /// 
         /// </summary>
         [JsonIgnore]
-        public IDAttribute Ext => this._Exts?.First();
+        public IDAttribute Ext => this._Exts?.FirstOrDefault();
 
         /// <summary>
         /// 分机呼叫分机，被叫分机回铃
@@ -56,8 +56,17 @@ namespace OM.Api.Models.Events
         public OutCallInfo Outer { get; set; }
 
 
-        string IExtNotify.ExtID => this.Ext.ID;
+        /// <summary>
+        /// Menu外呼 没有分机号
+        /// </summary>
+        string IExtNotify.ExtID => this.Ext?.ID;
 
         //TODO Menu外呼，外部电话回铃：
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonIgnore]
+        public string ToNO => this.Outer?.To ?? this.Visitor?.To ?? this.ToExt?.ID;
     }
 }

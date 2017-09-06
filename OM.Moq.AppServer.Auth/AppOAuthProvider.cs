@@ -91,7 +91,9 @@ namespace OM.Moq.AppServer.Auth
             var data = new Dictionary<string, string>
             {
                 {"RealName", user.UserInfo.RealName ??"" },
-                {"ExID", user.UserInfo.ExtID??""}
+                {"ExID", user.UserInfo.ExtID??""},
+                //这样安全不?
+                {"IsAdmin", user.UserInfo.IsAdmin.ToString() }
             };
             return new AuthenticationProperties(data);
         }

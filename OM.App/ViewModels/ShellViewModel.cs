@@ -52,9 +52,12 @@ namespace OM.App.ViewModels
         {
             var o = await IoC.Get<LoginViewModel>().ShowAsDialog(vm => vm.Login());
 
-            OMExtHubProxy.Instance.Connected = (sender, args) =>
+            OMExtHubProxy.Instance.Connected += (sender, args) =>
             {
-                this.Tabs.Add(IoC.Get<DashboardViewModel>());
+                if (SClient.IsAdmin)
+                    this.Tabs.Add(IoC.Get<DashboardViewModel>());
+                else
+                    this.Tabs.Add(IoC.Get<ExtViewModel>());
             };
         }
     }

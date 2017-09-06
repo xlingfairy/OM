@@ -21,6 +21,7 @@ namespace OM.App.ViewModels
     {
         public override string Title => "监控";
 
+
         /// <summary>
         /// 
         /// </summary>
