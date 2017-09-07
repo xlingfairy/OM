@@ -7,6 +7,7 @@
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        xmlns:dz="clr-namespace:Dragablz.Dockablz;assembly=Dragablz"
         xmlns:cm="http://www.caliburnproject.org"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -17,74 +18,71 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
     <md:DialogHost>
         <md:DialogHost.DialogContent>
             <ContentControl />
         </md:DialogHost.DialogContent>
 
         <DockPanel>
+           
+            <dz:Layout>
+                <dragablz:TabablzControl
+                    ItemsSource="{Binding Tabs}"
+                    HeaderMemberPath="Title"
+                    ShowDefaultCloseButton="True"
+                    SelectedIndex="0"
+                    >
+                    <dragablz:TabablzControl.HeaderPrefixContent>
+                        <ContentControl>
+                            <StackPanel Orientation="Horizontal" Height="35" Margin="10,5,10,0">
+                                <Menu IsMainMenu="True">
+                                    <MenuItem Header="系统" Height="35">
+                                        <MenuItem Header="设置">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="Settings" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Header="退出">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ExitToApp" Width="20" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </MenuItem>
+                                    <MenuItem Header="日志" Height="35">
+                                        <MenuItem Header="_Cut" Command="Cut">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ContentCut" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="_Copy" Command="Copy">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ContentCopy" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="_Paste" Command="Paste">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ContentPaste" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </MenuItem>
+                                </Menu>
+                            </StackPanel>
+                        </ContentControl>
+                    </dragablz:TabablzControl.HeaderPrefixContent>
+                    <dragablz:TabablzControl.InterTabController>
+                        <dragablz:InterTabController />
+                    </dragablz:TabablzControl.InterTabController>
 
-            <Menu IsMainMenu="True" DockPanel.Dock="Top">
-                <MenuItem Header="_Files">
-                    <MenuItem Header="Save">
-                        <MenuItem.Icon>
-                            <md:PackIcon Kind="ContentSave" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Save As.." />
-                    <MenuItem Header="Exit" InputGestureText="Ctrl+E">
-                        <MenuItem.Icon>
-                            <md:PackIcon Kind="ExitToApp" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator />
-                    <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
-                    <MenuItem Header="Rubbish" IsCheckable="True" />
-                    <MenuItem Header="Dig Deeper" InputGestureText="Ctrl+D">
-                        <MenuItem Header="Enlightenment?" IsCheckable="True" />
-                        <MenuItem Header="Disappointment" IsCheckable="True" />
-                    </MenuItem>
-                    <MenuItem Header="Look Deeper" InputGestureText="Ctrl+D">
-                        <MenuItem Header="Plain" />
-                        <MenuItem Header="Ice Cream" />
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="_Edit">
-                    <MenuItem Header="_Cut" Command="Cut">
-                        <MenuItem.Icon>
-                            <md:PackIcon Kind="ContentCut" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="_Copy" Command="Copy">
-                        <MenuItem.Icon>
-                            <md:PackIcon Kind="ContentCopy" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="_Paste" Command="Paste">
-                        <MenuItem.Icon>
-                            <md:PackIcon Kind="ContentPaste" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-            </Menu>
+                    <dragablz:TabablzControl.ContentTemplate>
+                        <DataTemplate>
+                            <ContentControl cm:View.Model="{Binding}" Margin="10" />
+                        </DataTemplate>
+                    </dragablz:TabablzControl.ContentTemplate>
 
-            <dragablz:TabablzControl
-                ItemsSource="{Binding Tabs}"
-                HeaderMemberPath="Title"
-                ShowDefaultCloseButton="True"
-                SelectedIndex="0"
-                >
-                <dragablz:TabablzControl.InterTabController>
-                    <dragablz:InterTabController />
-                </dragablz:TabablzControl.InterTabController>
-
-                <dragablz:TabablzControl.ContentTemplate>
-                    <DataTemplate>
-                        <ContentControl cm:View.Model="{Binding}" Margin="10" />
-                    </DataTemplate>
-                </dragablz:TabablzControl.ContentTemplate>
-
-            </dragablz:TabablzControl>
+                </dragablz:TabablzControl>
+            </dz:Layout>
         </DockPanel>
     </md:DialogHost>
 </metro:MetroWindow>
