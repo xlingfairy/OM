@@ -24,7 +24,6 @@
             <ContentControl />
         </md:DialogHost.DialogContent>
 
-        <DockPanel>
            
             <dz:Layout>
                 <dragablz:TabablzControl
@@ -77,12 +76,12 @@
 
                     <dragablz:TabablzControl.ContentTemplate>
                         <DataTemplate>
-                            <ContentControl cm:View.Model="{Binding}" Margin="10" />
+                            <ContentControl cm:View.Model="{Binding}" Padding="10" />
                         </DataTemplate>
                     </dragablz:TabablzControl.ContentTemplate>
 
                 </dragablz:TabablzControl>
             </dz:Layout>
-        </DockPanel>
+        
     </md:DialogHost>
 </metro:MetroWindow>
