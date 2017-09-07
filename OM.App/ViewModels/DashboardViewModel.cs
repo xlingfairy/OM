@@ -7,10 +7,13 @@ using OM.App.Models;
 using OM.AppClient.SignalR;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Threading;
 
 namespace OM.App.ViewModels
@@ -22,21 +25,51 @@ namespace OM.App.ViewModels
         public override string Title => "监控";
 
 
+        private string _filterStr = null;
         /// <summary>
         /// 
         /// </summary>
-        public string Filter { get; set; }
+        public string FilterStr
+        {
+            get
+            {
+                return this._filterStr;
+            }
+            set
+            {
+                this._filterStr = value;
+                if (this.CV != null)
+                    this.CV.Refresh();
+            }
+        }
 
         public DeviceInfo Data { get; private set; }
 
         public IObservableCollection<DeviceState> Exts { get; }
-            = new BindableCollection<DeviceState>();
+
+        public ICollectionView CV { get; set; }
 
         public DashboardViewModel()
         {
+            this.Exts = new BindableCollection<DeviceState>();
+
             OMExtHubProxy.Instance.OnOffline += Instance_OnOffline;
             OMExtHubProxy.Instance.OnOnline += Instance_OnOnline;
+
             this.LoadDeviceInfo();
+        }
+
+        private bool Filter(object o)
+        {
+            if (string.IsNullOrWhiteSpace((this.FilterStr)))
+            {
+                return true;
+            }
+            else
+            {
+                var e = (DeviceState)o;
+                return e.ID.IndexOf(this.FilterStr) > -1;
+            }
         }
 
         private void Instance_OnOnline(object sender, NotifyArgs<Api.Models.Events.Online> e)
@@ -72,7 +105,13 @@ namespace OM.App.ViewModels
                 ID = e.ID
             }).OrderBy(e => e.ID);
 
+
             this.Exts.AddRange(exts);
+
+            //如果将 CV 在构造函数里实例，会因为线程的问题导出异常，各种 Dispatcher 都无法解决。
+            this.CV = CollectionViewSource.GetDefaultView(this.Exts);
+            this.CV.Filter = new Predicate<object>(this.Filter);
+            this.NotifyOfPropertyChange(() => this.CV);
             this.LoadExtStats();
         }
 
