@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:OM.App.Views"
+             xmlns:local="clr-namespace:OM.App"
              xmlns:nf="clr-namespace:Notifications.Wpf.Controls;assembly=Notifications.Wpf"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
@@ -41,12 +41,13 @@
                                 <md:PackIcon Kind="Magnify" />
                             </Button>
 
+                            <!--cm 的name绑定不起作用？？-->
                             <TextBox Grid.Column="1" md:HintAssist.Hint="按分机号过滤" 
                                 md:TextFieldAssist.DecorationVisibility="Hidden" 
                                 BorderThickness="0"
                                 MinWidth="200" 
                                 VerticalAlignment="Center" 
-                                x:Name="FilterStr"
+                                Text="{Binding FilterStr, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                  />
                         </Grid>
                     </md:ColorZone>

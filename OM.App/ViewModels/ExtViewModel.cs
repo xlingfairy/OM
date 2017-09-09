@@ -5,9 +5,12 @@ using OM.App.Models;
 using OM.AppClient.SignalR;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
+using System.Windows.Threading;
 
 namespace OM.App.ViewModels
 {
@@ -24,8 +27,47 @@ namespace OM.App.ViewModels
         public BindableCollection<EventLog> Logs { get; }
             = new BindableCollection<EventLog>();
 
+        public ICollectionView CV { get; private set; }
+
+        private string _filterStr = null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FilterStr
+        {
+            get
+            {
+                return this._filterStr;
+            }
+            set
+            {
+                this._filterStr = value;
+                if (this.CV != null)
+                    this.CV.Refresh();
+            }
+        } 
+
+        private bool Filter(object o)
+        {
+            if (string.IsNullOrWhiteSpace((this.FilterStr)))
+            {
+                return true;
+            }
+            else
+            {
+                var e = (EventLog)o;
+                return e.Tip.IndexOf(this.FilterStr) > -1;
+            }
+        }
+
         public ExtViewModel()
         {
+            Execute.OnUIThread(() =>
+            {
+                this.CV = CollectionViewSource.GetDefaultView(this.Logs);
+                this.CV.Filter = new Predicate<object>(this.Filter);
+            });
+
             OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
         }
 
@@ -38,11 +80,15 @@ namespace OM.App.ViewModels
                 Type = NotificationType.Information
             };
             this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
-            this.Logs.Insert(0, new EventLog()
+
+            Execute.OnUIThread(() =>
             {
-                CreateOn = DateTime.Now,
-                Event = e.Event,
-                Tip = $"您呼叫的号码：{e.Event.ToNO} 已振铃"
+                this.Logs.Insert(0, new EventLog()
+                {
+                    CreateOn = DateTime.Now,
+                    Event = e.Event,
+                    Tip = $"您呼叫的号码：{e.Event.ToNO} 已振铃"
+                });
             });
         }
     }
