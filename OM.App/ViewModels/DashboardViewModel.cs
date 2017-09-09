@@ -46,13 +46,16 @@ namespace OM.App.ViewModels
         public DeviceInfo Data { get; private set; }
 
         public IObservableCollection<DeviceState> Exts { get; }
+                = new BindableCollection<DeviceState>();
 
         public ICollectionView CV { get; set; }
 
         public DashboardViewModel()
         {
-            this.Exts = new BindableCollection<DeviceState>();
-
+            Execute.OnUIThread(() => {
+                this.CV = CollectionViewSource.GetDefaultView(this.Exts);
+                this.CV.Filter = new Predicate<object>(this.Filter);
+            });
             OMExtHubProxy.Instance.OnOffline += Instance_OnOffline;
             OMExtHubProxy.Instance.OnOnline += Instance_OnOnline;
 
@@ -105,13 +108,10 @@ namespace OM.App.ViewModels
                 ID = e.ID
             }).OrderBy(e => e.ID);
 
+            Execute.OnUIThread(() => {
+                this.Exts.AddRange(exts);
+            });
 
-            this.Exts.AddRange(exts);
-
-            //如果将 CV 在构造函数里实例，会因为线程的问题导出异常，各种 Dispatcher 都无法解决。
-            this.CV = CollectionViewSource.GetDefaultView(this.Exts);
-            this.CV.Filter = new Predicate<object>(this.Filter);
-            this.NotifyOfPropertyChange(() => this.CV);
             this.LoadExtStats();
         }
 

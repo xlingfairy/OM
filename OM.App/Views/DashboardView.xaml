@@ -8,6 +8,7 @@
              xmlns:mdc="http://metro.mahapps.com/winfx/xaml/controls"          
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
+             Padding="10"
              d:DesignHeight="300" d:DesignWidth="300">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
