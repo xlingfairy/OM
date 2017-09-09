@@ -22,7 +22,7 @@
                 <!-- Material Design -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Indigo.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
 
                 <!-- Material Design: MahApps Compatibility -->
@@ -87,7 +87,7 @@
             <Style TargetType="{x:Type md:PackIcon}" BasedOn="{StaticResource {x:Type md:PackIcon}}">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Width" Value="25" />
-                <Setter Property="Margin" Value="4 0 4 0" />
+                <!--<Setter Property="Margin" Value="4 0 4 0" />-->
             </Style>
             
         </ResourceDictionary>

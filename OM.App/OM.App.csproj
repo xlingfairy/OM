@@ -111,11 +111,15 @@
     <Compile Include="Models\DeviceState.cs" />
     <Compile Include="Models\EventLog.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\DebtDetailViewModel.cs" />
     <Compile Include="ViewModels\ExtViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DebtDetailView.xaml.cs">
+      <DependentUpon>DebtDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExtView.xaml.cs">
       <DependentUpon>ExtView.xaml</DependentUpon>
@@ -142,6 +146,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DashboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DebtDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

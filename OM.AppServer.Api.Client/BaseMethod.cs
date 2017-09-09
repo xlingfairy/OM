@@ -150,10 +150,10 @@ namespace OM.AppServer.Api.Client
                 {
                     var rst = this.ParseResult(result);
 
-                    if (!string.IsNullOrEmpty(rst.ErrorCode))
+                    if (!rst.IsSuccess)
                     {
                         this.ResultCode = ResultCodes.预定义的错误;
-                        this.ErrorMessage = $"{rst.ErrorCode}:{rst.ErrorMsg}";
+                        this.ErrorMessage = rst.Message;
                     }
 
                     return rst;

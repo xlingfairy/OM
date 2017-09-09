@@ -43,14 +43,23 @@ namespace OM.AppServer.Api.Client
         /// 
         /// </summary>
         [JsonProperty("error")]
-        public override string ErrorCode { get; set; }
+        public string ErrorCode { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonProperty("error_description")]
-        public override string ErrorMsg { get; set; }
+        public override string Message { get; set; }
 
+        private bool _isSuccess;
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool IsSuccess
+        {
+            get => string.IsNullOrWhiteSpace(this.ErrorCode);
+            set => _isSuccess = value;
+        }
 
         public bool IsAdmin { get; set; }
 

@@ -3,14 +3,18 @@ using Notifications.Wpf;
 using OM.App.Attributes;
 using OM.App.Models;
 using OM.AppClient.SignalR;
+using OM.AppServer.Api.Client.Methods;
+using OM.Moq.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Threading;
+using SApiClient = OM.AppServer.Api.Client.ApiClient;
 
 namespace OM.App.ViewModels
 {
@@ -26,6 +30,11 @@ namespace OM.App.ViewModels
 
         public BindableCollection<EventLog> Logs { get; }
             = new BindableCollection<EventLog>();
+
+
+        public BindableCollection<DebtInfo> Debts { get; }
+            = new BindableCollection<DebtInfo>();
+
 
         public ICollectionView CV { get; private set; }
 
@@ -45,7 +54,7 @@ namespace OM.App.ViewModels
                 if (this.CV != null)
                     this.CV.Refresh();
             }
-        } 
+        }
 
         private bool Filter(object o)
         {
@@ -69,6 +78,36 @@ namespace OM.App.ViewModels
             });
 
             OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
+
+            Task.Run(async () =>
+            {
+                await this.LoadDebts(0, 20);
+            });
+        }
+
+        private async Task LoadDebts(int page, int pageSize)
+        {
+            var mth = new GetDebts()
+            {
+                Page = page,
+                PageSize = pageSize
+            };
+            var debts = await SApiClient.ExecuteAsync(mth);
+            this.Debts.Clear();
+            this.Debts.AddRange(debts.Result);
+        }
+
+        public void LoadingRowDetails(DataGridRowDetailsEventArgs e)
+        {
+            try
+            {
+                var detail = e.DetailsElement.FindName("Detail") as ContentControl;
+                var vm = new DebtDetailViewModel((e.Row.DataContext as DebtInfo));
+                View.SetModel(detail, vm);
+            }
+            catch
+            {
+            }
         }
 
         private void Instance_OnAlert(object sender, NotifyArgs<Api.Models.Events.Alert> e)

@@ -99,7 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BaseController.cs" />
     <Compile Include="Controllers\InputController.cs" />
+    <Compile Include="Controllers\DebtsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="OMHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +135,10 @@
     <ProjectReference Include="..\OM.Moq.AppServer.Auth\OM.Moq.AppServer.Auth.csproj">
       <Project>{b6cef94b-f2f0-4ead-b5d4-bd76412bd610}</Project>
       <Name>OM.Moq.AppServer.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OM.Moq.Entity\OM.AppServer.Entity.csproj">
+      <Project>{529BC1DF-765C-4024-8861-0450873F12EE}</Project>
+      <Name>OM.AppServer.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
