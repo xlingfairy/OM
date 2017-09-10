@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Threading;
 using SApiClient = OM.AppServer.Api.Client.ApiClient;
 
@@ -37,6 +38,15 @@ namespace OM.App.ViewModels
 
 
         public ICollectionView CV { get; private set; }
+
+
+        public long Total { get; set; }
+
+        public int Page { get; set; }
+
+        public int PageSize { get; set; } = 20;
+
+        public ICommand PageChandCmd { get; }
 
         private string _filterStr = null;
         /// <summary>
@@ -71,6 +81,11 @@ namespace OM.App.ViewModels
 
         public ExtViewModel()
         {
+            this.PageChandCmd = new Command<int>(async page =>
+            {
+                await this.LoadDebts(page, this.PageSize);
+            });
+
             Execute.OnUIThread(() =>
             {
                 this.CV = CollectionViewSource.GetDefaultView(this.Logs);
@@ -95,6 +110,9 @@ namespace OM.App.ViewModels
             var debts = await SApiClient.ExecuteAsync(mth);
             this.Debts.Clear();
             this.Debts.AddRange(debts.Result);
+
+            this.Total = debts.Total;
+            this.NotifyOfPropertyChange(() => this.Total);
         }
 
         public void LoadingRowDetails(DataGridRowDetailsEventArgs e)

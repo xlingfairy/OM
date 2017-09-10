@@ -85,7 +85,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
+
             <StackPanel>
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                               IsChecked="{Binding ElementName=drawerHost,Path=IsRightDrawerOpen}"
@@ -94,6 +96,7 @@
                               HorizontalAlignment="Right"
                               />
             </StackPanel>
+
             <DataGrid Grid.Row="1" 
                           ItemsSource="{Binding Debts}"
                           IsReadOnly="True"
@@ -116,6 +119,21 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
+
+            <md:ColorZone Grid.Row="2" 
+                          Mode="PrimaryMid" 
+                          Margin="5" 
+                          CornerRadius="20" 
+                          Padding="20,5" 
+                          HorizontalAlignment="Center">
+                <local:Pagination Grid.Row="2"
+                              Total="{Binding Total, Mode=TwoWay}"
+                              Page="{Binding Page}"
+                              PageSize="{Binding PageSize}"
+                              PageChangedCommand="{Binding PageChandCmd}"
+                              LabelCount="5"
+                              />
+            </md:ColorZone>
         </Grid>
     </md:DrawerHost>
 </UserControl>
