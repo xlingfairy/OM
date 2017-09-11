@@ -14,7 +14,7 @@ namespace OM.AppClient.SignalR
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseHubProxy
+    public abstract class BaseHubProxy : IDisposable
     {
 
         public event EventHandler Connected = null;

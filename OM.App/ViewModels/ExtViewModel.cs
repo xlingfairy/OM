@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using MaterialDesignThemes.Wpf;
 using Notifications.Wpf;
 using OM.Api.Models.Events;
 using OM.App.Attributes;
@@ -85,6 +86,11 @@ namespace OM.App.ViewModels
         public BindableCollection<DebtInfo> Debts { get; }
             = new BindableCollection<DebtInfo>();
 
+        /// <summary>
+        /// RowDetailsTemplate 绑定的模型
+        /// </summary>
+        public DebtDetailViewModel DetailVM { get; }
+            = IoC.Get<DebtDetailViewModel>();
 
         /// <summary>
         /// 催收数据总数
@@ -120,6 +126,8 @@ namespace OM.App.ViewModels
 
             OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
             OMExtHubProxy.Instance.OnRing += Instance_OnRing;
+            OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
+            OMExtHubProxy.Instance.OnBye += Instance_OnBye;
 
             //加载催收数据
             Task.Run(async () =>
@@ -128,7 +136,9 @@ namespace OM.App.ViewModels
             });
         }
 
+
         #region 事件处理
+        //本机响铃
         private void Instance_OnRing(object sender, NotifyArgs<Ring> e)
         {
             if (e.Event.RingFromType != Api.Models.Enums.RingFromTypes.OM)
@@ -153,8 +163,12 @@ namespace OM.App.ViewModels
             }
         }
 
+        //对方回铃
         private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
         {
+            if (string.Equals(e.Event.ToNO, this.DetailVM.Data.DebtorPhone))
+                this.DetailVM.Status = CallingStages.Alert;
+
             var content = new NotificationContent()
             {
                 Message = "对方已回铃",
@@ -174,6 +188,53 @@ namespace OM.App.ViewModels
             });
         }
 
+        //对方应答
+        private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
+        {
+            if (string.Equals(e.Event.ToNO, this.DetailVM.Data.DebtorPhone))
+                this.DetailVM.Status = CallingStages.Answered;
+
+            var content = new NotificationContent()
+            {
+                Message = "对方已应答",
+                Title = $"您呼叫的号码：{e.Event.ToNO} 已应答",
+                Type = NotificationType.Information
+            };
+            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            Execute.OnUIThread(() =>
+            {
+                this.Logs.Insert(0, new EventLog()
+                {
+                    CreateOn = DateTime.Now,
+                    Event = e.Event,
+                    Tip = $"您呼叫的号码：{e.Event.ToNO} 已应答"
+                });
+            });
+        }
+
+        //通话结束
+        private void Instance_OnBye(object sender, NotifyArgs<Bye> e)
+        {
+            var content = new NotificationContent()
+            {
+                Message = "通话结束",
+                Title = $"与 {e.Event.ToNO} 的通话结束",
+                Type = NotificationType.Information
+            };
+            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            //在UI线程上执行，避免 CollectionView 的跨线程问题
+            Execute.OnUIThread(() =>
+            {
+                this.Logs.Insert(0, new EventLog()
+                {
+                    CreateOn = DateTime.Now,
+                    Event = e.Event,
+                    Tip = $"与 {e.Event.ToNO} 的通话结束"
+                });
+            });
+        }
         #endregion
 
 
@@ -201,8 +262,11 @@ namespace OM.App.ViewModels
             try
             {
                 var detail = e.DetailsElement.FindName("Detail") as ContentControl;
-                var vm = new DebtDetailViewModel((e.Row.DataContext as DebtInfo));
-                View.SetModel(detail, vm);
+                //var vm = IoC.Get<DebtDetailViewModel>();
+                //vm.Data = e.Row.DataContext as DebtInfo;
+                //View.SetModel(detail, vm);
+                this.DetailVM.Data = e.Row.DataContext as DebtInfo;
+                View.SetModel(detail, this.DetailVM);
             }
             catch
             {

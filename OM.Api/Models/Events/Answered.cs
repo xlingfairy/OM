@@ -48,6 +48,13 @@ namespace OM.Api.Models.Events
         [XmlElement("outer")]
         public OutCallInfo Outer { get; set; }
 
+
+        /// <summary>
+        /// 呼叫的号码
+        /// </summary>
+        public string ToNO => this.Outer?.To ?? this.ToExt.ID;
+
+
         string IExtNotify.ExtID => this.Ext.ID;
     }
 }

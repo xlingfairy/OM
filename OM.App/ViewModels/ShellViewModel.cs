@@ -50,7 +50,7 @@ namespace OM.App.ViewModels
 
         private async void ShowLogin()
         {
-            var o = await IoC.Get<LoginViewModel>().ShowAsDialog(vm => vm.Login());
+            var o = await IoC.Get<LoginViewModel>().ShowAsDialog2(vm => vm.Login());
 
             OMExtHubProxy.Instance.Connected += (sender, args) =>
             {

@@ -86,16 +86,17 @@ namespace OM.App
         }
 
         /// <summary>
-        /// 
+        /// 异步关闭方法
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="vm"></param>
         /// <param name="canClose"></param>
-        public async static Task<object> ShowAsDialog<T>(this T vm, Func<T, Task<bool>> canClose = null) where T : BaseVM
+        public async static Task<object> ShowAsDialog2<T>(this T vm, Func<T, Task<bool>> canClose = null) where T : BaseVM
         {
             var view = ViewLocator.LocateForModel(vm, null, null);
             ViewModelBinder.Bind(vm, view, null);
 
+            #region
             //DialogClosingEventHandler close = async (sender, args) =>
             //{
             //    args.Cancel();
@@ -110,6 +111,7 @@ namespace OM.App
             //        args.Session.Close();
             //    }
             //};
+            #endregion
 
             DialogClosingEventHandler close = (sender, args) =>
             {

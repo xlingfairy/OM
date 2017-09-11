@@ -109,16 +109,21 @@
     <Compile Include="BindingProxy.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="Models\CallingStages.cs" />
     <Compile Include="Models\DeviceState.cs" />
     <Compile Include="Models\EventLog.cs" />
     <Compile Include="Pagination.xaml.cs">
       <DependentUpon>Pagination.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CallViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\DebtDetailViewModel.cs" />
     <Compile Include="ViewModels\ExtViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\CallView.xaml.cs">
+      <DependentUpon>CallView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
@@ -152,6 +157,10 @@
     <Page Include="Scroll.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CallView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DashboardView.xaml">
       <SubType>Designer</SubType>

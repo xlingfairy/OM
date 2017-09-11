@@ -41,7 +41,13 @@ namespace OM.Api.Models.Events
         public OutCallInfo Outer { get; set; }
 
 
-        string IExtNotify.ExtID => this.Ext.ID;
+        string IExtNotify.ExtID => this.Ext?.ID ?? this.Outer?.From;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public string ToNO => this.Outer?.To ?? this.Visitor?.To;
 
         //TODO 来电转去电的通话结束，来电挂断：
         //TODO 双向外呼的通话结束，两个去电分别各有一个BYE事件：

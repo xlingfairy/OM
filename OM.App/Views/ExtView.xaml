@@ -97,12 +97,14 @@
                               />
             </StackPanel>
 
+            <!--SelectionMode="Single" 避免一次选择多个，导至多个 detail 显示出来-->
             <DataGrid Grid.Row="1" 
                           ItemsSource="{Binding Debts}"
                           IsReadOnly="True"
                           AutoGenerateColumns="False"
                           md:DataGridAssist.CellPadding="13 8 8 8" 
                           md:DataGridAssist.ColumnHeaderPadding="8"
+                          SelectionMode="Single"
 						  cal:Message.Attach="[Event LoadingRowDetails]=[Action LoadingRowDetails($eventArgs)]"
                       >
                 <DataGrid.Columns>
