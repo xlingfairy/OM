@@ -54,10 +54,14 @@ namespace OM.App.ViewModels
 
             OMExtHubProxy.Instance.Connected += (sender, args) =>
             {
+                BaseVM vm = null;
                 if (SClient.IsAdmin)
-                    this.Tabs.Add(IoC.Get<DashboardViewModel>());
+                    vm = IoC.Get<DashboardViewModel>();
                 else
-                    this.Tabs.Add(IoC.Get<ExtViewModel>());
+                    vm = IoC.Get<ExtViewModel>();
+
+                if (!this.Tabs.Contains(vm))
+                    this.Tabs.Add(vm);
             };
         }
     }

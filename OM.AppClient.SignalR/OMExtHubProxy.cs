@@ -19,9 +19,21 @@ namespace OM.AppClient.SignalR
         public event EventHandler<NotifyArgs<Answer>> OnAnswer = null;
         public event EventHandler<NotifyArgs<Answered>> OnAnswered = null;
         public event EventHandler<NotifyArgs<BootUp>> OnBootup = null;
-
+        public event EventHandler<NotifyArgs<Busy>> OnBusy = null;
+        public event EventHandler<NotifyArgs<Bye>> OnBye = null;
+        public event EventHandler<NotifyArgs<ConfigChange>> OnConfigChange = null;
+        public event EventHandler<NotifyArgs<Divert>> OnDivert = null;
+        public event EventHandler<NotifyArgs<DTMF>> OnDTMF = null;
+        public event EventHandler<NotifyArgs<EndOfAnn>> OnEndOfAnn = null;
+        public event EventHandler<NotifyArgs<Failed>> OnFailed = null;
+        public event EventHandler<NotifyArgs<Idle>> OnIdle = null;
+        public event EventHandler<NotifyArgs<Incomming>> OnIncomming = null;
+        public event EventHandler<NotifyArgs<Invite>> OnInvite = null;
         public event EventHandler<NotifyArgs<Online>> OnOnline = null;
         public event EventHandler<NotifyArgs<Offline>> OnOffline = null;
+        public event EventHandler<NotifyArgs<Queue>> OnQueue = null;
+        public event EventHandler<NotifyArgs<Ring>> OnRing = null;
+        public event EventHandler<NotifyArgs<Transient>> OnTransient = null;
         #endregion
 
 
@@ -66,12 +78,25 @@ namespace OM.AppClient.SignalR
             this.Proxy.On<string>("OnReceiveInput", d =>
             {
                 var notify = JsonConvert.DeserializeObject<INotify>(d, JSONSetting);
-                if (this.OnOnline != null && notify is Online online)
-                    this.OnOnline?.BeginInvoke(null, new NotifyArgs<Online>() { Event = online }, null, null);
-                if (this.OnOffline != null && notify is Offline offline)
-                    this.OnOffline?.BeginInvoke(null, new NotifyArgs<Offline>() { Event = offline }, null, null);
-                if (this.OnAlert != null && notify is Alert alert)
-                    this.OnAlert?.BeginInvoke(null, new NotifyArgs<Alert>() { Event = alert }, null, null);
+                notify.InvokeEvent(this.OnAlert);
+                notify.InvokeEvent(this.OnAnswer);
+                notify.InvokeEvent(this.OnAnswered);
+                notify.InvokeEvent(this.OnBootup);
+                notify.InvokeEvent(this.OnBusy);
+                notify.InvokeEvent(this.OnBye);
+                notify.InvokeEvent(this.OnConfigChange);
+                notify.InvokeEvent(this.OnDivert);
+                notify.InvokeEvent(this.OnDTMF);
+                notify.InvokeEvent(this.OnEndOfAnn);
+                notify.InvokeEvent(this.OnFailed);
+                notify.InvokeEvent(this.OnIdle);
+                notify.InvokeEvent(this.OnIncomming);
+                notify.InvokeEvent(this.OnInvite);
+                notify.InvokeEvent(this.OnOnline);
+                notify.InvokeEvent(this.OnOffline);
+                notify.InvokeEvent(this.OnQueue);
+                notify.InvokeEvent(this.OnRing);
+                notify.InvokeEvent(this.OnTransient);
             });
         }
 
@@ -89,5 +114,6 @@ namespace OM.AppClient.SignalR
             var rst = await this.Proxy.Invoke<string>("Execute", mthJson);
             return JsonConvert.DeserializeObject<T>(rst, JSONSetting);
         }
+
     }
 }

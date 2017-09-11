@@ -60,6 +60,43 @@ namespace OM.Api.Models.Events
         [XmlElement("menu")]
         public IDAttribute Menu { get; set; }
 
+
+        /// <summary>
+        /// 呼叫来源, 如果为空,或等于当前分机号,则是通过API实现分机外呼
+        /// </summary>
+        [XmlIgnore]
+        public string FromNO =>
+            this.FromExt?.ID ??
+            this.Outer?.From ??
+            this.Visitor?.From ??
+            this.Menu?.ID;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public RingFromTypes? RingFromType
+        {
+            get
+            {
+                if (this.Menu != null)
+                    return RingFromTypes.Menu;
+                else if (this.Visitor != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(this.Visitor.From))
+                        return RingFromTypes.Visitor;
+                    else
+                        return RingFromTypes.OM;
+                }
+                else if (this.Outer != null)
+                    return RingFromTypes.OM;
+                else if (this.FromExt != null)
+                    return RingFromTypes.Ext;
+                return null;
+            }
+        }
+
+
         string IExtNotify.ExtID => this.Ext.ID;
     }
 }
