@@ -35,8 +35,11 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
 
                 <ResourceDictionary Source="./Scroll.xaml" />
+                <ResourceDictionary Source="./MaterialDesignFix.xaml" />
+                
             </ResourceDictionary.MergedDictionaries>
 
             <FontFamily x:Key="MaterialDesignFont">Microsoft YaHei, Arial, Helvetica, sans-serif</FontFamily>
@@ -84,12 +87,7 @@
             <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
                 <Setter Property="Margin" Value="0 8 0 8" />
             </Style>
-            <Style TargetType="{x:Type md:PackIcon}" BasedOn="{StaticResource {x:Type md:PackIcon}}">
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Width" Value="25" />
-                <!--<Setter Property="Margin" Value="4 0 4 0" />-->
-            </Style>
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

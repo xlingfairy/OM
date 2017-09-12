@@ -39,7 +39,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Button Style="{DynamicResource MaterialDesignToolButton}">
-                                <md:PackIcon Kind="Magnify" />
+                                <md:PackIcon Kind="Magnify" Width="20" Height="20" />
                             </Button>
 
                             <!--cm 的name绑定不起作用？？-->
@@ -88,7 +88,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <StackPanel>
+            <StackPanel Margin="10">
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                               IsChecked="{Binding ElementName=drawerHost,Path=IsRightDrawerOpen}"
                               Command="{x:Static md:DrawerHost.OpenDrawerCommand}"

@@ -102,16 +102,30 @@
                         <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
                         <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Transparent" />
                         <Setter Property="Background" Value="Green" />
-                        <Setter Property="Content" Value="{md:PackIcon Kind=Phone}" />
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <md:PackIcon Kind="Phone" Width="30" Height="30"/>
+                            </Setter.Value>
+                        </Setter>
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Status}" Value="Dailing">
                                 <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
                                 <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Red" />
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
+                                    </Setter.Value>
+                                </Setter>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Status}" Value="Alert">
                                 <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
                                 <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Yellow" />
                                 <Setter Property="Background" Value="Red" />
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
+                                    </Setter.Value>
+                                </Setter>                                
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Status}" Value="Answered">
                                 <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />

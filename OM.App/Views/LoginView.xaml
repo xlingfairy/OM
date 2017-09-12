@@ -27,7 +27,7 @@
                      md:HintAssist.IsFloating="True">
                         <md:HintAssist.Hint>
                             <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
-                                <md:PackIcon Kind="AccountBox" />
+                                <md:PackIcon Kind="AccountBox" Margin="0,0,4,0" />
                                 <TextBlock>用户名</TextBlock>
                             </StackPanel>
                         </md:HintAssist.Hint>
@@ -37,7 +37,7 @@
                          md:HintAssist.IsFloating="True">
                         <md:HintAssist.Hint>
                             <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
-                                <md:PackIcon Kind="Security" />
+                                <md:PackIcon Kind="Security" Margin="0,0,4,0" />
                                 <TextBlock>密码</TextBlock>
                             </StackPanel>
                         </md:HintAssist.Hint>
