@@ -32,8 +32,7 @@
                     ItemsSource="{Binding Tabs}"
                     HeaderMemberPath="Title"
                     ShowDefaultCloseButton="True"
-                    SelectedIndex="0"
-                    SelectedItem="{Binding SelectedTab}"
+                    SelectedItem="{Binding SelectedTab,Mode=TwoWay}"
                     >
                 <dragablz:TabablzControl.HeaderPrefixContent>
                     <ContentControl>

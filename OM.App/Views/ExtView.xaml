@@ -88,14 +88,53 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <StackPanel Margin="10">
-                <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+            <md:ColorZone Mode="Dark" CornerRadius="10" Margin="10" Padding="10"
+                          md:ShadowAssist.ShadowDepth="Depth1"
+                          md:ShadowAssist.Darken="False"
+                          >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="Name" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="10,0"
+                                 Width="150">
+                            <md:HintAssist.Hint>
+                                <StackPanel Orientation="Horizontal">
+                                    <md:PackIcon Kind="AccountSettings" Margin="0,0,4,0" />
+                                    <TextBlock>欠款人姓名</TextBlock>
+                                </StackPanel>
+                            </md:HintAssist.Hint>
+                        </TextBox>
+                        <TextBox x:Name="Phone" 
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Margin="10,0"
+                                 Width="150">
+                            <md:HintAssist.Hint>
+                                <StackPanel Orientation="Horizontal">
+                                    <md:PackIcon Kind="CellphoneBasic" Margin="0,0,4,0" />
+                                    <TextBlock>欠款人电话</TextBlock>
+                                </StackPanel>
+                            </md:HintAssist.Hint>
+                        </TextBox>
+                        <Button x:Name="Search" 
+                                Content="查询" 
+                                Style="{StaticResource MaterialDesignFlatButton}" 
+                                />
+                    </StackPanel>
+
+                    <ToggleButton Grid.Column="1" Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                               IsChecked="{Binding ElementName=drawerHost,Path=IsRightDrawerOpen}"
                               Command="{x:Static md:DrawerHost.OpenDrawerCommand}"
                               CommandParameter="{x:Static Dock.Right}"
-                              HorizontalAlignment="Right"
                               />
-            </StackPanel>
+                </Grid>
+            </md:ColorZone>
 
             <!--SelectionMode="Single" 避免一次选择多个，导至多个 detail 显示出来-->
             <DataGrid Grid.Row="1" 
@@ -111,7 +150,7 @@
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
                     <DataGridTextColumn Header="债权人" Binding="{Binding Creditor}" />
                     <DataGridTextColumn Header="金额" Binding="{Binding Amount}" />
-                    <DataGridTextColumn Header="借款时间" Binding="{Binding DebitTime}" />
+                    <DataGridTextColumn Header="借款时间" Binding="{Binding DebitTime, StringFormat='yyyy/MM/dd'}" />
                     <DataGridTextColumn Header="欠款人" Binding="{Binding DebtorName}" />
                     <DataGridTextColumn Header="欠款人电话" Binding="{Binding DebtorPhone}" />
                 </DataGrid.Columns>

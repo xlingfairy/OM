@@ -10,10 +10,12 @@ namespace OM.App.ViewModels
     /// <summary>
     /// 
     /// </summary>
-    [Regist(InstanceMode.Singleton)]
+    [Regist(InstanceMode.PreRequest)]
     public class CallViewModel : BaseVM
     {
-        public override string Title => "呼叫";
+        public override string Title => this.Data?.DebtorName ?? "呼叫";
+
+        public override string TabIdentifier => this.Data?.DebtorName;
 
         private DebtInfo _data = null;
         public DebtInfo Data
@@ -25,7 +27,7 @@ namespace OM.App.ViewModels
             set
             {
                 this._data = value;
-                this.NotifyOfPropertyChange(() => this.Data);
+                this.NotifyOfPropertyChange(() => this.Data, () => this.Title);
             }
         }
 

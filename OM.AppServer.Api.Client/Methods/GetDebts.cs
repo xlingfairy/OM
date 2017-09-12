@@ -16,6 +16,12 @@ namespace OM.AppServer.Api.Client.Methods
         public override HttpMethod HttpMethod => HttpMethod.Post;
 
         [Param]
+        public string Name { get; set; }
+
+        [Param]
+        public string Phone { get; set; }
+
+        [Param]
         public int Page { get; set; }
 
         [Param]

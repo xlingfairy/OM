@@ -36,6 +36,12 @@ namespace OM.App
             }
         }
 
+
+        /// <summary>
+        /// 对于注册为 PreRequest 的 VM， 用于判断是否在【主窗口的标签】中打开了这个VM的视图
+        /// </summary>
+        public virtual string TabIdentifier => null;
+
         public BaseVM()
         {
             this.DisplayName = this.Title;
