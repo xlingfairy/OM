@@ -1,10 +1,4 @@
-﻿using Caliburn.Micro;
-using MaterialDesignThemes.Wpf;
-using OM.App.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using OM.App.Attributes;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;

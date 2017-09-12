@@ -1,20 +1,14 @@
 ﻿using Caliburn.Micro;
 using OM.Api.Methods.Controls.Query;
 using OM.Api.Models;
-using OM.Api.Models.Enums;
 using OM.App.Attributes;
 using OM.App.Models;
 using OM.AppClient.SignalR;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Data;
-using System.Windows.Threading;
 
 namespace OM.App.ViewModels
 {

@@ -3,9 +3,6 @@ using Newtonsoft.Json;
 using OM.Api;
 using OM.Api.Models.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OM.AppClient.SignalR
@@ -14,7 +11,7 @@ namespace OM.AppClient.SignalR
     {
 
 
-        #region
+        #region 事件声明
         public event EventHandler<NotifyArgs<Alert>> OnAlert = null;
         public event EventHandler<NotifyArgs<Answer>> OnAnswer = null;
         public event EventHandler<NotifyArgs<Answered>> OnAnswered = null;
@@ -63,7 +60,7 @@ namespace OM.AppClient.SignalR
         };
 
         /// <summary>
-        /// 不允许实例
+        /// 不允许直接实例
         /// </summary>
         private OMExtHubProxy()
         {

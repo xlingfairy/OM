@@ -3,11 +3,6 @@ using OM.App.Attributes;
 using OM.App.Models;
 using OM.Moq.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 
 namespace OM.App.ViewModels
@@ -15,11 +10,11 @@ namespace OM.App.ViewModels
     /// <summary>
     /// ExtView DataGrid 的RowDetailsTemplate
     /// 注意，这里为 Singleton ，所以在 ExtView DataGrid.SelectionMode="Single"
+    /// 基类不能是 Screen / ViewAware , 否则的话, DataGrid.RowDetail 第二次不会正常显示,原因未知
     /// </summary>
     [Regist(InstanceMode.Singleton)]
     public class DebtDetailViewModel : PropertyChangedBase
     {
-
         private DebtInfo _data = null;
         public DebtInfo Data
         {
@@ -65,6 +60,7 @@ namespace OM.App.ViewModels
         /// </summary>
         public TimeSpan Span { get; set; }
 
+
         private DispatcherTimer Timer;
 
 
@@ -94,10 +90,17 @@ namespace OM.App.ViewModels
                 this.Status = CallingStages.Dailing;
             else
                 this.Status = CallingStages.None;
-
-            //var dialog = IoC.Get<CallViewModel>();
-            //dialog.Data = this.Data;
-            //dialog.ShowAsDialog();
         }
+
+        public void OpenInNewTab()
+        {
+            var vm = IoC.Get<CallViewModel>();
+            vm.Data = this.Data;
+            vm.Status = this.Status;
+            vm.Span = this.Span;
+
+            IoC.Get<IShell>().ShowTab(vm);
+        }
+
     }
 }

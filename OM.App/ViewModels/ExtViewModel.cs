@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using MaterialDesignThemes.Wpf;
 using Notifications.Wpf;
 using OM.Api.Models.Events;
 using OM.App.Attributes;
@@ -8,15 +7,11 @@ using OM.AppClient.SignalR;
 using OM.AppServer.Api.Client.Methods;
 using OM.Moq.Entity;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Threading;
 using SApiClient = OM.AppServer.Api.Client.ApiClient;
 
 namespace OM.App.ViewModels

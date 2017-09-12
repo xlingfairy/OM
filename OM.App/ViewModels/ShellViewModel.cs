@@ -1,16 +1,7 @@
 ﻿using Caliburn.Micro;
-using CNB.Common;
-using MaterialDesignThemes.Wpf;
 using OM.App.Attributes;
 using OM.AppClient.SignalR;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using SClient = OM.AppServer.Api.Client.ApiClient;
 
 namespace OM.App.ViewModels
@@ -24,14 +15,26 @@ namespace OM.App.ViewModels
     {
         public override string Title => "OM Client";
 
+        /// <summary>
+        /// 页签数据源
+        /// </summary>
         public IObservableCollection<BaseVM> Tabs { get; }
 
+        /// <summary>
+        /// 选中的页签
+        /// </summary>
+        public BaseVM SelectedTab { get; set; }
 
         public ShellViewModel()
         {
             this.Tabs = new BindableCollection<BaseVM>();
         }
 
+        /// <summary>
+        /// OnViewLoaded 的时候, DialogHost 还没有加载
+        /// 所以要继续监听 ShellView 的 Activated 事件
+        /// </summary>
+        /// <param name="view"></param>
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
@@ -43,7 +46,9 @@ namespace OM.App.ViewModels
         {
             if (!SClient.IsLogined)
             {
+                //弹出登陆框
                 this.ShowLogin();
+                //卸载事件,避免错误
                 ((Views.ShellView)sender).Activated -= V_Activated;
             }
         }
@@ -52,17 +57,41 @@ namespace OM.App.ViewModels
         {
             var o = await IoC.Get<LoginViewModel>().ShowAsDialog2(vm => vm.Login());
 
+            //当 SignalR 连接上时,才显示
             OMExtHubProxy.Instance.Connected += (sender, args) =>
             {
-                BaseVM vm = null;
                 if (SClient.IsAdmin)
-                    vm = IoC.Get<DashboardViewModel>();
+                    this.ShowTab<DashboardViewModel>();
                 else
-                    vm = IoC.Get<ExtViewModel>();
-
-                if (!this.Tabs.Contains(vm))
-                    this.Tabs.Add(vm);
+                    this.ShowTab<ExtViewModel>();
             };
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="vm"></param>
+        /// <param name="allowMuti"></param>
+        public void ShowTab<T>(bool show = true, bool allowMuti = false) where T : BaseVM
+        {
+            var vm = IoC.Get<T>();
+            this.ShowTab(vm, show, allowMuti);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="vm"></param>
+        /// <param name="allowMuti"></param>
+        public void ShowTab<T>(T vm, bool show = true, bool allowMuti = false) where T : BaseVM
+        {
+            if (allowMuti || !this.Tabs.Contains(vm))
+                this.Tabs.Add(vm);
+
+            this.SelectedTab = vm;
+            this.NotifyOfPropertyChange(() => this.SelectedTab);
         }
     }
 }
