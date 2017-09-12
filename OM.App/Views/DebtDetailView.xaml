@@ -19,20 +19,11 @@
     </UserControl.Resources>
 
 
-    <md:ColorZone Mode="PrimaryMid" 
-                      Margin="20,10,10,10" 
+    <md:ColorZone Mode="Dark" 
                       Padding="20" 
                       CornerRadius="5"
-                      md:ShadowAssist.ShadowDepth="Depth5">
+                      md:ShadowAssist.ShadowDepth="Depth3">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="500" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -45,7 +36,10 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
+                
                 <TextBlock Grid.Row="0" Text="欠款人" Style="{StaticResource title}" />
                 <TextBlock Grid.Row="1" Text="{Binding Data.DebtorName}" />
 
@@ -58,103 +52,89 @@
                 <TextBlock Grid.Row="6" Text="欠款人地址" Style="{StaticResource title}" />
                 <TextBlock Grid.Row="7" Text="{Binding Data.DebtorAddress}" />
 
-            </Grid>
-
-            <Separator Grid.Column="1"
+                <Separator Grid.Row="8"
                        Style="{StaticResource MaterialDesignLightSeparator}"
-                       Margin="5"
-                       >
-                <Separator.LayoutTransform>
-                    <RotateTransform Angle="90" />
-                </Separator.LayoutTransform>
-            </Separator>
+                       Margin="0,5"
+                       />
 
-            <ScrollViewer Grid.Column="2"
-                          MaxHeight="200"
-                          VerticalScrollBarVisibility="Auto"
+                <ScrollViewer Grid.Row="9"
+                              MaxHeight="300"
+                              VerticalScrollBarVisibility="Auto"
                           >
-                <TextBlock Text="{Binding Data.Desc}" 
+                    <TextBlock Text="{Binding Data.Desc}" 
                            TextWrapping="Wrap"
                            LineHeight="25"
+                           Opacity="0.6"
                    />
-            </ScrollViewer>
+                </ScrollViewer>
 
-            <Separator Grid.Column="3"
-                       Style="{StaticResource MaterialDesignLightSeparator}"
-                       Margin="5"
-                       >
-                <Separator.LayoutTransform>
-                    <RotateTransform Angle="90" />
-                </Separator.LayoutTransform>
-            </Separator>
-
-            <DockPanel Grid.Column="4">
-                <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                <DockPanel Grid.RowSpan="8" HorizontalAlignment="Right">
+                    <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
                         DockPanel.Dock="Top" HorizontalAlignment="Right"
-                        Margin="-15"
                         x:Name="OpenInNewTab"
                         >
-                    <md:PackIcon Kind="ArrowExpand" />
-                </Button>
-                <Button x:Name="Call" 
+                        <md:PackIcon Kind="ArrowExpand" />
+                    </Button>
+                    <Button x:Name="Call" 
                     HorizontalAlignment="Left"
                     Foreground="White"
                     Margin="16 0 0 0"
                     md:ButtonProgressAssist.Value="-1" 
                     md:ButtonProgressAssist.IsIndeterminate="True"
                     >
-                    <Button.Style>
-                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionLightButton}">
-                            <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="False" />
-                            <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
-                            <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Transparent" />
-                            <Setter Property="Background" Value="Green" />
-                            <Setter Property="Content">
-                                <Setter.Value>
-                                    <md:PackIcon Kind="Phone" Width="30" Height="30"/>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Status}" Value="Dailing">
-                                    <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                    <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Red" />
-                                    <Setter Property="Content">
-                                        <Setter.Value>
-                                            <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Status}" Value="Alert">
-                                    <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                    <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Yellow" />
-                                    <Setter Property="Background" Value="Red" />
-                                    <Setter Property="Content">
-                                        <Setter.Value>
-                                            <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Status}" Value="Answered">
-                                    <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                    <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="White" />
-                                    <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
-                                    <Setter Property="Background" Value="Red" />
-                                    <!--<Setter Property="Content" Value="{Binding Span, StringFormat='c'}" />-->
-                                    <Setter Property="Content">
-                                        <Setter.Value>
-                                            <TextBlock>
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionLightButton}">
+                                <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="False" />
+                                <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
+                                <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Transparent" />
+                                <Setter Property="Background" Value="Green" />
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <md:PackIcon Kind="Phone" Width="30" Height="30"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status}" Value="Dailing">
+                                        <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                        <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Red" />
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Status}" Value="Alert">
+                                        <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                        <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Yellow" />
+                                        <Setter Property="Background" Value="Red" />
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Status}" Value="Answered">
+                                        <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                        <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="White" />
+                                        <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
+                                        <Setter Property="Background" Value="Red" />
+                                        <!--<Setter Property="Content" Value="{Binding Span, StringFormat='c'}" />-->
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <TextBlock>
                                             <Run Text="{Binding Span.TotalMinutes,StringFormat='{}{0:N0}', Mode=OneWay}" />
                                             <Run Text=":" />
                                             <Run Text="{Binding Span.Seconds,StringFormat='{}{0:D2}', Mode=OneWay}" />
-                                            </TextBlock>
-                                        </Setter.Value>
-                                    </Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </DockPanel>
+                                                </TextBlock>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </DockPanel>
+            </Grid>
         </Grid>
     </md:ColorZone>
 
