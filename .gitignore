@@ -266,3 +266,4 @@ __pycache__/
 /OM.Moq.AppServer/logError
 /OM.Moq.AppServer/logDebug
 OM.Moq.AppServer/transports.log.txt
+OM.Moq.AppServer/transports.log.txt

@@ -37,7 +37,7 @@ namespace OM.AppServer.SignalR
         /// </summary>
         /// <param name="mthJson">Method 的 json 序列化字符串</param>
         /// <returns>Method 执行结果的 json 序列化字符串</returns>
-        public async Task<string> Execute(string mthJson)
+        public async Task<(string, bool, ResultCodes, string)> Execute(string mthJson)
         {
             try
             {
@@ -45,9 +45,9 @@ namespace OM.AppServer.SignalR
                 if (mth != null)
                 {
                     var rst = await ApiClient.ExecuteAsync(mth);
-                    return JsonConvert.SerializeObject(rst, JSONSetting);
+                    return (JsonConvert.SerializeObject(rst, JSONSetting), !mth.HasError, mth.ResultCode, mth.ErrorMessage);
                 }
-                return null;
+                return (null, true, ResultCodes.错误, "反序列化 method 失败");
             }
             catch (Exception e)
             {

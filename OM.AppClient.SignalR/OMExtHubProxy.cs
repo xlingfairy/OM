@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
 using Newtonsoft.Json;
 using OM.Api;
+using OM.Api.Models;
 using OM.Api.Models.Events;
 using System;
 using System.Threading.Tasks;
@@ -108,8 +109,15 @@ namespace OM.AppClient.SignalR
         public async Task<T> Execute<T>(BaseMethod<T> mth)
         {
             var mthJson = JsonConvert.SerializeObject(mth, JSONSetting);
-            var rst = await this.Proxy.Invoke<string>("Execute", mthJson);
-            return JsonConvert.DeserializeObject<T>(rst, JSONSetting);
+            var (rst, isSuccess, resultCode, errorMsg) = await this.Proxy.Invoke<(string, bool, ResultCodes, string)>("Execute", mthJson);
+            if (isSuccess)
+                return JsonConvert.DeserializeObject<T>(rst, JSONSetting);
+            else
+            {
+                mth.ResultCode = resultCode;
+                mth.ErrorMessage = errorMsg;
+                return default(T);
+            }
         }
 
     }

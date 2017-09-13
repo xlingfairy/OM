@@ -24,8 +24,8 @@ namespace OM.Api.Test
         {
             var opt = new ApiClientOption()
             {
-                BaseUri = "http://xxx",
-                Pwd = "xxx"
+                BaseUri = "http://789zcgl.iask.in",
+                Pwd = "admin"
             };
 
             ApiClient.Init(opt);
