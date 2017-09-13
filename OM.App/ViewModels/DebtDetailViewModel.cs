@@ -9,8 +9,6 @@ namespace OM.App.ViewModels
 {
     /// <summary>
     /// ExtView DataGrid 的RowDetailsTemplate
-    /// 注意，这里为 Singleton ，所以在 ExtView DataGrid.SelectionMode="Single"
-    /// 基类不能是 Screen / ViewAware , 否则的话, DataGrid.RowDetail 第二次不会正常显示,原因未知
     /// </summary>
     [Regist(InstanceMode.Singleton)]
     public class DebtDetailViewModel : PropertyChangedBase
@@ -99,7 +97,7 @@ namespace OM.App.ViewModels
             vm.Status = this.Status;
             vm.Span = this.Span;
 
-            IoC.Get<IShell>().ShowTab(vm);
+            IoC.Get<IShell>().ShowTab(vm, true);
         }
 
     }

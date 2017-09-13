@@ -81,11 +81,21 @@ namespace OM.App.ViewModels
         public BindableCollection<DebtInfo> Debts { get; }
             = new BindableCollection<DebtInfo>();
 
-        /// <summary>
-        /// RowDetailsTemplate 绑定的模型
-        /// </summary>
-        public DebtDetailViewModel DetailVM { get; }
-            = IoC.Get<DebtDetailViewModel>();
+        private DebtInfo _selectedItem = null;
+        public DebtInfo SelectedItem
+        {
+            get
+            {
+                return this._selectedItem;
+            }
+            set
+            {
+                this._selectedItem = value;
+                this.DetailVM.Data = value;
+            }
+        }
+
+        public DebtDetailViewModel DetailVM { get; } = IoC.Get<DebtDetailViewModel>();
 
         /// <summary>
         /// 催收数据总数
@@ -100,9 +110,15 @@ namespace OM.App.ViewModels
         /// <summary>
         /// 分页大小
         /// </summary>
-        public int PageSize { get; set; } = 20;
+        public int PageSize { get; set; } = 50;
 
         public ICommand PageChandCmd { get; }
+        #endregion
+
+        #region 查询条件
+        public string Name { get; set; }
+
+        public string Phone { get; set; }
         #endregion
 
         public ExtViewModel()
@@ -127,7 +143,7 @@ namespace OM.App.ViewModels
             //加载催收数据
             Task.Run(async () =>
             {
-                await this.LoadDebts(0, 20);
+                await this.LoadDebts(0, this.PageSize);
             });
         }
 
@@ -233,12 +249,20 @@ namespace OM.App.ViewModels
         #endregion
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         private async Task LoadDebts(int page, int pageSize)
         {
             var mth = new GetDebts()
             {
                 Page = page,
-                PageSize = pageSize
+                PageSize = pageSize,
+                Name = this.Name,
+                Phone = this.Phone
             };
             var debts = await SApiClient.ExecuteAsync(mth);
             this.Debts.Clear();
@@ -249,7 +273,19 @@ namespace OM.App.ViewModels
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task Search()
+        {
+            this.Page = 0;
+            this.NotifyOfPropertyChange(() => this.Page);
+            await this.LoadDebts(0, this.PageSize);
+        }
+
+        /// <summary>
         /// 加载催收详情面板(CM 事件处理)
+        /// 注意：如果已经加载，不会触发第二次
         /// </summary>
         /// <param name="e"></param>
         public void LoadingRowDetails(DataGridRowDetailsEventArgs e)
@@ -257,11 +293,9 @@ namespace OM.App.ViewModels
             try
             {
                 var detail = e.DetailsElement.FindName("Detail") as ContentControl;
-                //var vm = IoC.Get<DebtDetailViewModel>();
-                //vm.Data = e.Row.DataContext as DebtInfo;
-                //View.SetModel(detail, vm);
-                this.DetailVM.Data = e.Row.DataContext as DebtInfo;
-                View.SetModel(detail, this.DetailVM);
+                var vm = IoC.Get<DebtDetailViewModel>();
+                vm.Data = e.Row.DataContext as DebtInfo;
+                View.SetModel(detail, vm);
             }
             catch
             {

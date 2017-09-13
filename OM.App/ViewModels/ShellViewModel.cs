@@ -2,6 +2,7 @@
 using OM.App.Attributes;
 using OM.AppClient.SignalR;
 using System;
+using System.Linq;
 using SClient = OM.AppServer.Api.Client.ApiClient;
 
 namespace OM.App.ViewModels
@@ -87,7 +88,8 @@ namespace OM.App.ViewModels
         /// <param name="allowMuti"></param>
         public void ShowTab<T>(T vm, bool show = true, bool allowMuti = false) where T : BaseVM
         {
-            if (allowMuti || !this.Tabs.Contains(vm))
+            //if (allowMuti || !this.Tabs.Contains(vm))
+            if (allowMuti || !this.Tabs.OfType<T>().Any(t => t.TabIdentifier == vm.TabIdentifier))
                 this.Tabs.Add(vm);
 
             this.SelectedTab = vm;
