@@ -9,11 +9,6 @@
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
-    <UserControl.Resources>
-        
-    </UserControl.Resources>
-    
     <md:DrawerHost x:Name="drawerHost" Padding="10">
         <md:DrawerHost.RightDrawerContent>
             <Grid>
@@ -92,15 +87,9 @@
                 <RowDefinition />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
 
-            <md:ColorZone Grid.Row="0" Grid.ColumnSpan="3" 
-                          Mode="Dark" CornerRadius="20" Margin="10" Padding="20,5"
-                          md:ShadowAssist.ShadowDepth="Depth2"
+            <md:ColorZone Mode="Dark" CornerRadius="10" Margin="10" Padding="10"
+                          md:ShadowAssist.ShadowDepth="Depth1"
                           md:ShadowAssist.Darken="False"
                           >
                 <Grid>
@@ -147,16 +136,16 @@
                 </Grid>
             </md:ColorZone>
 
-
-            <DataGrid Grid.Row="1" Grid.Column="0" 
-                        ItemsSource="{Binding Debts}"
-                        IsReadOnly="True"
-                        AutoGenerateColumns="False"
-                        md:DataGridAssist.CellPadding="13 8 8 8" 
-                        md:DataGridAssist.ColumnHeaderPadding="8"
-                        SelectionMode="Single"
-                        SelectedItem="{Binding SelectedItem}"
-                    >
+            <!--SelectionMode="Single" 避免一次选择多个，导至多个 detail 显示出来-->
+            <DataGrid Grid.Row="1" 
+                          ItemsSource="{Binding Debts}"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          md:DataGridAssist.CellPadding="13 8 8 8" 
+                          md:DataGridAssist.ColumnHeaderPadding="8"
+                          SelectionMode="Single"
+						  cal:Message.Attach="[Event LoadingRowDetails]=[Action LoadingRowDetails($eventArgs)]"
+                      >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
                     <DataGridTextColumn Header="债权人" Binding="{Binding Creditor}" />
@@ -165,24 +154,22 @@
                     <DataGridTextColumn Header="欠款人" Binding="{Binding DebtorName}" />
                     <DataGridTextColumn Header="欠款人电话" Binding="{Binding DebtorPhone}" />
                 </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <ContentControl x:Name="Detail" />
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
             </DataGrid>
 
-            <GridSplitter Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" 
-                            ShowsPreview="True" Width="5"
-                            Margin="10,0"
-                            ResizeBehavior="PreviousAndNext" />
-
-            <ContentControl Grid.Row="1" Grid.Column="2" cal:View.Model="{Binding DetailVM}" />
-            
             <md:ColorZone Grid.Row="2" 
                           Mode="Dark" 
-                          Margin="10" 
+                          Margin="5" 
                           CornerRadius="20" 
                           Padding="20,5" 
                           HorizontalAlignment="Center"
-                          md:ShadowAssist.ShadowDepth="Depth2"
-                          BorderBrush="White"
                           BorderThickness="0.5"
+                          BorderBrush="White"
+                          md:ShadowAssist.ShadowDepth="Depth2"
                           >
                 <local:Pagination Grid.Row="2"
                               Total="{Binding Total, Mode=TwoWay}"
@@ -195,7 +182,7 @@
                         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
                             <Setter Property="Foreground" Value="White" />
                         </Style>
-                    </local:Pagination.Resources>
+                    </local:Pagination.Resources>                    
                 </local:Pagination>
             </md:ColorZone>
         </Grid>

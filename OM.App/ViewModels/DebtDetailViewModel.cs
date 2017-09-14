@@ -10,7 +10,7 @@ namespace OM.App.ViewModels
     /// <summary>
     /// ExtView DataGrid 的RowDetailsTemplate
     /// </summary>
-    [Regist(InstanceMode.Singleton)]
+    [Regist(InstanceMode.PreRequest)]
     public class DebtDetailViewModel : PropertyChangedBase
     {
         private DebtInfo _data = null;

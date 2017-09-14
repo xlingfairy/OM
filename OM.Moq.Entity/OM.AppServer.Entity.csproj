@@ -46,6 +46,7 @@
     <Compile Include="BaseResult.cs" />
     <Compile Include="DebtCondition.cs" />
     <Compile Include="DebtInfo.cs" />
+    <Compile Include="DebtNote.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,7 +13,11 @@ namespace OM.Moq.AppServer.Controllers
     public class DebtsController : BaseController
     {
 
-        [AllowAnonymous]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cond"></param>
+        /// <returns></returns>
         [HttpPost, Route("Search")]
         public ListResult<DebtInfo> Post(DebtCondition cond)
         {
@@ -38,5 +42,27 @@ namespace OM.Moq.AppServer.Controllers
             return BaseResult.CreateListResult(datas, total: 187);
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet, Route("Notes")]
+        public ListResult<DebtNote> GetDebtNotes(long id)
+        {
+            var datas = Enumerable.Range(0, 5)
+                .Select(i => new DebtNote
+                {
+                    ID = i,
+                    CreateOn = DateTime.Now.AddDays(-i),
+                    CreateBy = "6678",
+                    DebtID = id,
+                    Msg = "这人不好说话"
+                });
+
+            return BaseResult.CreateListResult(datas);
+        }
     }
 }

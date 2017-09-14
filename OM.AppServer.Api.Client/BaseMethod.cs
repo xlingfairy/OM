@@ -187,8 +187,15 @@ namespace OM.AppServer.Api.Client
                     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", client.AuthToken?.AccessToken);
 
                 var ps = ParamHelper.GetParams(this);
-                var content = new FormUrlEncodedContent(ps);
-                request.Content = content;
+                switch (this.HttpMethod.Method)
+                {
+                    case "POST":
+                        request.Content = new FormUrlEncodedContent(ps);
+                        break;
+                    case "GET":
+                        request.RequestUri = new Uri(url.SetUrlKeyValue(ps));
+                        break;
+                }
 
                 string rst = null;
                 var sw = Stopwatch.StartNew();

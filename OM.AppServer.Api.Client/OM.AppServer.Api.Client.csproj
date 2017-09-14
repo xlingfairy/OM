@@ -70,6 +70,7 @@
     <Compile Include="BaseMethod.cs" />
     <Compile Include="BaseResponse.cs" />
     <Compile Include="LoginedEventArgs.cs" />
+    <Compile Include="Methods\GetDebtNotes.cs" />
     <Compile Include="Methods\GetDebts.cs" />
     <Compile Include="Methods\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

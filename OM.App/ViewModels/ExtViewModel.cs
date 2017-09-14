@@ -81,19 +81,19 @@ namespace OM.App.ViewModels
         public BindableCollection<DebtInfo> Debts { get; }
             = new BindableCollection<DebtInfo>();
 
-        private DebtInfo _selectedItem = null;
-        public DebtInfo SelectedItem
-        {
-            get
-            {
-                return this._selectedItem;
-            }
-            set
-            {
-                this._selectedItem = value;
-                this.DetailVM.Data = value;
-            }
-        }
+        //private DebtInfo _selectedItem = null;
+        //public DebtInfo SelectedItem
+        //{
+        //    get
+        //    {
+        //        return this._selectedItem;
+        //    }
+        //    set
+        //    {
+        //        this._selectedItem = value;
+        //        this.DetailVM.Data = value;
+        //    }
+        //}
 
         public DebtDetailViewModel DetailVM { get; } = IoC.Get<DebtDetailViewModel>();
 

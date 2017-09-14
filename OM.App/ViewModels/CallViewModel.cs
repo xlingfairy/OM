@@ -1,9 +1,12 @@
 ﻿using Caliburn.Micro;
 using OM.App.Attributes;
 using OM.App.Models;
+using OM.AppServer.Api.Client.Methods;
 using OM.Moq.Entity;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Threading;
+using SApiClient = OM.AppServer.Api.Client.ApiClient;
 
 namespace OM.App.ViewModels
 {
@@ -28,8 +31,12 @@ namespace OM.App.ViewModels
             {
                 this._data = value;
                 this.NotifyOfPropertyChange(() => this.Data, () => this.Title);
+                Task.Run(() => this.LoadNotes(value.ID));
             }
         }
+
+        public BindableCollection<DebtNote> Notes { get; }
+            = new BindableCollection<DebtNote>();
 
         private CallingStages _status = CallingStages.None;
         /// <summary>
@@ -86,5 +93,27 @@ namespace OM.App.ViewModels
             this.NotifyOfPropertyChange(() => this.Span);
         }
 
+
+        private async Task LoadNotes(long debtID)
+        {
+            var mth = new GetDebtNotes()
+            {
+                DebtID = debtID
+            };
+            var rst = await SApiClient.ExecuteAsync(mth);
+            if (!mth.HasError)
+            {
+                this.Notes.Clear();
+                this.Notes.AddRange(rst.Result);
+            }
+        }
+
+        public void Call()
+        {
+            if (this.Status == CallingStages.None)
+                this.Status = CallingStages.Dailing;
+            else
+                this.Status = CallingStages.None;
+        }
     }
 }
