@@ -115,6 +115,7 @@
     <Compile Include="Pagination.xaml.cs">
       <DependentUpon>Pagination.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TimeSpanConverter.cs" />
     <Compile Include="UniPadding.cs" />
     <Compile Include="ViewModels\CallViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
@@ -237,6 +238,7 @@
     <Resource Include="ico.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Digital-7Mono.TTF" />
     <None Include="Resources\ico.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

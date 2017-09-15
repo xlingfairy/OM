@@ -8,6 +8,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <local:TimeSpanConverter x:Key="TV" />
+
+
+            <Style TargetType="{x:Type ListView}">
+                <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+                <!--ListView 在 ColorZone 中, Foreground 不显示,有BUG,这里重写 ListView 的样式-->
+                <!--<Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />-->
+                <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="ItemContainerStyle" Value="{Binding RelativeSource={RelativeSource Self}, Path=View, Converter={StaticResource MaterialDesignListViewItemContainerStyleConverter}}" />
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+                <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+                <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="OverridesDefaultStyle" Value="False" />
+                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Template" Value="{Binding RelativeSource={RelativeSource Self}, Path=View, Converter={StaticResource MaterialDesignListViewTemplateConverter}}" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.ColumnDefinitions>
@@ -31,6 +57,7 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
@@ -41,23 +68,27 @@
                         <TextBlock Grid.Row="0" Grid.Column="0" Text="欠款人" />
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Data.DebtorName}" />
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="借款时间" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Data.DebitTime,StringFormat='yyyy/MM/dd'}" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="欠款人电话" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Data.DebtorPhone}" />
 
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="欠款金额" />
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Data.Amount}" />
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="借款时间" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Data.DebitTime,StringFormat='yyyy/MM/dd'}" />
 
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="欠款人地址" />
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Data.DebtorAddress}" />
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="欠款金额" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Data.Amount}" />
 
-                        <Button Grid.RowSpan="4" 
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="欠款人地址" />
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Data.DebtorAddress}" />
+
+                        <Button Grid.RowSpan="5" 
                             Grid.Column="2" 
                             Margin="10"
                             x:Name="Call" 
                             Foreground="White"
                             md:ButtonProgressAssist.Value="-1" 
                             md:ButtonProgressAssist.IsIndeterminate="True"
-                    
+                            Width="70"
+                            Height="70"
                             >
                             <Button.Style>
                                 <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionLightButton}">
@@ -92,7 +123,7 @@
                                         </DataTrigger>
                                         <DataTrigger Binding="{Binding Status}" Value="Answered">
                                             <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                            <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="White" />
+                                            <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Green" />
                                             <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
                                             <Setter Property="Background" Value="Red" />
 
@@ -100,11 +131,9 @@
 
                                             <Setter Property="Content">
                                                 <Setter.Value>
-                                                    <TextBlock>
-                                                    <Run Text="{Binding Span.TotalMinutes,StringFormat='{}{0:N0}', Mode=OneWay}" />
-                                                    <Run Text=":" />
-                                                    <Run Text="{Binding Span.Seconds,StringFormat='{}{0:D2}', Mode=OneWay}" />
-                                                    </TextBlock>
+                                                    <Viewbox Margin="10" Width="{Binding Width}" Height="{Binding Height}">
+                                                        <TextBlock Text="{Binding Span, Converter={StaticResource TV}}" FontFamily="{StaticResource ClockFont}"/>
+                                                    </Viewbox>
                                                 </Setter.Value>
                                             </Setter>
                                         </DataTrigger>
@@ -143,16 +172,40 @@
                     <ListView ItemsSource="{Binding Notes}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding CreateOn, StringFormat='yyyy/MM/dd HH:mm'}" Foreground="Gray" />
-                                    <TextBlock Text="{Binding Msg}" Foreground="#999999" />
+                                <StackPanel local:UniPadding.Padding="0,2">
+                                    <!--<Border CornerRadius="5" Background="#dddddd" Padding="5,0">-->
+                                        <TextBlock Opacity="0.5" FontSize="11">
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}at: {0:yyyy/MM/dd HH:mm}     by:{1}">
+                                                    <Binding Path="CreateOn" />
+                                                    <Binding Path="CreateBy" />
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    <!--</Border>-->
+                                    <TextBlock Text="{Binding Msg}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </md:ColorZone>
-                <md:ColorZone Mode="PrimaryMid" Grid.Row="1" Padding="20,10">
-                    <TextBox md:HintAssist.Hint="请输入" />
+                <md:ColorZone Mode="PrimaryMid" Grid.Row="1" HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 AcceptsReturn="True" 
+                                 TextWrapping="Wrap" 
+                                 MaxHeight="100"
+                                 VerticalScrollBarVisibility="Auto"
+                                 md:HintAssist.Hint="请输入您的记录.."
+                                 md:HintAssist.FloatingScale="0.9"
+                                 Margin="10,5" />
+                        <Button Grid.Column="1" Content="提交记录" 
+                                Style="{StaticResource MaterialDesignToolButton}" Margin="5,20" Foreground="White" />
+                    </Grid>
                 </md:ColorZone>
             </Grid>
         </md:Card>

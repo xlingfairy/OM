@@ -4,6 +4,7 @@ using OM.AppClient.SignalR;
 using System;
 using System.Linq;
 using SClient = OM.AppServer.Api.Client.ApiClient;
+using Notifications.Wpf;
 
 namespace OM.App.ViewModels
 {
@@ -25,6 +26,12 @@ namespace OM.App.ViewModels
         /// 选中的页签
         /// </summary>
         public BaseVM SelectedTab { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public NotificationManager NM => new NotificationManager();
+
 
         public ShellViewModel()
         {

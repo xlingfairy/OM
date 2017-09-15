@@ -1,6 +1,7 @@
 ﻿using OM.Api;
 using OM.Api.Models.Events;
 using System;
+using System.Threading.Tasks;
 
 namespace OM.AppClient.SignalR
 {
@@ -9,7 +10,17 @@ namespace OM.AppClient.SignalR
         public static void InvokeEvent<T>(this INotify notify, EventHandler<NotifyArgs<T>> handler) where T : BaseEvent
         {
             if (handler != null && notify is T t)
-                handler?.BeginInvoke(null, new NotifyArgs<T>() { Event = t }, null, null);
+            {
+                var hs = handler.GetInvocationList();
+                foreach (var h in hs)
+                {
+                    Task.Run(() =>
+                    {
+                        h.DynamicInvoke(null, new NotifyArgs<T>() { Event = t });
+                    });
+                }
+                //handler?.BeginInvoke(null, new NotifyArgs<T>() { Event = t }, null, null);
+            }
         }
     }
 }

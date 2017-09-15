@@ -1,6 +1,9 @@
 ﻿using Caliburn.Micro;
+using Notifications.Wpf;
+using OM.Api.Models.Events;
 using OM.App.Attributes;
 using OM.App.Models;
+using OM.AppClient.SignalR;
 using OM.AppServer.Api.Client.Methods;
 using OM.Moq.Entity;
 using System;
@@ -75,6 +78,11 @@ namespace OM.App.ViewModels
 
         public CallViewModel()
         {
+
+            OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
+            OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
+            OMExtHubProxy.Instance.OnBye += Instance_OnBye;
+
             Execute.OnUIThread(() =>
             {
                 this.Timer = new DispatcherTimer()
@@ -115,5 +123,29 @@ namespace OM.App.ViewModels
             else
                 this.Status = CallingStages.None;
         }
+
+
+        #region
+        //对方回铃
+        private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
+        {
+            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+                this.Status = CallingStages.Alert;
+        }
+
+        //对方应答
+        private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
+        {
+            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+                this.Status = CallingStages.Answered;
+        }
+
+        //通话结束
+        private void Instance_OnBye(object sender, NotifyArgs<Bye> e)
+        {
+            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+                this.Status = CallingStages.Bye;
+        }
+        #endregion
     }
 }

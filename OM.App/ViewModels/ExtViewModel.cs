@@ -24,11 +24,6 @@ namespace OM.App.ViewModels
     {
         public override string Title => "操作台";
 
-        /// <summary>
-        /// 通知管理器
-        /// </summary>
-        private NotificationManager NM = new NotificationManager();
-
         #region 实时收到的通知
         /// <summary>
         /// 实时收到的通知,数据源
@@ -36,10 +31,14 @@ namespace OM.App.ViewModels
         public BindableCollection<EventLog> Logs { get; }
             = new BindableCollection<EventLog>();
 
+
+
         /// <summary>
         /// 实时通知的可过滤源
         /// </summary>
         public ICollectionView CV { get; private set; }
+
+
 
         private string _filterStr = null;
         /// <summary>
@@ -59,6 +58,13 @@ namespace OM.App.ViewModels
             }
         }
 
+
+
+        /// <summary>
+        /// 实时事件过滤时的回调
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
         private bool Filter(object o)
         {
             if (string.IsNullOrWhiteSpace((this.FilterStr)))
@@ -68,58 +74,58 @@ namespace OM.App.ViewModels
             else
             {
                 var e = (EventLog)o;
-                return e.Tip.IndexOf(this.FilterStr) > -1;
+                return e.Tip.IndexOf(this.FilterStr, StringComparison.OrdinalIgnoreCase) > -1;
             }
         }
 
         #endregion
 
+
         #region 催收数据
         /// <summary>
-        /// 催收数据(模拟)
+        /// 催收数据,从 WebApi 处获取
         /// </summary>
         public BindableCollection<DebtInfo> Debts { get; }
             = new BindableCollection<DebtInfo>();
 
-        //private DebtInfo _selectedItem = null;
-        //public DebtInfo SelectedItem
-        //{
-        //    get
-        //    {
-        //        return this._selectedItem;
-        //    }
-        //    set
-        //    {
-        //        this._selectedItem = value;
-        //        this.DetailVM.Data = value;
-        //    }
-        //}
-
-        public DebtDetailViewModel DetailVM { get; } = IoC.Get<DebtDetailViewModel>();
 
         /// <summary>
         /// 催收数据总数
         /// </summary>
         public long Total { get; set; }
 
+
         /// <summary>
         /// 当前页
         /// </summary>
         public int Page { get; set; }
+
 
         /// <summary>
         /// 分页大小
         /// </summary>
         public int PageSize { get; set; } = 50;
 
+
+        /// <summary>
+        /// 分页命令
+        /// </summary>
         public ICommand PageChandCmd { get; }
         #endregion
 
+
         #region 查询条件
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Phone { get; set; }
         #endregion
+
 
         public ExtViewModel()
         {
@@ -135,6 +141,7 @@ namespace OM.App.ViewModels
                 this.CV.Filter = new Predicate<object>(this.Filter);
             });
 
+            //SignalR 事件注册
             OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
             OMExtHubProxy.Instance.OnRing += Instance_OnRing;
             OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
@@ -149,6 +156,39 @@ namespace OM.App.ViewModels
 
 
         #region 事件处理
+        /// <summary>
+        /// 添加 Log 到侧边栏
+        /// </summary>
+        /// <param name="evt"></param>
+        /// <param name="tip"></param>
+        private void AddLog(BaseEvent evt, string tip)
+        {
+            //在 UI 线程上执行
+            Execute.OnUIThread(() =>
+            {
+                this.Logs.Insert(0, new EventLog()
+                {
+                    CreateOn = DateTime.Now,
+                    Event = evt,
+                    Tip = tip
+                });
+            });
+        }
+
+        //对方回铃
+        private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
+        {
+            var content = new NotificationContent()
+            {
+                Message = "对方已回铃",
+                Title = $"您呼叫的号码：{e.Event.ToNO} 已回铃",
+                Type = NotificationType.Information
+            };
+            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            this.AddLog(e.Event, $"您呼叫的号码：{e.Event.ToNO} 已回铃");
+        }
+
         //本机响铃
         private void Instance_OnRing(object sender, NotifyArgs<Ring> e)
         {
@@ -158,70 +198,28 @@ namespace OM.App.ViewModels
                 {
                     Message = $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电",
                     Title = $"来电",
-                    Type = NotificationType.Warning
+                    Type = NotificationType.Information
                 };
-                this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-                Execute.OnUIThread(() =>
-                {
-                    this.Logs.Insert(0, new EventLog()
-                    {
-                        CreateOn = DateTime.Now,
-                        Event = e.Event,
-                        Tip = $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电",
-                    });
-                });
+                IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+                this.AddLog(e.Event, $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电");
             }
-        }
-
-        //对方回铃
-        private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
-        {
-            if (string.Equals(e.Event.ToNO, this.DetailVM.Data.DebtorPhone))
-                this.DetailVM.Status = CallingStages.Alert;
-
-            var content = new NotificationContent()
-            {
-                Message = "对方已回铃",
-                Title = $"您呼叫的号码：{e.Event.ToNO} 已回铃",
-                Type = NotificationType.Information
-            };
-            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
-
-            Execute.OnUIThread(() =>
-            {
-                this.Logs.Insert(0, new EventLog()
-                {
-                    CreateOn = DateTime.Now,
-                    Event = e.Event,
-                    Tip = $"您呼叫的号码：{e.Event.ToNO} 已回铃"
-                });
-            });
         }
 
         //对方应答
         private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
         {
-            if (string.Equals(e.Event.ToNO, this.DetailVM.Data.DebtorPhone))
-                this.DetailVM.Status = CallingStages.Answered;
-
             var content = new NotificationContent()
             {
                 Message = "对方已应答",
                 Title = $"您呼叫的号码：{e.Event.ToNO} 已应答",
                 Type = NotificationType.Information
             };
-            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-            Execute.OnUIThread(() =>
-            {
-                this.Logs.Insert(0, new EventLog()
-                {
-                    CreateOn = DateTime.Now,
-                    Event = e.Event,
-                    Tip = $"您呼叫的号码：{e.Event.ToNO} 已应答"
-                });
-            });
+            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            this.AddLog(e.Event, $"您呼叫的号码：{e.Event.ToNO} 已应答");
         }
 
         //通话结束
@@ -233,18 +231,9 @@ namespace OM.App.ViewModels
                 Title = $"与 {e.Event.ToNO} 的通话结束",
                 Type = NotificationType.Information
             };
-            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-            //在UI线程上执行，避免 CollectionView 的跨线程问题
-            Execute.OnUIThread(() =>
-            {
-                this.Logs.Insert(0, new EventLog()
-                {
-                    CreateOn = DateTime.Now,
-                    Event = e.Event,
-                    Tip = $"与 {e.Event.ToNO} 的通话结束"
-                });
-            });
+            this.AddLog(e.Event, $"与 {e.Event.ToNO} 的通话结束");
         }
         #endregion
 

@@ -19,13 +19,6 @@
 
                 <StackPanel Orientation="Horizontal">
 
-                    <!--<ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
-                              IsChecked="{Binding ElementName=drawerHost,Path=IsRightDrawerOpen}"
-                              Command="{x:Static md:DrawerHost.CloseDrawerCommand}"
-                              CommandParameter="{x:Static Dock.Right}"
-                              HorizontalAlignment="Left"
-                              />-->
-
                     <md:ColorZone Mode="Inverted" 
                                 CornerRadius="5" Panel.ZIndex="1"
                                 Margin="10,5"
@@ -54,29 +47,23 @@
                     </md:ColorZone>
                 </StackPanel>
                 <ScrollViewer Grid.Row="1">
-                    <ItemsControl ItemsSource="{Binding Logs}">
-                        <ItemsControl.ItemTemplate>
+                    <ListView ItemsSource="{Binding Logs}">
+                        <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border x:Name="Border" 
-                                Padding="8" 
-                                BorderThickness="0 0 0 1" 
-                                BorderBrush="{DynamicResource MaterialDesignDivider}">
-
-                                    <StackPanel>
-                                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
                                                    Text="{Binding CreateOn,StringFormat='HH:mm:ss'}"
                                                    Opacity="0.3"
                                            />
 
-                                        <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
                                            Text="{Binding Tip}"
                                                    FontSize="13"
                                            />
-                                    </StackPanel>
-                                </Border>
+                                </StackPanel>
                             </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </ScrollViewer>
             </Grid>
         </md:DrawerHost.RightDrawerContent>

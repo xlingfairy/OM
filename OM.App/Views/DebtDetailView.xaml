@@ -21,7 +21,7 @@
 
     <md:Card Margin="20,10,10,10" 
                       UniformCornerRadius="20"
-                      md:ShadowAssist.ShadowDepth="Depth5"
+                      md:ShadowAssist.ShadowDepth="Depth2"
                       HorizontalAlignment="Left"
                   >
         <Grid>
