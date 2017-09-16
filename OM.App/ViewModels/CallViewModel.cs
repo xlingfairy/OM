@@ -129,21 +129,21 @@ namespace OM.App.ViewModels
         //对方回铃
         private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
         {
-            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+            if (string.Equals(e.Data.ToNO, this.Data.DebtorPhone))
                 this.Status = CallingStages.Alert;
         }
 
         //对方应答
         private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
         {
-            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+            if (string.Equals(e.Data.ToNO, this.Data.DebtorPhone))
                 this.Status = CallingStages.Answered;
         }
 
         //通话结束
         private void Instance_OnBye(object sender, NotifyArgs<Bye> e)
         {
-            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+            if (string.Equals(e.Data.ToNO, this.Data.DebtorPhone))
                 this.Status = CallingStages.Bye;
         }
         #endregion

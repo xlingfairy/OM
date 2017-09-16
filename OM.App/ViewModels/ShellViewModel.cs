@@ -149,29 +149,29 @@ namespace OM.App.ViewModels
             var content = new NotificationContent()
             {
                 Message = "对方已回铃",
-                Title = $"您呼叫的号码：{e.Event.ToNO} 已回铃",
+                Title = $"您呼叫的号码：{e.Data.ToNO} 已回铃",
                 Type = NotificationType.Information
             };
             IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-            this.AddLog(e.Event, $"您呼叫的号码：{e.Event.ToNO} 已回铃");
+            this.AddLog(e.Data, $"您呼叫的号码：{e.Data.ToNO} 已回铃");
         }
 
         //本机响铃
         private void Instance_OnRing(object sender, NotifyArgs<Ring> e)
         {
-            if (e.Event.RingFromType != Api.Models.Enums.RingFromTypes.OM)
+            if (e.Data.RingFromType != Api.Models.Enums.RingFromTypes.OM)
             {
                 var content = new NotificationContent()
                 {
-                    Message = $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电",
+                    Message = $"收到来自: {e.Data.RingFromType} {e.Data.FromNO} 的来电",
                     Title = $"来电",
                     Type = NotificationType.Information
                 };
 
                 IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-                this.AddLog(e.Event, $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电");
+                this.AddLog(e.Data, $"收到来自: {e.Data.RingFromType} {e.Data.FromNO} 的来电");
             }
         }
 
@@ -181,13 +181,13 @@ namespace OM.App.ViewModels
             var content = new NotificationContent()
             {
                 Message = "对方已应答",
-                Title = $"您呼叫的号码：{e.Event.ToNO} 已应答",
+                Title = $"您呼叫的号码：{e.Data.ToNO} 已应答",
                 Type = NotificationType.Information
             };
 
             IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-            this.AddLog(e.Event, $"您呼叫的号码：{e.Event.ToNO} 已应答");
+            this.AddLog(e.Data, $"您呼叫的号码：{e.Data.ToNO} 已应答");
         }
 
         //通话结束
@@ -196,12 +196,12 @@ namespace OM.App.ViewModels
             var content = new NotificationContent()
             {
                 Message = "通话结束",
-                Title = $"与 {e.Event.ToNO} 的通话结束",
+                Title = $"与 {e.Data.ToNO} 的通话结束",
                 Type = NotificationType.Information
             };
             IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
-            this.AddLog(e.Event, $"与 {e.Event.ToNO} 的通话结束");
+            this.AddLog(e.Data, $"与 {e.Data.ToNO} 的通话结束");
         }
         #endregion
 
@@ -238,7 +238,10 @@ namespace OM.App.ViewModels
             OMExtHubProxy.Instance.Connected += (sender, args) =>
             {
                 if (SClient.IsAdmin)
+                {
                     this.ShowTab<DashboardViewModel>();
+                    this.ShowTab<CDRViewModel>();
+                }
                 else
                     this.ShowTab<ExtViewModel>();
             };

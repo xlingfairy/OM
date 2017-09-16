@@ -71,12 +71,12 @@ namespace OM.App.ViewModels
 
         private void Instance_OnOnline(object sender, NotifyArgs<Api.Models.Events.Online> e)
         {
-            this.SetExtStatus(e.Event.Ext.ID, DeviceStatus.Connected);
+            this.SetExtStatus(e.Data.Ext.ID, DeviceStatus.Connected);
         }
 
         private void Instance_OnOffline(object sender, NotifyArgs<Api.Models.Events.Offline> e)
         {
-            this.SetExtStatus(e.Event.Ext.ID, DeviceStatus.Offline);
+            this.SetExtStatus(e.Data.Ext.ID, DeviceStatus.Offline);
         }
 
 

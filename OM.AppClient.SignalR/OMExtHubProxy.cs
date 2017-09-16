@@ -13,6 +13,8 @@ namespace OM.AppClient.SignalR
 
 
         #region 事件声明
+        public event EventHandler<NotifyArgs<CDR>> OnCDR = null;
+
         public event EventHandler<NotifyArgs<Alert>> OnAlert = null;
         public event EventHandler<NotifyArgs<Answer>> OnAnswer = null;
         public event EventHandler<NotifyArgs<Answered>> OnAnswered = null;
@@ -76,6 +78,8 @@ namespace OM.AppClient.SignalR
             this.Proxy.On<string>("OnReceiveInput", d =>
             {
                 var notify = JsonConvert.DeserializeObject<INotify>(d, JSONSetting);
+                notify.InvokeEvent(this.OnCDR);
+
                 notify.InvokeEvent(this.OnAlert);
                 notify.InvokeEvent(this.OnAnswer);
                 notify.InvokeEvent(this.OnAnswered);

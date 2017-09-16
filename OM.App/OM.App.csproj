@@ -126,6 +126,10 @@
     <Compile Include="Views\CallView.xaml.cs">
       <DependentUpon>CallView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CDRViewModel.cs" />
+    <Compile Include="Views\CDRView.xaml.cs">
+      <DependentUpon>CDRView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
@@ -165,6 +169,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CallView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CDRView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
