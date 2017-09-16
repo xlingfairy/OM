@@ -9,122 +9,47 @@
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <md:DrawerHost x:Name="drawerHost" Padding="10">
-        <md:DrawerHost.RightDrawerContent>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
 
-                <StackPanel Orientation="Horizontal">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
 
-                    <md:ColorZone Mode="Inverted" 
-                                CornerRadius="5" Panel.ZIndex="1"
-                                Margin="10,5"
-                                md:ShadowAssist.ShadowDepth="Depth2"
-                                Padding="0"
-                                >
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <Button Style="{DynamicResource MaterialDesignToolButton}">
-                                <md:PackIcon Kind="Magnify" Width="20" Height="20" />
-                            </Button>
-
-                            <!--cm 的name绑定不起作用？？-->
-                            <TextBox Grid.Column="1" md:HintAssist.Hint="按分机号过滤" 
-                                md:TextFieldAssist.DecorationVisibility="Hidden" 
-                                BorderThickness="0"
-                                MinWidth="200" 
-                                VerticalAlignment="Center" 
-                                Text="{Binding FilterStr, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                 />
-                        </Grid>
-                    </md:ColorZone>
-                </StackPanel>
-                <ScrollViewer Grid.Row="1">
-                    <ListView ItemsSource="{Binding Logs}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
-                                                   Text="{Binding CreateOn,StringFormat='HH:mm:ss'}"
-                                                   Opacity="0.3"
-                                           />
-
-                                    <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
-                                           Text="{Binding Tip}"
-                                                   FontSize="13"
-                                           />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ScrollViewer>
-            </Grid>
-        </md:DrawerHost.RightDrawerContent>
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-
-            <md:ColorZone Mode="Dark" CornerRadius="10" Margin="10" Padding="10"
-                          md:ShadowAssist.ShadowDepth="Depth1"
-                          md:ShadowAssist.Darken="False"
-                          >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="Name" 
+        <ToolBarTray>
+            <ToolBar Padding="5" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+                <TextBox x:Name="Name" 
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Margin="10,0"
                                  Width="150">
-                            <md:HintAssist.Hint>
-                                <StackPanel Orientation="Horizontal">
-                                    <md:PackIcon Kind="AccountSettings" Margin="0,0,4,0" />
-                                    <TextBlock>欠款人姓名</TextBlock>
-                                </StackPanel>
-                            </md:HintAssist.Hint>
-                        </TextBox>
-                        <TextBox x:Name="Phone" 
+                    <md:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal">
+                            <md:PackIcon Kind="AccountSettings" VerticalAlignment="Center" />
+                            <TextBlock VerticalAlignment="Center">欠款人姓名</TextBlock>
+                        </StackPanel>
+                    </md:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="Phone" 
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Margin="10,0"
                                  Width="150">
-                            <md:HintAssist.Hint>
-                                <StackPanel Orientation="Horizontal">
-                                    <md:PackIcon Kind="CellphoneBasic" Margin="0,0,4,0" />
-                                    <TextBlock>欠款人电话</TextBlock>
-                                </StackPanel>
-                            </md:HintAssist.Hint>
-                        </TextBox>
-                        <Button x:Name="Search" 
-                                Content="查询" 
-                                Style="{StaticResource MaterialDesignFlatButton}" 
-                                />
-                    </StackPanel>
+                    <md:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal">
+                            <md:PackIcon Kind="CellphoneBasic" VerticalAlignment="Center" />
+                            <TextBlock VerticalAlignment="Center">欠款人电话</TextBlock>
+                        </StackPanel>
+                    </md:HintAssist.Hint>
+                </TextBox>
 
-                    <ToggleButton Grid.Column="1" Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
-                              IsChecked="{Binding ElementName=drawerHost,Path=IsRightDrawerOpen}"
-                              Command="{x:Static md:DrawerHost.OpenDrawerCommand}"
-                              CommandParameter="{x:Static Dock.Right}"
-                              />
-                </Grid>
-            </md:ColorZone>
+                <Button x:Name="Search">
+                    <md:PackIcon Kind="Magnify" />
+                </Button>
 
-            <!--SelectionMode="Single" 避免一次选择多个，导至多个 detail 显示出来-->
-            <DataGrid Grid.Row="1" 
+            </ToolBar>
+        </ToolBarTray>
+        
+        <DataGrid Grid.Row="1" 
                           ItemsSource="{Binding Debts}"
                           IsReadOnly="True"
                           AutoGenerateColumns="False"
@@ -133,22 +58,22 @@
                           SelectionMode="Single"
 						  cal:Message.Attach="[Event LoadingRowDetails]=[Action LoadingRowDetails($eventArgs)]"
                       >
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                    <DataGridTextColumn Header="债权人" Binding="{Binding Creditor}" />
-                    <DataGridTextColumn Header="金额" Binding="{Binding Amount}" />
-                    <DataGridTextColumn Header="借款时间" Binding="{Binding DebitTime, StringFormat='yyyy/MM/dd'}" />
-                    <DataGridTextColumn Header="欠款人" Binding="{Binding DebtorName}" />
-                    <DataGridTextColumn Header="欠款人电话" Binding="{Binding DebtorPhone}" />
-                </DataGrid.Columns>
-                <DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <ContentControl x:Name="Detail" />
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>
-            </DataGrid>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="债权人" Binding="{Binding Creditor}" />
+                <DataGridTextColumn Header="金额" Binding="{Binding Amount}" />
+                <DataGridTextColumn Header="借款时间" Binding="{Binding DebitTime, StringFormat='yyyy/MM/dd'}" />
+                <DataGridTextColumn Header="欠款人" Binding="{Binding DebtorName}" />
+                <DataGridTextColumn Header="欠款人电话" Binding="{Binding DebtorPhone}" />
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <ContentControl x:Name="Detail" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
 
-            <md:ColorZone Grid.Row="2" 
+        <md:ColorZone Grid.Row="2" 
                           Mode="Dark" 
                           Margin="5" 
                           CornerRadius="20" 
@@ -158,20 +83,20 @@
                           BorderBrush="White"
                           md:ShadowAssist.ShadowDepth="Depth2"
                           >
-                <local:Pagination Grid.Row="2"
+            <local:Pagination Grid.Row="2"
                               Total="{Binding Total, Mode=TwoWay}"
                               Page="{Binding Page}"
                               PageSize="{Binding PageSize}"
                               PageChangedCommand="{Binding PageChandCmd}"
                               LabelCount="5"
                               >
-                    <local:Pagination.Resources>
-                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
-                            <Setter Property="Foreground" Value="White" />
-                        </Style>
-                    </local:Pagination.Resources>                    
-                </local:Pagination>
-            </md:ColorZone>
-        </Grid>
-    </md:DrawerHost>
+                <local:Pagination.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </local:Pagination.Resources>
+            </local:Pagination>
+        </md:ColorZone>
+    </Grid>
+
 </UserControl>

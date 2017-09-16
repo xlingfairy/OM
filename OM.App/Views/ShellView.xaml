@@ -26,64 +26,130 @@
             <ContentControl />
         </md:DialogHost.DialogContent>
 
+        <md:DrawerHost x:Name="drawerHost" Padding="10">
+            <md:DrawerHost.RightDrawerContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-        <dz:Layout>
-            <dragablz:TabablzControl
+
+                    <md:ColorZone Mode="Inverted" 
+                                CornerRadius="0" Panel.ZIndex="1"
+                                      Margin="0,10,0,0"
+                                >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <md:PackIcon Kind="Magnify" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
+
+                            <!--cm 的name绑定不起作用？？-->
+                            <TextBox Grid.Column="1" md:HintAssist.Hint="请输入要查找的字符串。。。" 
+                                md:TextFieldAssist.DecorationVisibility="Hidden" 
+                                BorderThickness="0"
+                                MinWidth="200" 
+                                VerticalAlignment="Center" 
+                                Text="{Binding FilterStr, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                 />
+                        </Grid>
+                    </md:ColorZone>
+
+                    <ScrollViewer Grid.Row="1">
+                        <ListView ItemsSource="{Binding Logs}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}"
+                                                   Text="{Binding CreateOn,StringFormat='HH:mm:ss'}"
+                                                   Opacity="0.3"
+                                           />
+
+                                        <TextBlock Style="{StaticResource MaterialDesignBody2TextBlock}"
+                                           Text="{Binding Tip}"
+                                                   FontSize="13"
+                                           />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Grid>
+            </md:DrawerHost.RightDrawerContent>
+
+            <dz:Layout>
+                <dragablz:TabablzControl
                     ItemsSource="{Binding Tabs}"
                     HeaderMemberPath="Title"
                     ShowDefaultCloseButton="True"
                     SelectedItem="{Binding SelectedTab,Mode=TwoWay}"
                     >
-                <dragablz:TabablzControl.HeaderPrefixContent>
-                    <ContentControl>
-                        <StackPanel Orientation="Horizontal" Height="35" Margin="10,5,10,0">
-                            <Menu IsMainMenu="True">
-                                <MenuItem Header="系统" Height="35">
-                                    <MenuItem Header="设置">
-                                        <MenuItem.Icon>
-                                            <md:PackIcon Kind="Settings" />
-                                        </MenuItem.Icon>
+                    <dragablz:TabablzControl.HeaderPrefixContent>
+                        <ContentControl>
+                            <StackPanel Orientation="Horizontal" Height="35" Margin="10,5,10,0">
+                                <Menu IsMainMenu="True" md:ShadowAssist.ShadowDepth="Depth5">
+                                    <MenuItem Header="系统" Height="35">
+                                        <MenuItem Header="设置">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="Settings" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Header="退出">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ExitToApp" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
                                     </MenuItem>
-                                    <Separator />
-                                    <MenuItem Header="退出">
-                                        <MenuItem.Icon>
-                                            <md:PackIcon Kind="ExitToApp" Width="20" />
-                                        </MenuItem.Icon>
+                                    <MenuItem Header="日志" Height="35">
+                                        <MenuItem Header="_Cut" Command="Cut">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ContentCut" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="_Copy" Command="Copy">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ContentCopy" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="_Paste" Command="Paste">
+                                            <MenuItem.Icon>
+                                                <md:PackIcon Kind="ContentPaste" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
                                     </MenuItem>
-                                </MenuItem>
-                                <MenuItem Header="日志" Height="35">
-                                    <MenuItem Header="_Cut" Command="Cut">
-                                        <MenuItem.Icon>
-                                            <md:PackIcon Kind="ContentCut" />
-                                        </MenuItem.Icon>
-                                    </MenuItem>
-                                    <MenuItem Header="_Copy" Command="Copy">
-                                        <MenuItem.Icon>
-                                            <md:PackIcon Kind="ContentCopy" />
-                                        </MenuItem.Icon>
-                                    </MenuItem>
-                                    <MenuItem Header="_Paste" Command="Paste">
-                                        <MenuItem.Icon>
-                                            <md:PackIcon Kind="ContentPaste" />
-                                        </MenuItem.Icon>
-                                    </MenuItem>
-                                </MenuItem>
-                            </Menu>
-                        </StackPanel>
-                    </ContentControl>
-                </dragablz:TabablzControl.HeaderPrefixContent>
-                <dragablz:TabablzControl.InterTabController>
-                    <dragablz:InterTabController />
-                </dragablz:TabablzControl.InterTabController>
+                                </Menu>
+                            </StackPanel>
+                        </ContentControl>
+                    </dragablz:TabablzControl.HeaderPrefixContent>
 
-                <dragablz:TabablzControl.ContentTemplate>
-                    <DataTemplate>
-                        <ContentControl cm:View.Model="{Binding}" Padding="10" />
-                    </DataTemplate>
-                </dragablz:TabablzControl.ContentTemplate>
+                    <dragablz:TabablzControl.HeaderSuffixContent>
+                        <ContentControl>
+                            <ToggleButton Grid.Column="1" Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                              IsChecked="{Binding ElementName=drawerHost,Path=IsRightDrawerOpen}"
+                              Command="{x:Static md:DrawerHost.OpenDrawerCommand}"
+                              CommandParameter="{x:Static Dock.Right}"
+                              HorizontalAlignment="Right"
+                              />
+                        </ContentControl>
+                    </dragablz:TabablzControl.HeaderSuffixContent>
 
-            </dragablz:TabablzControl>
-        </dz:Layout>
+                    <dragablz:TabablzControl.InterTabController>
+                        <dragablz:InterTabController />
+                    </dragablz:TabablzControl.InterTabController>
+
+                    <dragablz:TabablzControl.ContentTemplate>
+                        <DataTemplate>
+                            <ContentControl cm:View.Model="{Binding}" Padding="10" />
+                        </DataTemplate>
+                    </dragablz:TabablzControl.ContentTemplate>
+
+                </dragablz:TabablzControl>
+            </dz:Layout>
+        </md:DrawerHost>
 
     </md:DialogHost>
 </metro:MetroWindow>

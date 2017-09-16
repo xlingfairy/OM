@@ -5,6 +5,10 @@ using System;
 using System.Linq;
 using SClient = OM.AppServer.Api.Client.ApiClient;
 using Notifications.Wpf;
+using OM.App.Models;
+using System.ComponentModel;
+using System.Windows.Data;
+using OM.Api.Models.Events;
 
 namespace OM.App.ViewModels
 {
@@ -15,8 +19,18 @@ namespace OM.App.ViewModels
     [Regist(InstanceMode.Singleton, ForType = typeof(IShell))]
     public class ShellViewModel : BaseVM, IShell
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public override string Title => "OM Client";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public NotificationManager NM => new NotificationManager();
+
+
+        #region 页签
         /// <summary>
         /// 页签数据源
         /// </summary>
@@ -27,17 +41,172 @@ namespace OM.App.ViewModels
         /// </summary>
         public BaseVM SelectedTab { get; set; }
 
+        #endregion
+
+
+        #region 实时收到的通知
+        /// <summary>
+        /// 实时收到的通知,数据源
+        /// </summary>
+        public BindableCollection<EventLog> Logs { get; }
+            = new BindableCollection<EventLog>();
+
+
+
+        /// <summary>
+        /// 实时通知的可过滤源
+        /// </summary>
+        public ICollectionView CV { get; private set; }
+
+
+
+        private string _filterStr = null;
+        /// <summary>
+        /// 过滤字符串
+        /// </summary>
+        public string FilterStr
+        {
+            get
+            {
+                return this._filterStr;
+            }
+            set
+            {
+                this._filterStr = value;
+                if (this.CV != null)
+                    this.CV.Refresh();
+            }
+        }
+
+
+
+        /// <summary>
+        /// 实时事件过滤时的回调
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        private bool Filter(object o)
+        {
+            if (string.IsNullOrWhiteSpace((this.FilterStr)))
+            {
+                return true;
+            }
+            else
+            {
+                var e = (EventLog)o;
+                return e.Tip.IndexOf(this.FilterStr, StringComparison.OrdinalIgnoreCase) > -1;
+            }
+        }
+
+        #endregion
+
+
         /// <summary>
         /// 
         /// </summary>
-        public NotificationManager NM => new NotificationManager();
-
-
         public ShellViewModel()
         {
             this.Tabs = new BindableCollection<BaseVM>();
+
+            //在 UI 线程上执行, CollectionView 不支持多线程操作
+            Execute.OnUIThread(() =>
+            {
+                this.CV = CollectionViewSource.GetDefaultView(this.Logs);
+                this.CV.Filter = new Predicate<object>(this.Filter);
+            });
+
+            #region  SignalR 事件注册
+            OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
+            OMExtHubProxy.Instance.OnRing += Instance_OnRing;
+            OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
+            OMExtHubProxy.Instance.OnBye += Instance_OnBye;
+            #endregion
         }
 
+        #region SignalR 事件处理
+        /// <summary>
+        /// 添加 Log 到侧边栏
+        /// </summary>
+        /// <param name="evt"></param>
+        /// <param name="tip"></param>
+        private void AddLog(BaseEvent evt, string tip)
+        {
+            //在 UI 线程上执行
+            Execute.OnUIThread(() =>
+            {
+                this.Logs.Insert(0, new EventLog()
+                {
+                    CreateOn = DateTime.Now,
+                    Event = evt,
+                    Tip = tip
+                });
+            });
+        }
+
+        //对方回铃
+        private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
+        {
+            var content = new NotificationContent()
+            {
+                Message = "对方已回铃",
+                Title = $"您呼叫的号码：{e.Event.ToNO} 已回铃",
+                Type = NotificationType.Information
+            };
+            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            this.AddLog(e.Event, $"您呼叫的号码：{e.Event.ToNO} 已回铃");
+        }
+
+        //本机响铃
+        private void Instance_OnRing(object sender, NotifyArgs<Ring> e)
+        {
+            if (e.Event.RingFromType != Api.Models.Enums.RingFromTypes.OM)
+            {
+                var content = new NotificationContent()
+                {
+                    Message = $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电",
+                    Title = $"来电",
+                    Type = NotificationType.Information
+                };
+
+                IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+                this.AddLog(e.Event, $"收到来自: {e.Event.RingFromType} {e.Event.FromNO} 的来电");
+            }
+        }
+
+        //对方应答
+        private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
+        {
+            var content = new NotificationContent()
+            {
+                Message = "对方已应答",
+                Title = $"您呼叫的号码：{e.Event.ToNO} 已应答",
+                Type = NotificationType.Information
+            };
+
+            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            this.AddLog(e.Event, $"您呼叫的号码：{e.Event.ToNO} 已应答");
+        }
+
+        //通话结束
+        private void Instance_OnBye(object sender, NotifyArgs<Bye> e)
+        {
+            var content = new NotificationContent()
+            {
+                Message = "通话结束",
+                Title = $"与 {e.Event.ToNO} 的通话结束",
+                Type = NotificationType.Information
+            };
+            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+
+            this.AddLog(e.Event, $"与 {e.Event.ToNO} 的通话结束");
+        }
+        #endregion
+
+
+        #region 显示登陆框
         /// <summary>
         /// OnViewLoaded 的时候, DialogHost 还没有加载
         /// 所以要继续监听 ShellView 的 Activated 事件
@@ -74,6 +243,8 @@ namespace OM.App.ViewModels
                     this.ShowTab<ExtViewModel>();
             };
         }
+        #endregion
+
 
 
         /// <summary>
@@ -86,6 +257,7 @@ namespace OM.App.ViewModels
             var vm = IoC.Get<T>();
             this.ShowTab(vm, show, allowMuti);
         }
+
 
         /// <summary>
         /// 
