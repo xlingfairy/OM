@@ -47,7 +47,10 @@ namespace OM.AppServer.Api.Client
         /// </summary>
         public static bool IsLogined => Instance.Value.AuthToken?.IsValid ?? false;
 
-
+        /// <summary>
+        /// 当前登陆者的分机号， admin 没有分机号
+        /// </summary>
+        public static string ExtID => Instance.Value.AuthToken.ExID;
 
         /// <summary>
         /// 初始化

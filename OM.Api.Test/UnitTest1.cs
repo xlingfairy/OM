@@ -12,6 +12,7 @@ using OM.Api.Models.Events;
 using System.Xml.Linq;
 using OM.Api.Parser;
 using System.Diagnostics;
+using OM.Api.Methods;
 
 namespace OM.Api.Test
 {
@@ -247,6 +248,16 @@ namespace OM.Api.Test
         private void ApiClient_OnReceiveEvent(object sender, OMEventEventArgs e)
         {
             Debug.WriteLine("aaaaa");
+        }
+
+        [TestMethod]
+        public void ClearTest()
+        {
+            var mth = new Clear()
+            {
+                ExtID = "6678"
+            };
+            var rst = ApiClient.Execute(mth);
         }
     }
 }

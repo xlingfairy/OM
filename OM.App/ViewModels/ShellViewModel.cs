@@ -277,5 +277,24 @@ namespace OM.App.ViewModels
             this.SelectedTab = vm;
             this.NotifyOfPropertyChange(() => this.SelectedTab);
         }
+
+
+        /// <summary>
+        /// 添加 Log 到侧边栏
+        /// </summary>
+        /// <param name="evt"></param>
+        /// <param name="tip"></param>
+        public void AddLog(string tip)
+        {
+            //在 UI 线程上执行
+            Execute.OnUIThread(() =>
+            {
+                this.Logs.Insert(0, new EventLog()
+                {
+                    CreateOn = DateTime.Now,
+                    Tip = tip
+                });
+            });
+        }
     }
 }

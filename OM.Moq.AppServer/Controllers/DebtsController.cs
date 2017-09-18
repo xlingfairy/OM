@@ -27,7 +27,7 @@ namespace OM.Moq.AppServer.Controllers
                     Creditor = "虚拟银行",
                     DebtorAddress = $"汉东市罗海区人民路{i}号{i}室",
                     DebtorName = $"张{i + 1}",
-                    DebtorPhone = (172123456789 + i).ToString(),
+                    DebtorPhone = (15986627851 + i).ToString(),
                     ShortDesc = "xxx",
                     Amount = 20000 + i,
                     DebitTime = DateTime.Now.AddYears(-3).AddDays(-i),
