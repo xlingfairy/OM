@@ -27,12 +27,18 @@ namespace OM.Api.Models.Events
         [XmlElement("visitor")]
         public VisitorCallInfo Visitor { get; set; }
 
-        /// <summary>
-        /// 因被叫分机设置了呼叫转移等原因，导致该呼叫被转移
-        /// </summary>
-        [XmlElement("ext")]
-        public IDAttribute Ext { get; set; }
+        ///// <summary>
+        ///// 因被叫分机设置了呼叫转移等原因，导致该呼叫被转移
+        ///// </summary>
+        //[XmlElement("ext")]
+        //public IDAttribute Ext { get; set; }
 
-        string IExtNotify.ExtID => this.Ext?.ID;
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlElement("divert")]
+        public DivertInfo DivertInfo { get; set; }
+
+        string IExtNotify.ExtID => this.DivertInfo?.To;
     }
 }

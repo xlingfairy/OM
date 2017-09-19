@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using OM.AppClient.SignalR;
 using System.Configuration;
 using CNB.Common;
+using Notifications.Wpf;
 
 namespace OM.App
 {
@@ -61,6 +62,7 @@ namespace OM.App
 
             container.Singleton<IWindowManager, WindowManager>();
             container.Singleton<IEventAggregator, EventAggregator>();
+            container.Singleton<INotificationManager, NotificationManager>();
 
             //зЂВс ViewModel
             container.RegistInstances(Assembly.GetExecutingAssembly());

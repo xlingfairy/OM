@@ -255,7 +255,7 @@ namespace OM.Api.Test
         {
             var mth = new Clear()
             {
-                ExtID = "6678"
+                OuterID = 20
             };
             var rst = ApiClient.Execute(mth);
         }

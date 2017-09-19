@@ -121,6 +121,20 @@ namespace OM.App.ViewModels
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="phone"></param>
+        /// <returns></returns>
+        public async Task Search(string name, string phone)
+        {
+            this.Name = name;
+            this.Phone = phone;
+            this.NotifyOfPropertyChange(() => this.Name, () => this.Phone);
+            await this.Search();
+        }
+
+        /// <summary>
         /// 加载催收详情面板(CM 事件处理)
         /// 注意：如果已经加载，不会触发第二次
         /// </summary>

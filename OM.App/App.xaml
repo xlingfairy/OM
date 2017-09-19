@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:OM.App"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+             xmlns:nf="clr-namespace:Notifications.Wpf.Controls;assembly=Notifications.Wpf"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
              >
     <Application.Resources>
         <ResourceDictionary>
@@ -87,6 +90,15 @@
             </Style>
             <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
                 <Setter Property="Margin" Value="0 8 0 8" />
+            </Style>
+
+
+            <Style TargetType="nf:Notification">
+                <Style.Resources>
+                    <DataTemplate DataType="{x:Type micro:PropertyChangedBase}">
+                        <ContentControl cal:View.Model="{Binding}" />
+                    </DataTemplate>
+                </Style.Resources>
             </Style>
 
         </ResourceDictionary>

@@ -27,7 +27,8 @@ namespace OM.App.ViewModels
         /// <summary>
         /// 
         /// </summary>
-        public NotificationManager NM => new NotificationManager();
+        //public NotificationManager NM => new NotificationManager();
+        private INotificationManager NM { get; }
 
 
         #region 页签
@@ -104,8 +105,10 @@ namespace OM.App.ViewModels
         /// <summary>
         /// 
         /// </summary>
-        public ShellViewModel()
+        public ShellViewModel(INotificationManager nm)
         {
+            this.NM = nm;
+
             this.Tabs = new BindableCollection<BaseVM>();
 
             //在 UI 线程上执行, CollectionView 不支持多线程操作
@@ -117,9 +120,11 @@ namespace OM.App.ViewModels
 
             #region  SignalR 事件注册
             OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
-            OMExtHubProxy.Instance.OnRing += Instance_OnRing;
             OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
             OMExtHubProxy.Instance.OnBye += Instance_OnBye;
+
+            OMExtHubProxy.Instance.OnRing += Instance_OnRing;
+            OMExtHubProxy.Instance.OnDivert += Instance_OnDivert;
             #endregion
         }
 
@@ -152,28 +157,11 @@ namespace OM.App.ViewModels
                 Title = $"您呼叫的号码：{e.Data.ToNO} 已回铃",
                 Type = NotificationType.Information
             };
-            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
             this.AddLog(e.Data, $"您呼叫的号码：{e.Data.ToNO} 已回铃");
         }
 
-        //本机响铃
-        private void Instance_OnRing(object sender, NotifyArgs<Ring> e)
-        {
-            if (e.Data.RingFromType != Api.Models.Enums.RingFromTypes.OM)
-            {
-                var content = new NotificationContent()
-                {
-                    Message = $"收到来自: {e.Data.RingFromType} {e.Data.FromNO} 的来电",
-                    Title = $"来电",
-                    Type = NotificationType.Information
-                };
-
-                IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
-
-                this.AddLog(e.Data, $"收到来自: {e.Data.RingFromType} {e.Data.FromNO} 的来电");
-            }
-        }
 
         //对方应答
         private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
@@ -185,7 +173,7 @@ namespace OM.App.ViewModels
                 Type = NotificationType.Information
             };
 
-            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
             this.AddLog(e.Data, $"您呼叫的号码：{e.Data.ToNO} 已应答");
         }
@@ -199,10 +187,47 @@ namespace OM.App.ViewModels
                 Title = $"与 {e.Data.ToNO} 的通话结束",
                 Type = NotificationType.Information
             };
-            IoC.Get<IShell>().NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
+            this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(5));
 
             this.AddLog(e.Data, $"与 {e.Data.ToNO} 的通话结束");
         }
+
+
+        //本机响铃
+        private void Instance_OnRing(object sender, NotifyArgs<Ring> e)
+        {
+            if (e.Data.RingFromType != Api.Models.Enums.RingFromTypes.OM)
+            {
+                var content = new VisitorNotificationViewModel()
+                {
+                    Msg = $"收到来自: {e.Data.RingFromType} {e.Data.FromNO} 的来电",
+                    VisitorNO = e.Data.FromNO
+                };
+
+                this.NM.Show(content, expirationTime: TimeSpan.FromSeconds(60));
+
+                this.AddLog(e.Data, $"收到来自: {e.Data.RingFromType} {e.Data.FromNO} 的来电");
+            }
+        }
+
+
+        //呼叫转移
+        private void Instance_OnDivert(object sender, NotifyArgs<Divert> e)
+        {
+            if (e.Data.Visitor != null)
+            {
+                var vm = new VisitorNotificationViewModel()
+                {
+                    VisitorNO = e.Data.Visitor.From,
+                    Msg = $"收到 {e.Data.Visitor.From} 的来电, 呼叫转移自:{e.Data.DivertInfo?.From}",
+                };
+
+                this.NM.Show(vm, expirationTime: TimeSpan.FromSeconds(60));
+
+                this.AddLog(e.Data, $"收到 {e.Data.Visitor.From} 的来电, 呼叫转移自:{e.Data.DivertInfo?.From}");
+            }
+        }
+
         #endregion
 
 
@@ -255,10 +280,10 @@ namespace OM.App.ViewModels
         /// </summary>
         /// <param name="vm"></param>
         /// <param name="allowMuti"></param>
-        public void ShowTab<T>(bool show = true, bool allowMuti = false) where T : BaseVM
+        public void ShowTab<T>(bool allowMuti = false) where T : BaseVM
         {
             var vm = IoC.Get<T>();
-            this.ShowTab(vm, show, allowMuti);
+            this.ShowTab(vm, allowMuti);
         }
 
 
@@ -268,7 +293,7 @@ namespace OM.App.ViewModels
         /// <typeparam name="T"></typeparam>
         /// <param name="vm"></param>
         /// <param name="allowMuti"></param>
-        public void ShowTab<T>(T vm, bool show = true, bool allowMuti = false) where T : BaseVM
+        public void ShowTab<T>(T vm, bool allowMuti = false) where T : BaseVM
         {
             //if (allowMuti || !this.Tabs.Contains(vm))
             if (allowMuti || !this.Tabs.OfType<T>().Any(t => t.TabIdentifier == vm.TabIdentifier))
