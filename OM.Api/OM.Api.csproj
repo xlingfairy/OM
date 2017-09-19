@@ -58,6 +58,7 @@
     <Compile Include="IAdminNotify.cs" />
     <Compile Include="IExtNotify.cs" />
     <Compile Include="INotify.cs" />
+    <Compile Include="Methods\Clear.cs" />
     <Compile Include="Models\Enums\RingFromTypes.cs" />
     <Compile Include="OMCDREventArgs.cs" />
     <Compile Include="OMEventEventArgs.cs" />

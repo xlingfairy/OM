@@ -38,7 +38,7 @@ namespace OM.AppServer
 
         private static void ApiClient_OnReceiveCDR(object sender, OMCDREventArgs e)
         {
-
+            OMHubHelper.Send(e.Data);
         }
     }
 }

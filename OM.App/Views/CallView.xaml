@@ -35,52 +35,54 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-        </Grid.ColumnDefinitions>
+    <Grid>
+        <md:Snackbar IsActive="{Binding HasError}" Message="{Binding ErrorMsg}" />
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
 
-        <md:Card Grid.Column="0" UniformCornerRadius="10" 
+            <md:Card Grid.Column="0" UniformCornerRadius="10" 
                  Margin="5" Width="500" 
                  VerticalAlignment="Center">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-                <md:ColorZone Grid.Row="0" Mode="Inverted" Padding="20">
-                    <Grid local:UniPadding.Padding="5,2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
+                    <md:ColorZone Grid.Row="0" Mode="Inverted" Padding="20">
+                        <Grid local:UniPadding.Padding="5,2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="欠款人" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Data.DebtorName}" />
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="欠款人" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Data.DebtorName}" />
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="欠款人电话" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Data.DebtorPhone}" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="欠款人电话" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Data.DebtorPhone}" />
 
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="借款时间" />
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Data.DebitTime,StringFormat='yyyy/MM/dd'}" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="借款时间" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Data.DebitTime,StringFormat='yyyy/MM/dd'}" />
 
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="欠款金额" />
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Data.Amount}" />
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="欠款金额" />
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Data.Amount}" />
 
-                        <TextBlock Grid.Row="4" Grid.Column="0" Text="欠款人地址" />
-                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Data.DebtorAddress}" />
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="欠款人地址" />
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Data.DebtorAddress}" />
 
-                        <Button Grid.RowSpan="5" 
+                            <Button Grid.RowSpan="5" 
                             Grid.Column="2" 
                             Margin="10"
                             x:Name="Call" 
@@ -90,90 +92,90 @@
                             Width="70"
                             Height="70"
                             >
-                            <Button.Style>
-                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionLightButton}">
-                                    <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="False" />
-                                    <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
-                                    <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Transparent" />
-                                    <Setter Property="Background" Value="Green" />
-                                    <Setter Property="Content">
-                                        <Setter.Value>
-                                            <md:PackIcon Kind="Phone" Width="30" Height="30"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Status}" Value="Dailing">
-                                            <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                            <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Red" />
-                                            <Setter Property="Content">
-                                                <Setter.Value>
-                                                    <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Status}" Value="Alert">
-                                            <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                            <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Yellow" />
-                                            <Setter Property="Background" Value="Red" />
-                                            <Setter Property="Content">
-                                                <Setter.Value>
-                                                    <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                        <DataTrigger Binding="{Binding Status}" Value="Answered">
-                                            <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
-                                            <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Green" />
-                                            <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
-                                            <Setter Property="Background" Value="Red" />
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionLightButton}">
+                                        <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="False" />
+                                        <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
+                                        <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Transparent" />
+                                        <Setter Property="Background" Value="Green" />
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <md:PackIcon Kind="Phone" Width="30" Height="30"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Dailing">
+                                                <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                                <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Red" />
+                                                <Setter Property="Content">
+                                                    <Setter.Value>
+                                                        <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Alert">
+                                                <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                                <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Yellow" />
+                                                <Setter Property="Background" Value="Red" />
+                                                <Setter Property="Content">
+                                                    <Setter.Value>
+                                                        <md:PackIcon Kind="PhoneForward" Width="30" Height="30"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Answered">
+                                                <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                                <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Green" />
+                                                <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
+                                                <Setter Property="Background" Value="Red" />
 
-                                            <Setter Property="Content" Value="{Binding Span, StringFormat='c'}" />
+                                                <Setter Property="Content" Value="{Binding Span, StringFormat='c'}" />
 
-                                            <Setter Property="Content">
-                                                <Setter.Value>
-                                                    <Viewbox Margin="10" Width="{Binding Width}" Height="{Binding Height}">
-                                                        <TextBlock Text="{Binding Span, Converter={StaticResource TV}}" FontFamily="{StaticResource ClockFont}"/>
-                                                    </Viewbox>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                        </Button>
-                    </Grid>
-                </md:ColorZone>
+                                                <Setter Property="Content">
+                                                    <Setter.Value>
+                                                        <Viewbox Margin="10" Width="{Binding Width}" Height="{Binding Height}">
+                                                            <TextBlock Text="{Binding Span, Converter={StaticResource TV}}" FontFamily="{StaticResource ClockFont}"/>
+                                                        </Viewbox>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </md:ColorZone>
 
-                <md:ColorZone Grid.Row="1" Mode="PrimaryMid" Padding="20,10">
-                    <ScrollViewer Grid.Column="1" Margin="10" VerticalScrollBarVisibility="Auto">
-                        <Grid>
-                            <TextBlock Text="{Binding Data.Desc}"
+                    <md:ColorZone Grid.Row="1" Mode="PrimaryMid" Padding="20,10">
+                        <ScrollViewer Grid.Column="1" Margin="10" VerticalScrollBarVisibility="Auto">
+                            <Grid>
+                                <TextBlock Text="{Binding Data.Desc}"
                                         TextWrapping="Wrap"
                                         LineHeight="25"
                                         />
-                        </Grid>
-                    </ScrollViewer>
-                </md:ColorZone>
+                            </Grid>
+                        </ScrollViewer>
+                    </md:ColorZone>
 
-            </Grid>
-        </md:Card>
+                </Grid>
+            </md:Card>
 
-        <md:Card Grid.Column="1" 
+            <md:Card Grid.Column="1" 
                  UniformCornerRadius="10" 
                  VerticalAlignment="Stretch"
                  Margin="5" Width="500">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
 
-                <md:ColorZone Grid.Row="0" Mode="Inverted" VerticalAlignment="Stretch" Padding="20">
-                    <ListView ItemsSource="{Binding Notes}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel local:UniPadding.Padding="0,2">
-                                    <!--<Border CornerRadius="5" Background="#dddddd" Padding="5,0">-->
+                    <md:ColorZone Grid.Row="0" Mode="Inverted" VerticalAlignment="Stretch" Padding="20">
+                        <ListView ItemsSource="{Binding Notes}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel local:UniPadding.Padding="0,2">
+                                        <!--<Border CornerRadius="5" Background="#dddddd" Padding="5,0">-->
                                         <TextBlock Opacity="0.5" FontSize="11">
                                             <TextBlock.Text>
                                                 <MultiBinding StringFormat="{}at: {0:yyyy/MM/dd HH:mm}     by:{1}">
@@ -182,20 +184,20 @@
                                                 </MultiBinding>
                                             </TextBlock.Text>
                                         </TextBlock>
-                                    <!--</Border>-->
-                                    <TextBlock Text="{Binding Msg}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </md:ColorZone>
-                <md:ColorZone Mode="PrimaryMid" Grid.Row="1" HorizontalAlignment="Stretch">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        <!--</Border>-->
+                                        <TextBlock Text="{Binding Msg}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </md:ColorZone>
+                    <md:ColorZone Mode="PrimaryMid" Grid.Row="1" HorizontalAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  AcceptsReturn="True" 
                                  TextWrapping="Wrap" 
                                  MaxHeight="100"
@@ -203,14 +205,14 @@
                                  md:HintAssist.Hint="请输入您的记录.."
                                  md:HintAssist.FloatingScale="0.9"
                                  Margin="10,5" />
-                        <Button Grid.Column="1" Content="提交记录" 
+                            <Button Grid.Column="1" Content="提交记录" 
                                 Style="{StaticResource MaterialDesignToolButton}" Margin="5,20" Foreground="White" />
-                    </Grid>
-                </md:ColorZone>
-            </Grid>
-        </md:Card>
+                        </Grid>
+                    </md:ColorZone>
+                </Grid>
+            </md:Card>
+        </Grid>
     </Grid>
-
 
 
 </UserControl>

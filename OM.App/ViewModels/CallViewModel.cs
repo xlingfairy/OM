@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using Notifications.Wpf;
+using OM.Api.Methods;
+using OM.Api.Methods.Transfer;
 using OM.Api.Models.Events;
 using OM.App.Attributes;
 using OM.App.Models;
@@ -41,6 +43,13 @@ namespace OM.App.ViewModels
         public BindableCollection<DebtNote> Notes { get; }
             = new BindableCollection<DebtNote>();
 
+
+        /// <summary>
+        /// 当前外呼的通话ID， 用于挂断
+        /// </summary>
+        private int? OuterID { get; set; }
+
+
         private CallingStages _status = CallingStages.None;
         /// <summary>
         /// 呼叫状态
@@ -76,6 +85,19 @@ namespace OM.App.ViewModels
         private DispatcherTimer Timer;
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool HasError { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ErrorMsg { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public CallViewModel()
         {
 
@@ -116,12 +138,48 @@ namespace OM.App.ViewModels
             }
         }
 
-        public void Call()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task Call()
         {
             if (this.Status == CallingStages.None)
-                this.Status = CallingStages.Dailing;
+            {
+                var mth = new CallOuter()
+                {
+                    ExtID = SApiClient.ExtID,
+                    OuterNumber = this.Data.DebtorPhone
+                };
+                var rst = await OMExtHubProxy.Instance.Execute(mth);
+                this.HasError = mth.HasError;
+                this.ErrorMsg = mth.ErrorMessage;
+                if (!mth.HasError)
+                {
+                    this.OuterID = rst.Outer.ID;
+                    this.Status = CallingStages.Dailing;
+                }
+                else
+                    IoC.Get<IShell>().AddLog(mth.ErrorMessage);
+            }
             else
-                this.Status = CallingStages.None;
+            {
+                var mth = new Clear()
+                {
+                    OuterID = this.OuterID
+                };
+                var rst = await OMExtHubProxy.Instance.Execute(mth);
+                this.HasError = mth.HasError;
+                this.ErrorMsg = mth.ErrorMessage;
+                if (!mth.HasError)
+                {
+                    this.Status = CallingStages.None;
+                }
+                else
+                    IoC.Get<IShell>().AddLog(mth.ErrorMessage);
+            }
+
+            this.NotifyOfPropertyChange(() => this.HasError, () => this.ErrorMsg);
         }
 
 
@@ -129,21 +187,21 @@ namespace OM.App.ViewModels
         //对方回铃
         private void Instance_OnAlert(object sender, NotifyArgs<Alert> e)
         {
-            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+            if (string.Equals(e.Data.ToNO, this.Data.DebtorPhone))
                 this.Status = CallingStages.Alert;
         }
 
         //对方应答
         private void Instance_OnAnswered(object sender, NotifyArgs<Answered> e)
         {
-            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+            if (string.Equals(e.Data.ToNO, this.Data.DebtorPhone))
                 this.Status = CallingStages.Answered;
         }
 
         //通话结束
         private void Instance_OnBye(object sender, NotifyArgs<Bye> e)
         {
-            if (string.Equals(e.Event.ToNO, this.Data.DebtorPhone))
+            if (string.Equals(e.Data.ToNO, this.Data.DebtorPhone))
                 this.Status = CallingStages.Bye;
         }
         #endregion
