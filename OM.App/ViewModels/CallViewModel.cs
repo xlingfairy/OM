@@ -1,7 +1,9 @@
 ﻿using Caliburn.Micro;
 using Notifications.Wpf;
 using OM.Api.Methods;
+using OM.Api.Methods.Controls.Query;
 using OM.Api.Methods.Transfer;
+using OM.Api.Models;
 using OM.Api.Models.Events;
 using OM.App.Attributes;
 using OM.App.Models;
@@ -114,6 +116,24 @@ namespace OM.App.ViewModels
                 this.Timer.Tick += Timer_Tick;
             });
 
+            //进入这个界面的时候，查询当前分机的通话状态，但是只能获取到状态，不能获取到通话开始的时间
+            Task.Run(() => this.LoadExtStatus());
+        }
+
+
+        private async Task LoadExtStatus()
+        {
+            var mth = new GetExtInfo()
+            {
+                ID = SApiClient.ExtID
+            };
+            var rst = await OMExtHubProxy.Instance.Execute(mth);
+            if (!mth.HasError && rst.CallInfo != null && rst.CallInfo is OutCallInfo outer && outer.To == this.Data.DebtorPhone)
+            {
+                //没有时间，只有状态
+                this.Status = CallingStages.InTalk;
+                this.OuterID = outer.ID;
+            }
         }
 
 

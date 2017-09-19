@@ -31,6 +31,11 @@ namespace OM.App.Models
         /// <summary>
         /// 通话结束
         /// </summary>
-        Bye = 4
+        Bye = 4,
+
+        /// <summary>
+        /// 通话中，不知道具体的通话时间，半路获取到的状态。
+        /// </summary>
+        InTalk = 5,
     }
 }

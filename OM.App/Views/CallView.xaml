@@ -129,8 +129,6 @@
                                                 <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
                                                 <Setter Property="Background" Value="Red" />
 
-                                                <Setter Property="Content" Value="{Binding Span, StringFormat='c'}" />
-
                                                 <Setter Property="Content">
                                                     <Setter.Value>
                                                         <Viewbox Margin="10" Width="{Binding Width}" Height="{Binding Height}">
@@ -139,6 +137,16 @@
                                                     </Setter.Value>
                                                 </Setter>
                                             </DataTrigger>
+
+                                            <DataTrigger Binding="{Binding Status}" Value="InTalk">
+                                                <Setter Property="md:ButtonProgressAssist.IsIndicatorVisible" Value="True" />
+                                                <Setter Property="md:ButtonProgressAssist.IndicatorForeground" Value="Green" />
+                                                <Setter Property="md:ButtonProgressAssist.IndicatorBackground" Value="Transparent" />
+                                                <Setter Property="Background" Value="Red" />
+
+                                                <Setter Property="Content" Value="通话中" />
+                                            </DataTrigger>
+
                                         </Style.Triggers>
                                     </Style>
                                 </Button.Style>
