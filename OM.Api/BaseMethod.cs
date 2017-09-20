@@ -268,7 +268,7 @@ namespace OM.Api
         /// </summary>
         /// <param name="client"></param>
         /// <returns></returns>
-        protected virtual async Task<string> GetResult(ApiClient client)
+        protected string PrepareRequestData(ApiClient client)
         {
             this.Signature = this.SIG(client.Option, out string nonce, out double timestamp);
             this.Nonce = nonce;
@@ -276,9 +276,19 @@ namespace OM.Api
 
             var xml = this.BuildXmlRequestDataAsString(client.Option);
             xml = xml.Replace("<Request>", "").Replace("</Request>", "");
+            return xml;
+        }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        protected virtual async Task<string> GetResult(ApiClient client)
+        {
+            var xml = this.PrepareRequestData(client);
             var req = new RequestHelper();
-            //req.RequestHeader.Add("Accept-Encoding", "gzip, deflate");
 
             if (client.Option.UseProxy)
                 req.Proxy = new WebProxy(client.Option.ProxyAddress);

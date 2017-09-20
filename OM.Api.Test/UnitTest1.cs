@@ -13,6 +13,10 @@ using System.Xml.Linq;
 using OM.Api.Parser;
 using System.Diagnostics;
 using OM.Api.Methods;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net.Sockets;
 
 namespace OM.Api.Test
 {
@@ -258,6 +262,61 @@ namespace OM.Api.Test
                 OuterID = 20
             };
             var rst = ApiClient.Execute(mth);
+
+            //var wc = new WebClient();
+            //var bytes = wc.UploadString("http://789zcgl.iask.in", mth.Diagnose.SendDatas);
+
+            var a = @"<?xml version=""1.0"" encoding=""utf-8"" standalone=""yes""?>
+
+  <Auth>
+    <TimeStamp>1505905453000</TimeStamp>
+    <nonce>FA6507EDDE08B098</nonce>
+    <Signature>9a86245698cd5a9be7494bd993e483cd</Signature>
+  </Auth>
+  <Control attribute=""Clear"">
+    <outer id=""20"" />
+  </Control>";
+
+            var aa = Encoding.UTF8.GetBytes(a);
+
+            var req = HttpWebRequest.CreateHttp("http://789zcgl.iask.in");
+            req.ProtocolVersion = new Version("1.0");
+            req.Method = "POST";
+            var stm = req.GetRequestStream();
+            stm.Write(aa, 0, aa.Length);
+            stm.Flush();
+            var haveRep = req.HaveResponse;
+
+            var ctx = @"POST / HTTP/1.1
+Host: 789zcgl.iask.in
+Content-Length: 277
+Content-Type: text/xml; charset=utf-8
+
+<?xml version=""1.0"" encoding=""utf-8"" standalone=""yes""?>
+
+  <Auth>
+    <TimeStamp>1505905453000</TimeStamp>
+    <nonce>FA6507EDDE08B098</nonce>
+    <Signature>9a86245698cd5a9be7494bd993e483cd</Signature>
+  </Auth>
+  <Control attribute=""Clear"">
+    <outer id=""aaa20"" />
+  </Control>
+";
+            var bytes = Encoding.UTF8.GetBytes(ctx);
+            using (var tc = new TcpClient())
+            {
+                tc.Connect("789zcgl.iask.in", 80);
+                tc.Client.Send(bytes, SocketFlags.None);
+
+                var ns = tc.GetStream();
+                using (var msm = new MemoryStream())
+                {
+                    ns.CopyTo(msm);
+                    var rsp = msm.ToArray();
+                    var rspCtx = Encoding.UTF8.GetString(rsp);
+                }
+            }
         }
     }
 }

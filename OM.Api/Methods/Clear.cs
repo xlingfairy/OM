@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AsNum.FluentXml;
 using OM.Api.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using AsNum.FluentXml;
+using System.Threading.Tasks;
 
 namespace OM.Api.Methods
 {
@@ -74,6 +71,18 @@ namespace OM.Api.Methods
                     id = this.OuterID.AsAttribute()
                 } : null
             };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
+        protected override async Task<string> GetResult(ApiClient client)
+        {
+            //该方法返回的 Cotnent-length = 0, 如果执行没有报异常,就算执行成功
+            await base.GetResult(client);
+            return "true";
         }
 
         /// <summary>
