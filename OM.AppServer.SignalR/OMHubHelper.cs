@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Messaging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using OM.Api;
 using OM.Api.Models.Events;
 using OM.Api.Parser;
 using Owin;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,21 +27,26 @@ namespace OM.AppServer.SignalR
             TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple
         };
 
-        public static void ConfigurationOMHub(this IAppBuilder app)
+        public static void ConfigurationOMHub(this IAppBuilder app, RedisScaleoutConfiguration redis = null)
         {
             GlobalHost.HubPipeline.AddModule(new HubExceptionModule());
             GlobalHost.DependencyResolver.Register(typeof(IUserIdProvider), () => new OMUserIDProvider());
-            //app.UseCors(CorsOptions.AllowAll);
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(10);
 
-            //var ser = GlobalHost.DependencyResolver.Resolve<JsonSerializer>();
-            //ser.TypeNameHandling = TypeNameHandling.All;
+            if (redis != null)
+            {
+                //使用 Redis 订阅发布, 可扩展成多个站点
+                //GlobalHost.DependencyResolver.UseRedis(new RedisScaleoutConfiguration("127.0.0.1:6379", "_signalR"));
+                GlobalHost.DependencyResolver.UseRedis(redis);
+            }
+
+            //app.UseCors(CorsOptions.AllowAll);
 
             var cfg = new HubConfiguration()
             {
                 EnableJSONP = true,
                 EnableDetailedErrors = true
             };
-            //app.MapSignalR("/Msg", cfg);
             app.MapSignalR(cfg);
         }
 

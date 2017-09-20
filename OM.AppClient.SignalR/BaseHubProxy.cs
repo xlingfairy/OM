@@ -14,6 +14,10 @@ namespace OM.AppClient.SignalR
 
         public event EventHandler Connected = null;
 
+        /// <summary>
+        /// 连接被关闭
+        /// </summary>
+        public event EventHandler ConnectionClosed = null;
 
         /// <summary>
         /// 
@@ -40,6 +44,7 @@ namespace OM.AppClient.SignalR
             this.Connection = new HubConnection(signalRUrl);
             this.Connection.Error += Connection_Error;
             this.Connection.StateChanged += Connection_StateChanged;
+            this.Connection.Closed += Connection_Closed;
 
             this.Connection.Headers.Add("Authorization", $"Bearer {authorizationToken}");
             this.Proxy = this.Connection.CreateHubProxy(this.HubName);
@@ -49,10 +54,29 @@ namespace OM.AppClient.SignalR
             await this.Connection.Start();
         }
 
+        /// <summary>
+        /// 重连(只在断开连接时使用)
+        /// </summary>
+        /// <returns></returns>
+        public async Task Restart()
+        {
+            await this.Connection.Start();
+        }
+
+        private void Connection_Closed()
+        {
+            this.ConnectionClosed?.BeginInvoke(null, new EventArgs(), ConnectedCallback, null);
+        }
+
         private void Connection_StateChanged(StateChange obj)
         {
             if (obj.NewState == ConnectionState.Connected)
-                this.Connected?.BeginInvoke(null, new EventArgs(), ConnectedCallback, null);
+            {
+                Task.Run(() =>
+                {
+                    this.Connected?.DynamicInvoke(null, new EventArgs());
+                });
+            }
         }
 
 

@@ -1,0 +1,356 @@
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 1, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 1: '{"WaitForAck":false,"Id":"4e020ed1-f6a9-4896-8c3f-69edd727244d","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 1, stream : 0, eventKey: 'c-2839a796-d0ac-4706-b850-c0854a35e5e1' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-2839a796-d0ac-4706-b850-c0854a35e5e1
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 2, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 2: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 2, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 3, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 3: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 3, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 4, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 4: '{"WaitForAck":false,"Id":"4763b935-4830-4cc2-8959-d8e6d02bad10","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 4, stream : 0, eventKey: 'c-095955dc-1807-4ac3-a6bc-0df63bc39feb' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-095955dc-1807-4ac3-a6bc-0df63bc39feb
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 5, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 5: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 5, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 6, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 6: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 6, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 7, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 7: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 7, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 8, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 8: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 8, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 9, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 9: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 9, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 10, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 10: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 10, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 11, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 11: '{"WaitForAck":false,"Id":"f11adb29-3348-4bc5-8c40-ef525b7edd52","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 11, stream : 0, eventKey: 'c-edb60c06-c6da-460a-a235-7d31762c00b4' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-edb60c06-c6da-460a-a235-7d31762c00b4
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 12, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 12: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 12, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 13, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 13: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 13, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 14, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 14: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 14, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 15, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 15: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 15, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 16, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 16: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 16, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 17, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 17: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 17, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 18, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 18: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 18, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 2
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 19, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 19: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 19, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 2
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 20, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 20: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 20, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 3
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 21, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 21: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 21, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 3
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 22, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 22: '{"WaitForAck":false,"Id":"2190e29b-a503-4b57-86ab-48ba1dced35d","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 22, stream : 0, eventKey: 'c-2ea1164c-0d9c-4b4f-b009-26a41c73a287' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-2ea1164c-0d9c-4b4f-b009-26a41c73a287
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 23, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 23: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 23, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 24, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 24: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 24, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 25, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 25: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 25, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 26, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 26: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 26, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 27, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 27: '{"WaitForAck":false,"Id":"3ba8d145-18d6-43a4-ab3f-5b59e7dfde2d","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 27, stream : 0, eventKey: 'c-455ae0ef-8ad5-49a2-a9a7-3e14fe9a753b' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-455ae0ef-8ad5-49a2-a9a7-3e14fe9a753b
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 28, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 28: '{"WaitForAck":false,"Id":"4b3a4679-f99d-4c50-8f7c-9a06b130a469","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 28, stream : 0, eventKey: 'c-18da6f9d-fa5e-45aa-a509-bf27e355cb4f' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-18da6f9d-fa5e-45aa-a509-bf27e355cb4f
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 29, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 29: '{"WaitForAck":false,"Id":"5ac4d7dc-693d-4b8d-8d10-53a4d73fb827","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 29, stream : 0, eventKey: 'c-bd34b199-70c5-4e61-ba54-892141cad2e3' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-bd34b199-70c5-4e61-ba54-892141cad2e3
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 30, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 30: '{"WaitForAck":false,"Id":"0181c14e-cecf-4ce6-8ba5-8af16283633f","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 30, stream : 0, eventKey: 'c-cfb10693-e4ac-42b6-ad17-22147ef0988d' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-cfb10693-e4ac-42b6-ad17-22147ef0988d
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 31, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 31: '{"WaitForAck":false,"Id":"cff45969-a56b-4ed2-abc7-dc8784c034e1","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 31, stream : 0, eventKey: 'c-350c86e0-69fd-48b5-9f81-94444b487d1e' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-350c86e0-69fd-48b5-9f81-94444b487d1e
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 32, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 32: '{"WaitForAck":false,"Id":"5ebc91b9-dabb-4207-98fc-a8ec8da9ceca","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 32, stream : 0, eventKey: 'c-69f8c8a5-6e0f-4d88-8b66-1ca13c912955' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-69f8c8a5-6e0f-4d88-8b66-1ca13c912955
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 33, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 33: '{"WaitForAck":false,"Id":"755503a0-4313-4ad6-b2f1-3b9cc3338fe7","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 33, stream : 0, eventKey: 'c-577db013-a5fd-4245-a8b8-9015ccf4a7a1' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-577db013-a5fd-4245-a8b8-9015ccf4a7a1
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 34, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 34: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 34, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 35, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 35: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 35, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 36, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 36: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 36, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 37, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 37: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 37, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 38, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 38: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 38, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 39, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 39: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 39, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 40, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 40: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 40, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 2
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 41, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 41: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 41, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 2
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 42, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 42: '{"WaitForAck":false,"Id":"0652f6b8-91c1-4b0e-b7ee-32bced255369","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 42, stream : 0, eventKey: 'c-e022ca9f-b3e8-4f4a-93f4-0c673b7e743b' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-e022ca9f-b3e8-4f4a-93f4-0c673b7e743b
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 43, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 43: '{"WaitForAck":false,"Id":"02bb6889-766b-416f-b72b-7ea627fe5f75","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 43, stream : 0, eventKey: 'c-c28a8c66-66f5-4dd0-945c-ecda8b03f7bc' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-c28a8c66-66f5-4dd0-945c-ecda8b03f7bc
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 44, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 44: '{"WaitForAck":false,"Id":"e789cba3-2277-4421-828b-1b47896866cb","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 44, stream : 0, eventKey: 'c-df06441c-a4d0-4755-963e-983da98e8294' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-df06441c-a4d0-4755-963e-983da98e8294
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 45, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 45: '{"WaitForAck":false,"Id":"e65b720e-41ba-4a9d-b022-8a4a8d820b85","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 45, stream : 0, eventKey: 'c-f48f1a60-500b-43e0-b5e0-154a95afeafe' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-f48f1a60-500b-43e0-b5e0-154a95afeafe
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 46, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 46: '{"WaitForAck":false,"Id":"53592167-9706-409c-8312-629e8028c9fa","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 46, stream : 0, eventKey: 'c-30822f14-38b0-4a58-979b-566e230dc33a' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-30822f14-38b0-4a58-979b-566e230dc33a
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 47, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 47: '{"WaitForAck":false,"Id":"42f06359-eee5-4500-a460-e30fcc06ce35","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 47, stream : 0, eventKey: 'c-161f9b04-a8d3-4a87-bd0b-44efda2f4057' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-161f9b04-a8d3-4a87-bd0b-44efda2f4057
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 48, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 48: '{"WaitForAck":false,"Id":"bfea4a11-4935-4536-ab90-7eaa24921322","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 48, stream : 0, eventKey: 'c-adde5071-d08a-4933-b2b0-377ceb9b2a1b' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-adde5071-d08a-4933-b2b0-377ceb9b2a1b
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 49, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 49: '{"WaitForAck":false,"Id":"b742cf99-6323-44c3-97ee-122e25df1159","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 49, stream : 0, eventKey: 'c-52652045-056a-48d5-8ddb-7814cbb79ede' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-52652045-056a-48d5-8ddb-7814cbb79ede
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 50, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 50: '{"WaitForAck":false,"Id":"773eae15-c6fb-4cf5-9d1b-9c04a9eec39e","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 50, stream : 0, eventKey: 'c-d9677137-7fa4-4a9e-a5b5-aa569a0cde4b' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-d9677137-7fa4-4a9e-a5b5-aa569a0cde4b
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 51, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 51: '{"WaitForAck":false,"Id":"e8464758-4da9-41c6-9685-bca22813c96e","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 51, stream : 0, eventKey: 'c-b93d8510-bc32-47c7-8ebb-d58a7a8f69ac' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-b93d8510-bc32-47c7-8ebb-d58a7a8f69ac
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 52, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 52: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 52, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 53, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 53: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 53, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 54, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 54: '{"WaitForAck":false,"Id":"374f2520-20c4-4fb7-9035-1c188a04cdcc","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 54, stream : 0, eventKey: 'c-7b137ed8-176e-4a12-8af7-60ade3bae6f9' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-7b137ed8-176e-4a12-8af7-60ade3bae6f9
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 55, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 55: '{"WaitForAck":false,"Id":"4466a921-fca5-44ab-a5f2-0f8767bb9a2e","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 55, stream : 0, eventKey: 'c-7ace61b2-c908-43b9-96c2-7dedac82a095' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-7ace61b2-c908-43b9-96c2-7dedac82a095
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 56, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 56: '{"WaitForAck":false,"Id":"bbc17892-d0d7-421c-ba0f-58266df6c8f1","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 56, stream : 0, eventKey: 'c-a1d78e82-57c1-47ea-a2e6-b317c0e53e1e' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-a1d78e82-57c1-47ea-a2e6-b317c0e53e1e
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 57, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 57: '{"WaitForAck":false,"Id":"b8f4d327-a378-4b7b-925c-2657915b5024","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 57, stream : 0, eventKey: 'c-eac5038e-d4ed-41da-9d24-d235720b847d' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-eac5038e-d4ed-41da-9d24-d235720b847d
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 58, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 58: '{"WaitForAck":false,"Id":"0bddd01c-24cd-43f6-b021-2054e0fe2608","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 58, stream : 0, eventKey: 'c-d529abf1-9b42-4a78-8681-b2fa7c468ed1' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-d529abf1-9b42-4a78-8681-b2fa7c468ed1
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 59, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 59: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 59, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 60, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 60: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 60, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 61, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 61: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 61, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 62, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 62: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 62, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 63, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 63: '{"WaitForAck":false,"Id":"c3040f67-1785-4222-9b5c-9e166f5d5746","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 63, stream : 0, eventKey: 'c-297826b7-63f9-4671-bd77-d5a81f7f63c2' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-297826b7-63f9-4671-bd77-d5a81f7f63c2
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 64, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 64: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 64, stream : 0, eventKey: 'hu-OMHub.6678' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hu-OMHub.6678
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 65, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 65: '{"H":"OMHub","M":"OnReceiveInput","A":["{\"$type\":\"OM.Api.Models.Events.Ring, OM.Api\",\"Attribute\":6,\"_Ext\":{\"$type\":\"System.Collections.Generic.List`1[[OM.Api.Models.IDAttribute, OM.Api]], mscorlib\",\"$values\":[{\"$type\":\"OM.Api.Models.IDAttribute, OM.Api\",\"ID\":\"6678\"}]},\"Visitor\":{\"$type\":\"OM.Api.Models.VisitorCallInfo, OM.Api\",\"ID\":22,\"From\":\"13012345678\",\"To\":\"02161208234\",\"CallID\":16408,\"State\":0},\"FromNO\":\"13012345678\",\"RingFromType\":1}"]}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 65, stream : 0, eventKey: 'hg-OMHub.admin' saved with local id: 1
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: hg-OMHub.admin
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 66, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 66: '{"WaitForAck":false,"Id":"c6a75efb-3ca1-40ee-b4ce-a27a3ac11538","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 66, stream : 0, eventKey: 'c-7bea28ca-9d9f-4151-8c6e-0f6a72420ea8' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-7bea28ca-9d9f-4151-8c6e-0f6a72420ea8
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 67, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 67: '{"WaitForAck":false,"Id":"3a9bc0c1-72a9-4c1e-a9de-117e175e63c9","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 67, stream : 0, eventKey: 'c-09fa6c67-4daa-4a04-a821-2ba046b0685a' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-09fa6c67-4daa-4a04-a821-2ba046b0685a
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 68, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 68: '{"WaitForAck":false,"Id":"c0b6b193-181f-4995-a713-5f5310242950","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 68, stream : 0, eventKey: 'c-eef2c15f-7441-459d-8f9e-1a939c4aeae9' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-eef2c15f-7441-459d-8f9e-1a939c4aeae9
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 69, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 69: '{"WaitForAck":false,"Id":"4f776ef4-af98-4715-a956-c50a05a7f4e8","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 69, stream : 0, eventKey: 'c-b72245d0-164b-4b1c-b37e-3750488bf8c6' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-b72245d0-164b-4b1c-b37e-3750488bf8c6
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 70, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 70: '{"WaitForAck":false,"Id":"583512d1-f96e-465a-bef8-04097f24395c","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 70, stream : 0, eventKey: 'c-0b060711-6b17-4f3f-ba9d-ff627667b034' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-0b060711-6b17-4f3f-ba9d-ff627667b034
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 71, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 71: '{"WaitForAck":false,"Id":"43d0742e-7a54-4f4a-8c54-cd0308511727","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 71, stream : 0, eventKey: 'c-219e332c-cdb7-47f9-9c4f-aa0bddfb4b81' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-219e332c-cdb7-47f9-9c4f-aa0bddfb4b81
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 72, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 72: '{"WaitForAck":false,"Id":"6b57df50-90a5-4671-8623-42a62bfedd03","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 72, stream : 0, eventKey: 'c-268c8a67-08ba-4c4f-b29a-0248a819e772' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-268c8a67-08ba-4c4f-b29a-0248a819e772
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 73, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 73: '{"WaitForAck":false,"Id":"d0aaec55-6853-4427-99ed-378517f3a448","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 73, stream : 0, eventKey: 'c-f1168712-f0d0-4e54-9df0-015ddb9db99e' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-f1168712-f0d0-4e54-9df0-015ddb9db99e
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 74, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 74: '{"WaitForAck":false,"Id":"c4e42feb-77eb-4715-83fb-a6e5eb5afe09","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 74, stream : 0, eventKey: 'c-5a1a856b-6332-43d3-afa6-24a18237dbf3' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-5a1a856b-6332-43d3-afa6-24a18237dbf3
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Open to Closed
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Open
+SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 75, 1)
+SignalR.ScaleoutMessageBus Verbose: 0 : Received message 75: '{"WaitForAck":false,"Id":"7f20f798-3361-4dc5-b0de-7b1fb645800e","CommandType":0,"Value":null}' over ScaleoutMessageBus
+SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 75, stream : 0, eventKey: 'c-c297c5f0-6032-4885-90b8-c73e25c6414e' saved with local id: 0
+SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-c297c5f0-6032-4885-90b8-c73e25c6414e

@@ -120,7 +120,7 @@ namespace OM.AppServer.SignalR
                     ID = extID
                 };
                 var rst = await ApiClient.ExecuteAsync(mth);
-                if (!mth.HasError)
+                if (!mth.HasError && rst.Groups != null)
                 {
                     foreach (var g in rst.Groups)
                     {

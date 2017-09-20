@@ -12,10 +12,14 @@ using System.Configuration;
 using CNB.Common;
 using Notifications.Wpf;
 
+
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace OM.App
 {
     public class AppBootstrapper : BootstrapperBase
     {
+
+        private log4net.ILog Log = log4net.LogManager.GetLogger(typeof(AppBootstrapper));
 
         private static readonly string BASE_URI = ConfigurationManager.AppSettings.Get("AppServerUrl");
 
@@ -39,6 +43,8 @@ namespace OM.App
 
             //
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+            App.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         }
 
         private void SApiClient_OnLogined(object sender, AppServer.Api.Client.LoginedEventArgs e)
@@ -51,9 +57,20 @@ namespace OM.App
             Task.WaitAll(tsk);
         }
 
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            this.Log.Error(e.ExceptionObject);
+        }
+
+        private void Current_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            this.Log.Error(e.Exception.Message, e.Exception);
+        }
+
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
-
+            this.Log.Error(e.Exception.Message, e.Exception);
+            e.SetObserved();
         }
 
         protected override void Configure()

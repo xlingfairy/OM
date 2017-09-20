@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="OM.App.Views.LostConnectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OM.App.Views"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:nf="clr-namespace:Notifications.Wpf.Controls;assembly=Notifications.Wpf"             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <md:ColorZone Mode="Dark" Padding="20" md:ShadowAssist.ShadowDepth="Depth5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <md:PackIcon Grid.RowSpan="2" 
+                     Kind="LanDisconnect" 
+                     Width="30" Height="30"
+                     Margin="10"
+                     >
+                <md:PackIcon.Style>
+                    <Style TargetType="md:PackIcon">
+                        <Setter Property="Kind" Value="LanDisconnect" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Connected}" Value="True">
+                                <Setter Property="Foreground" Value="Green" />
+                                <Setter Property="Kind" Value="LanConnect" />
+                                <Setter Property="Width" Value="30" />
+                                <Setter Property="Height" Value="30" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Connected}" Value="False">
+                                <Setter Property="Foreground" Value="Red" />
+                                <Setter Property="Width" Value="30" />
+                                <Setter Property="Height" Value="30" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </md:PackIcon.Style>
+            </md:PackIcon>
+
+            <ContentControl Grid.Column="1" Grid.Row="0"
+                       Margin="10"
+                       >
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Connected}" Value="True">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <TextBlock Text="已连接." />
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Connected}" Value="False">
+                                <Setter Property="Content">
+                                    <Setter.Value>
+                                        <TextBlock>
+                                            <Run Text="与服务器连接被断开, " />
+                                            <Run Text="{Binding N}" Foreground="Red" />
+                                            <Run Text=" 秒后自动重连" />
+                                        </TextBlock>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+            <Button x:Name="ReConnect" 
+                    Grid.Column="1" Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    Content="立即重连" DockPanel.Dock="Right" nf:Notification.CloseOnClick="False">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Connected}" Value="False">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Connected}" Value="True">
+                                <Setter Property="Visibility" Value="Hidden" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </md:ColorZone>
+</UserControl>

@@ -1,5 +1,6 @@
 ﻿using AsNum.FluentXml;
 using OM.Api.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
@@ -81,7 +82,14 @@ namespace OM.Api.Methods
         protected override async Task<string> GetResult(ApiClient client)
         {
             //该方法返回的 Cotnent-length = 0, 如果执行没有报异常,就算执行成功
-            await base.GetResult(client);
+            try
+            {
+                await base.GetResult(client);
+            }
+            catch (Exception ex)
+            {
+
+            }
             return "true";
         }
 

@@ -125,10 +125,19 @@ namespace OM.App.ViewModels
 
             OMExtHubProxy.Instance.OnRing += Instance_OnRing;
             OMExtHubProxy.Instance.OnDivert += Instance_OnDivert;
+
+            OMExtHubProxy.Instance.ConnectionClosed += Instance_ConnectionClosed;
             #endregion
         }
 
         #region SignalR 事件处理
+        private void Instance_ConnectionClosed(object sender, EventArgs e)
+        {
+            var vm = IoC.Get<LostConnectionViewModel>();
+            vm.Reset();
+            this.NM.Show(vm, expirationTime: TimeSpan.FromSeconds(60));
+        }
+
         /// <summary>
         /// 添加 Log 到侧边栏
         /// </summary>

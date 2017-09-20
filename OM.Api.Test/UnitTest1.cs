@@ -1,22 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OM.Api.Methods.Controls.Query;
-using System.IO;
-using OM.Api.Methods.Controls.Assign;
-using System.Collections.Generic;
-using OM.Api.Methods.Controls;
-using OM.Api.Methods.Transfer;
-using System.Text;
-using System.Xml.Serialization;
-using OM.Api.Models.Events;
-using System.Xml.Linq;
-using OM.Api.Parser;
-using System.Diagnostics;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OM.Api.Methods;
+using OM.Api.Methods.Controls;
+using OM.Api.Methods.Controls.Assign;
+using OM.Api.Methods.Controls.Query;
+using OM.Api.Methods.Transfer;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Net.Sockets;
+using System.Text;
 
 namespace OM.Api.Test
 {
