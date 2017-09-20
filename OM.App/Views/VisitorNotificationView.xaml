@@ -30,7 +30,7 @@
                        />
             <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="False" DockPanel.Dock="Bottom" Margin="0,8,0,0">
                 <Button x:Name="Find" Content="查找关联信息" DockPanel.Dock="Right" nf:Notification.CloseOnClick="True"/>
-                <Button x:Name="Cancel" Content="关闭" DockPanel.Dock="Right" Margin="0,0,8,0" nf:Notification.CloseOnClick="True"/>
+                <Button x:Name="Cancel" Content="忽略" DockPanel.Dock="Right" Margin="0,0,8,0" nf:Notification.CloseOnClick="True"/>
             </DockPanel>
         </Grid>
     </md:ColorZone>

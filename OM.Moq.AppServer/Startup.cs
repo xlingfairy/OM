@@ -12,15 +12,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
+//不起作用
+//[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 [assembly: OwinStartup(typeof(Startup))]
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace OM.AppServer
 {
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            //TODO
+            //TODO assembly 方式的不起作用...原因未知
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log4net.config");
             var c = XmlConfigurator.Configure(new FileInfo(path));
 
