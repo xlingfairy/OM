@@ -46,15 +46,19 @@ namespace OM.App.ViewModels
 
         public DashboardViewModel()
         {
-            Execute.OnUIThread(() => {
+            Execute.OnUIThread(() =>
+            {
                 this.CV = CollectionViewSource.GetDefaultView(this.Exts);
                 this.CV.Filter = new Predicate<object>(this.Filter);
             });
             OMExtHubProxy.Instance.OnOffline += Instance_OnOffline;
             OMExtHubProxy.Instance.OnOnline += Instance_OnOnline;
+            OMExtHubProxy.Instance.OnBusy += Instance_OnBusy;
+            OMExtHubProxy.Instance.OnIdle += Instance_OnIdle;
 
             this.LoadDeviceInfo();
         }
+
 
         private bool Filter(object o)
         {
@@ -69,6 +73,7 @@ namespace OM.App.ViewModels
             }
         }
 
+        #region 事件处理
         private void Instance_OnOnline(object sender, NotifyArgs<Api.Models.Events.Online> e)
         {
             this.SetExtStatus(e.Data.Ext.ID, DeviceStatus.Connected);
@@ -79,10 +84,21 @@ namespace OM.App.ViewModels
             this.SetExtStatus(e.Data.Ext.ID, DeviceStatus.Offline);
         }
 
+        private void Instance_OnIdle(object sender, NotifyArgs<Api.Models.Events.Idle> e)
+        {
+            this.SetExtStatus(e.Data.Ext.ID, DeviceStatus.Connected);
+        }
+
+        private void Instance_OnBusy(object sender, NotifyArgs<Api.Models.Events.Busy> e)
+        {
+            this.SetExtStatus(e.Data.Ext.ID, DeviceStatus.Busy);
+        }
+        #endregion
+
 
         private void SetExtStatus(string extID, DeviceStatus status)
         {
-            var ext = this.Exts.First(i => i.ID == extID);
+            var ext = this.Exts.FirstOrDefault(i => i.ID == extID);
             if (ext != null)
             {
                 ext.Status = status;
@@ -102,7 +118,8 @@ namespace OM.App.ViewModels
                 ID = e.ID
             }).OrderBy(e => e.ID);
 
-            Execute.OnUIThread(() => {
+            Execute.OnUIThread(() =>
+            {
                 this.Exts.AddRange(exts);
             });
 

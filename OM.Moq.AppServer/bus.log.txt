@@ -354,3 +354,4 @@ SignalR.ScaleoutMessageBus Information: 0 : OnReceived(0, 75, 1)
 SignalR.ScaleoutMessageBus Verbose: 0 : Received message 75: '{"WaitForAck":false,"Id":"7f20f798-3361-4dc5-b0de-7b1fb645800e","CommandType":0,"Value":null}' over ScaleoutMessageBus
 SignalR.ScaleoutMessageBus Verbose: 0 : Message id: 75, stream : 0, eventKey: 'c-c297c5f0-6032-4885-90b8-c73e25c6414e' saved with local id: 0
 SignalR.ScaleoutMessageBus Verbose: 0 : Scheduling eventkeys: c-c297c5f0-6032-4885-90b8-c73e25c6414e
+SignalR.ScaleoutMessageBus Information: 0 : Stream(0) - Changed state from Initial to Closed
