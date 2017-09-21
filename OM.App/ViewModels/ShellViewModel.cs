@@ -9,6 +9,7 @@ using OM.App.Models;
 using System.ComponentModel;
 using System.Windows.Data;
 using OM.Api.Models.Events;
+using OM.AppServer.Api.Client;
 
 namespace OM.App.ViewModels
 {
@@ -119,12 +120,15 @@ namespace OM.App.ViewModels
             });
 
             #region  SignalR 事件注册
-            OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
-            OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
-            OMExtHubProxy.Instance.OnBye += Instance_OnBye;
+            if (!SClient.IsAdmin)
+            {
+                OMExtHubProxy.Instance.OnAlert += Instance_OnAlert;
+                OMExtHubProxy.Instance.OnAnswered += Instance_OnAnswered;
+                OMExtHubProxy.Instance.OnBye += Instance_OnBye;
 
-            OMExtHubProxy.Instance.OnRing += Instance_OnRing;
-            OMExtHubProxy.Instance.OnDivert += Instance_OnDivert;
+                OMExtHubProxy.Instance.OnRing += Instance_OnRing;
+                OMExtHubProxy.Instance.OnDivert += Instance_OnDivert;
+            }
 
             OMExtHubProxy.Instance.ConnectionClosed += Instance_ConnectionClosed;
             #endregion

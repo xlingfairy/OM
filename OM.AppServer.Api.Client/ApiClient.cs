@@ -50,7 +50,7 @@ namespace OM.AppServer.Api.Client
         /// <summary>
         /// 当前登陆者的分机号， admin 没有分机号
         /// </summary>
-        public static string ExtID => Instance.Value.AuthToken.ExID;
+        public static string ExtID => Instance.Value.AuthToken?.ExID;
 
         /// <summary>
         /// 初始化

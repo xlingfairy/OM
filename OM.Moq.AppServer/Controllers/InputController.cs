@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -20,8 +21,26 @@ namespace OM.AppServer.Controllers
             var flag = ApiClient.Execute(input);
             if (!flag)
             {
-                this.Log.Info($"输入解析失败: {input}");
+                this.Log.Error($"POST 输入解析失败: {input}");
             }
+            this.Log.Info(input);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task Get()
+        {
+            var bytes = await this.Request.Content.ReadAsByteArrayAsync();
+            var input = Encoding.UTF8.GetString(bytes);
+            var flag = ApiClient.Execute(input);
+            if (!flag)
+            {
+                this.Log.Error($"GET 输入解析失败: {input}");
+            }
+            this.Log.Info(input);
         }
 
     }

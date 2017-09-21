@@ -15,7 +15,7 @@
 
         <ToolBarTray>
             <ToolBar Padding="5" Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
-                <TextBox x:Name="Name" 
+                <TextBox x:Name="From" 
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Margin="10,0"
                                  Width="150">
@@ -26,7 +26,7 @@
                         </StackPanel>
                     </md:HintAssist.Hint>
                 </TextBox>
-                <TextBox x:Name="Phone" 
+                <TextBox x:Name="To" 
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Margin="10,0"
                                  Width="150">
