@@ -7,6 +7,7 @@
              xmlns:nf="clr-namespace:Notifications.Wpf.Controls;assembly=Notifications.Wpf"
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+             ShutdownMode="OnMainWindowClose"
              >
     <Application.Resources>
         <ResourceDictionary>
