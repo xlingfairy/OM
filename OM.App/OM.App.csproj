@@ -126,23 +126,32 @@
     <Compile Include="BaseVM.cs" />
     <Compile Include="BindingProxy.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="ISetting.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="JsonConfig.cs" />
     <Compile Include="Models\CallingStages.cs" />
+    <Compile Include="Models\CallPrefix.cs" />
     <Compile Include="Models\DeviceState.cs" />
     <Compile Include="Models\EventLog.cs" />
     <Compile Include="Pagination.xaml.cs">
       <DependentUpon>Pagination.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CallConfig.cs" />
     <Compile Include="TimeSpanConverter.cs" />
     <Compile Include="UniPadding.cs" />
+    <Compile Include="ViewModels\CallPrefixSettingViewModel.cs" />
     <Compile Include="ViewModels\CallViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\DebtDetailViewModel.cs" />
     <Compile Include="ViewModels\ExtViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\LostConnectionViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\VisitorNotificationViewModel.cs" />
+    <Compile Include="Views\CallPrefixSettingView.xaml.cs">
+      <DependentUpon>CallPrefixSettingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CallView.xaml.cs">
       <DependentUpon>CallView.xaml</DependentUpon>
     </Compile>
@@ -165,6 +174,9 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Views\LostConnectionView.xaml.cs">
       <DependentUpon>LostConnectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VisitorNotificationView.xaml.cs">
       <DependentUpon>VisitorNotificationView.xaml</DependentUpon>
@@ -194,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CallPrefixSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CallView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LostConnectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

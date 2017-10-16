@@ -92,7 +92,7 @@
                             <StackPanel Orientation="Horizontal" Height="35" Margin="10,5,10,0">
                                 <Menu IsMainMenu="True" md:ShadowAssist.ShadowDepth="Depth5">
                                     <MenuItem Header="系统" Height="35">
-                                        <MenuItem Header="设置">
+                                        <MenuItem Header="设置" Command="{Binding SettingCmd}">
                                             <MenuItem.Icon>
                                                 <md:PackIcon Kind="Settings" />
                                             </MenuItem.Icon>
@@ -104,6 +104,8 @@
                                             </MenuItem.Icon>
                                         </MenuItem>
                                     </MenuItem>
+
+
                                     <MenuItem Header="日志" Height="35">
                                         <MenuItem Header="_Cut" Command="Cut">
                                             <MenuItem.Icon>

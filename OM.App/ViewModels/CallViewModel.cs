@@ -166,10 +166,14 @@ namespace OM.App.ViewModels
         {
             if (this.Status == CallingStages.None)
             {
+                var setting = JsonConfig.Get<CallConfig>();
+
                 var mth = new CallOuter()
                 {
                     ExtID = SApiClient.ExtID,
-                    OuterNumber = this.Data.DebtorPhone
+                    OuterNumber = this.Data.DebtorPhone,
+                    Prefix = setting.Prefix,
+                    TrunkID = setting.Trunk
                 };
                 var rst = await OMExtHubProxy.Instance.Execute(mth);
                 this.HasError = mth.HasError;

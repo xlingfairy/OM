@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Windows.Data;
 using OM.Api.Models.Events;
 using OM.AppServer.Api.Client;
+using System.Windows.Input;
 
 namespace OM.App.ViewModels
 {
@@ -103,6 +104,8 @@ namespace OM.App.ViewModels
         #endregion
 
 
+        public ICommand SettingCmd { get; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -131,6 +134,13 @@ namespace OM.App.ViewModels
             }
 
             OMExtHubProxy.Instance.ConnectionClosed += Instance_ConnectionClosed;
+            #endregion
+
+            #region CMD 注册
+            this.SettingCmd = new Command(() =>
+            {
+                this.ShowTab<SettingViewModel>();
+            });
             #endregion
         }
 
@@ -334,5 +344,6 @@ namespace OM.App.ViewModels
                 });
             });
         }
+
     }
 }

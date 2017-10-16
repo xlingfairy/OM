@@ -31,6 +31,12 @@ namespace OM.Api.Models.Enums
         /// 
         /// </summary>
         [XmlEnum("2")]
-        遇忙或无应答时转移 = 2
+        遇忙或无应答时转移 = 2,
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlEnum("4")]
+        未知 = 4
     }
 }

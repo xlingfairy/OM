@@ -23,8 +23,8 @@ namespace OM.Api.Test
         {
             var opt = new ApiClientOption()
             {
-                BaseUri = "http://789zcgl.iask.in",
-                Pwd = "admin"
+                BaseUri = "http://xxx",
+                Pwd = "xxx"
             };
 
             ApiClient.Init(opt);
@@ -64,7 +64,7 @@ namespace OM.Api.Test
             var xml = this.GetTestXml("ExtInfo");
             var mth = new GetExtInfo()
             {
-                ID = "8073"
+                ID = "8008"
             };
 
             var b = mth.TestXml(xml).Result;
@@ -220,9 +220,10 @@ namespace OM.Api.Test
 
             var mth = new CallOuter()
             {
-                ExtID = "6601",
-                Prefix = "9",
-                OuterNumber = "15986627851"
+                ExtID = "6688",
+                Prefix = "7",
+                OuterNumber = "15986627851",
+                //TrunkID = "202"
             };
 
             var b = mth.TestXml(xml).Result;

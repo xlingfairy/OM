@@ -32,6 +32,9 @@ namespace OM.App
         {
             Initialize();
 
+            // ◊¢≤· json ≈‰÷√
+            JsonConfig.Regist<CallConfig>();
+
             //≥ı ºªØ AppServer API Client
             SApiClient.Init(new SApiClientOption()
             {

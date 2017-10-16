@@ -43,12 +43,12 @@
 
                 <ResourceDictionary Source="./Scroll.xaml" />
                 <ResourceDictionary Source="./MaterialDesignFix.xaml" />
-                
+
             </ResourceDictionary.MergedDictionaries>
 
             <FontFamily x:Key="MaterialDesignFont">Microsoft YaHei, Arial, Helvetica, sans-serif</FontFamily>
             <FontFamily x:Key="ClockFont">./Resources/#Digital-7 Mono</FontFamily>
-            
+
             <!-- MahApps Brushes -->
             <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>
             <SolidColorBrush x:Key="AccentColorBrush" Color="{DynamicResource Primary500}"/>
@@ -67,8 +67,8 @@
             <SolidColorBrush x:Key="IdealForegroundDisabledBrush" Color="{DynamicResource Primary500}" Opacity="0.4"/>
 
             <!-- Dragablz Material Design -->
-            <Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MaterialDesignTabablzControlStyle}" />            
-            
+            <Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MaterialDesignTabablzControlStyle}" />
+
 
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
@@ -100,6 +100,12 @@
                         <ContentControl cal:View.Model="{Binding}" />
                     </DataTemplate>
                 </Style.Resources>
+            </Style>
+
+            <Style TargetType="ColumnDefinition" x:Key="SettingLabelCol">
+                <Setter Property="Width" Value="150" />
+                <Setter Property="TextBlock.HorizontalAlignment" Value="Right" />
+                <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
             </Style>
 
         </ResourceDictionary>
