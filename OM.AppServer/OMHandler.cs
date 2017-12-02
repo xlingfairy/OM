@@ -63,7 +63,7 @@ namespace OM.AppServer
                     Type = (byte)e.Data.Type,
                     VisitorID = e.Data.Visitor?.ID.ToInt(0) ?? 0
                 });
-            }).Wait();
+            });
         }
     }
 }
