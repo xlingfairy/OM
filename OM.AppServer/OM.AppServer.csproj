@@ -44,6 +44,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CNB.Common, Version=0.0.0.18, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CNB.Common.0.0.0.18\lib\CNB.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -141,6 +150,10 @@
     <ProjectReference Include="..\OM.Api\OM.Api.csproj">
       <Project>{d9c7b28d-4731-4f0c-bc31-62befc164681}</Project>
       <Name>OM.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OM.AppServer.Biz\OM.AppServer.Biz.csproj">
+      <Project>{ef003a90-71a6-42a1-b33e-e00d4515f965}</Project>
+      <Name>OM.AppServer.Biz</Name>
     </ProjectReference>
     <ProjectReference Include="..\OM.AppServer.Entity\OM.AppServer.Entity.csproj">
       <Project>{529bc1df-765c-4024-8861-0450873f12ee}</Project>
