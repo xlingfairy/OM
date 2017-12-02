@@ -1,0 +1,6 @@
+﻿2017-09-20 16:04:09,151 DEBUG OM.AppServer.SignalR.OMHub - Client edb60c06-c6da-460a-a235-7d31762c00b4 分机：6678 上线
+2017-09-20 16:04:34,683 DEBUG OM.AppServer.SignalR.OMHub - Client edb60c06-c6da-460a-a235-7d31762c00b4 分机：6678 重连
+2017-09-20 16:05:18,308 DEBUG OM.AppServer.SignalR.OMHub - Client edb60c06-c6da-460a-a235-7d31762c00b4 分机：6678 重连
+2017-09-20 16:06:12,970 DEBUG OM.AppServer.SignalR.OMHub - Client edb60c06-c6da-460a-a235-7d31762c00b4 分机：6678 重连
+2017-09-20 16:08:40,282 DEBUG OM.AppServer.SignalR.OMHub - Client 2ea1164c-0d9c-4b4f-b009-26a41c73a287 分机：6678 上线
+2017-09-20 16:55:30,281 DEBUG OM.AppServer.SignalR.OMHub - Client 577db013-a5fd-4245-a8b8-9015ccf4a7a1 分机：6678 上线

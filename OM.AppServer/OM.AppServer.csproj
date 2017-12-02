@@ -142,6 +142,10 @@
       <Project>{d9c7b28d-4731-4f0c-bc31-62befc164681}</Project>
       <Name>OM.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OM.AppServer.Entity\OM.AppServer.Entity.csproj">
+      <Project>{529bc1df-765c-4024-8861-0450873f12ee}</Project>
+      <Name>OM.AppServer.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OM.AppServer.SignalR\OM.AppServer.SignalR.csproj">
       <Project>{92488a0e-5fa4-49d8-ae05-9b6957b89bd3}</Project>
       <Name>OM.AppServer.SignalR</Name>
@@ -149,10 +153,6 @@
     <ProjectReference Include="..\OM.Moq.AppServer.Auth\OM.Moq.AppServer.Auth.csproj">
       <Project>{b6cef94b-f2f0-4ead-b5d4-bd76412bd610}</Project>
       <Name>OM.Moq.AppServer.Auth</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OM.Moq.Entity\OM.AppServer.Entity.csproj">
-      <Project>{529BC1DF-765C-4024-8861-0450873F12EE}</Project>
-      <Name>OM.AppServer.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

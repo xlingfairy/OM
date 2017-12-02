@@ -61,12 +61,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OM.Moq.Entity\OM.AppServer.Entity.csproj">
-      <Project>{529bc1df-765c-4024-8861-0450873f12ee}</Project>
-      <Name>OM.AppServer.Entity</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +70,12 @@
     <EmbeddedResource Include="Migrations\201712020712581_Init.resx">
       <DependentUpon>201712020712581_Init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OM.AppServer.Entity\OM.AppServer.Entity.csproj">
+      <Project>{529bc1df-765c-4024-8861-0450873f12ee}</Project>
+      <Name>OM.AppServer.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

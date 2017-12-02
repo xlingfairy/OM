@@ -17,11 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{DC30FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{A8FA11AA-BF22-40C2-A166-32E1C5E32169}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OM.AppServer", "OM.Moq.AppServer\OM.AppServer.csproj", "{23DF6038-2C40-47BC-8F89-72B865B18C15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OM.AppServer", "OM.AppServer\OM.AppServer.csproj", "{23DF6038-2C40-47BC-8F89-72B865B18C15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OM.Moq.AppServer.Auth", "OM.Moq.AppServer.Auth\OM.Moq.AppServer.Auth.csproj", "{B6CEF94B-F2F0-4EAD-B5D4-BD76412BD610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OM.AppServer.Entity", "OM.Moq.Entity\OM.AppServer.Entity.csproj", "{529BC1DF-765C-4024-8861-0450873F12EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OM.AppServer.Entity", "OM.AppServer.Entity\OM.AppServer.Entity.csproj", "{529BC1DF-765C-4024-8861-0450873F12EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OM.App", "OM.App\OM.App.csproj", "{4B7CBF1F-AD57-42E6-B6B4-08152D84F281}"
 EndProject

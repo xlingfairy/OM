@@ -295,8 +295,8 @@
       <Project>{68bc151c-1fbd-43c7-874a-6a9eebeced47}</Project>
       <Name>OM.AppServer.Api.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OM.Moq.Entity\OM.AppServer.Entity.csproj">
-      <Project>{529BC1DF-765C-4024-8861-0450873F12EE}</Project>
+    <ProjectReference Include="..\OM.AppServer.Entity\OM.AppServer.Entity.csproj">
+      <Project>{529bc1df-765c-4024-8861-0450873f12ee}</Project>
       <Name>OM.AppServer.Entity</Name>
     </ProjectReference>
   </ItemGroup>
