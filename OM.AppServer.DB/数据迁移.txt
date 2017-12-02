@@ -1,0 +1,7 @@
+﻿Enable-Migrations -ProjectName OM.AppServer.DB -StartUpProjectName OM.AppServer
+Add-Migration -Name Init -ProjectName OM.AppServer.DB -StartUpProjectName OM.AppServer
+Update-Database -ProjectName OM.AppServer.DB -StartUpProjectName OM.AppServer -verbose
+
+生成SQL文件 https://msdn.microsoft.com/zh-cn/data/jj591621
+Update-Database -Script -SourceMigration: $InitialDatabase -ProjectName OM.AppServer.DB -StartUpProjectName OM.AppServer
+Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: AddPostAbstract 

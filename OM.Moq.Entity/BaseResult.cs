@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OM.Moq.Entity
+namespace OM.AppServer.Entity
 {
     public class BaseResult
     {

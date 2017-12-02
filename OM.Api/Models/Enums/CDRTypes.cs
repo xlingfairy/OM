@@ -16,36 +16,36 @@ namespace OM.Api.Models.Enums
         /// IN
         /// </summary>
         [XmlEnum("IN")]
-        呼入,
+        呼入 = 0,
 
         /// <summary>
         /// OU
         /// </summary>
         [XmlEnum("OU")]
-        呼出,
+        呼出 = 1,
 
         /// <summary>
         /// FI
         /// </summary>
         [XmlEnum("FI")]
-        呼叫转移入,
+        呼叫转移入 = 2,
 
         /// <summary>
         /// FW
         /// </summary>
         [XmlEnum("FW")]
-        呼叫转移出,
+        呼叫转移出 = 3,
 
         /// <summary>
         /// LO
         /// </summary>
         [XmlEnum("LO")]
-        内部呼叫,
+        内部呼叫 = 4,
 
         /// <summary>
         /// CB
         /// </summary>
         [XmlEnum("CB")]
-        双向外呼
+        双向外呼 = 5
     }
 }

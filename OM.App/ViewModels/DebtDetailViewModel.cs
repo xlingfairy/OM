@@ -1,7 +1,7 @@
 ﻿using Caliburn.Micro;
 using OM.App.Attributes;
 using OM.App.Models;
-using OM.Moq.Entity;
+using OM.AppServer.Entity;
 using System;
 using System.Windows.Threading;
 

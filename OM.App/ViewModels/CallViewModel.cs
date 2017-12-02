@@ -9,7 +9,7 @@ using OM.App.Attributes;
 using OM.App.Models;
 using OM.AppClient.SignalR;
 using OM.AppServer.Api.Client.Methods;
-using OM.Moq.Entity;
+using OM.AppServer.Entity;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Threading;

@@ -18,24 +18,24 @@ namespace OM.Api.Models.Enums
         /// IP
         /// </summary>
         [XmlEnum("IP")]
-        IP中继,
+        IP中继 = 0,
 
         /// <summary>
         /// XO
         /// </summary>
         [XmlEnum("XO")]
-        模拟中继,
+        模拟中继 = 1,
 
         /// <summary>
         /// IC
         /// </summary>
         [XmlEnum("IC")]
-        内部,
+        内部 = 2,
 
         /// <summary>
         /// OP
         /// </summary>
         [XmlEnum("OP")]
-        总机
+        总机 = 3
     }
 }
