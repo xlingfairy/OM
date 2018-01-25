@@ -52,7 +52,7 @@ namespace OM.Api.Models.Events
         /// <summary>
         /// 呼叫的号码
         /// </summary>
-        public string ToNO => this.Outer?.To ?? this.ToExt.ID;
+        public string ToNO => this.Outer?.To ?? this.ToExt?.ID ?? "";
 
 
         string IExtNotify.ExtID => this.Ext.ID;
